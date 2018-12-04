@@ -3,7 +3,7 @@ require 'open-uri'
 key1 = 'apikey=a7b874e'
 key2 = 'apikey=83c06c69'
 key3 = 'apikey=249b1617'
-# keyalex = 'apikey=d8b03b0'
+key4 = 'apikey=d8b03b0'
 
 puts 'Deleting all movies'
 Review.destroy_all
@@ -18,9 +18,9 @@ Watchlist.destroy_all
 WatchlistItem.destroy_all
 
 puts "Create User"
-alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', avatar: 'alexAvatar.jpg')
-william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', avatar: 'williamAvatar.jpeg')
-alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', avatar: 'aliceAvatar.png')
+alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', avatar: 'alexAvatar.jpg', first_name: "Alexandre", last_name: "Mulliez")
+william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', avatar: 'williamAvatar.jpeg', first_name: "William", last_name: "Segard")
+alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', avatar: 'aliceAvatar.png', first_name: "Alice", last_name: "Bouffard")
 
 puts 'Seeding IMDB movies'
 
@@ -30,6 +30,7 @@ list_movies1.each do |movie|
   url = "http://www.omdbapi.com/?t=#{movie}&#{key1}"
   movie_serialized = open(url).read
   movie_hash = JSON.parse(movie_serialized)
+  new_category = Category.create(name: movie_hash['Genre'])
   new_movie = Movie.create(
     {
       title: movie_hash['Title'],
@@ -44,8 +45,7 @@ list_movies1.each do |movie|
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
     })
-  new_movie.remote_cover_url = movie_hash['Poster']
-  new_movie.save
+  new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
 
 sleep(120)
@@ -56,44 +56,76 @@ list_movies2.each do |movie|
   url = "http://www.omdbapi.com/?t=#{movie}&#{key2}"
   movie_serialized = open(url).read
   movie_hash = JSON.parse(movie_serialized)
+  new_category = Category.create(name: movie_hash['Genre'])
   new_movie = Movie.create(
     {
       title: movie_hash['Title'],
-      release_date: movie_hash['Year'],
-      duration: movie_hash['Runtime'],
-      description: movie_hash['Plot'],
-      category: movie_hash['Genre'],
       director: movie_hash['Director'],
-      price: [3, 4, 5].sample,
+      release_date: movie_hash['Year'],
+      syllabus: movie_hash['Plot'],
+      duration: movie_hash['Runtime'],
+      actors: movie_hash['Actors'],
+      movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'],
-      nb_rates: 1 + rand(9),
-      user: alexandre
+      price: [3, 4, 5].sample,
+      trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+      number_rates: movie_hash['imdbVotes'],
     })
-  new_movie.remote_cover_url = movie_hash['Poster']
-  new_movie.save
+  new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
 
 sleep(120)
 
-list_movies3 = ['Inception', 'GoodFellas', 'The pianist', 'The departed', 'Whiplash', 'Gladiator', 'Alien', 'Django Unchained','Coco']
+list_movies3 = ['Inception', 'GoodFellas', 'The pianist', 'The departed', 'Whiplash', 'Gladiator', 'Alien', 'Django Unchained','Coco', 'Roma']
 list_movies3.each do |movie|
   puts movie
   url = "http://www.omdbapi.com/?t=#{movie}&#{key3}"
   movie_serialized = open(url).read
   movie_hash = JSON.parse(movie_serialized)
+  new_category = Category.create(name: movie_hash['Genre'])
   new_movie = Movie.create(
     {
       title: movie_hash['Title'],
-      release_date: movie_hash['Year'],
-      duration: movie_hash['Runtime'],
-      description: movie_hash['Plot'],
-      category: movie_hash['Genre'],
       director: movie_hash['Director'],
-      price: [3, 4, 5].sample,
+      release_date: movie_hash['Year'],
+      syllabus: movie_hash['Plot'],
+      duration: movie_hash['Runtime'],
+      actors: movie_hash['Actors'],
+      movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'],
-      nb_rates: 1 + rand(9),
-      user: william
+      price: [3, 4, 5].sample,
+      trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+      number_rates: movie_hash['imdbVotes'],
     })
-  new_movie.remote_cover_url = movie_hash['Poster']
-  new_movie.save
+  new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
+
+  sleep(120)
+
+  list_movies4 = ['The Notebook', 'A Star Is Born', 'Valentine s Day', 'In Her Shoes', 'Charlies Angels', 'Vanilla Sky ', 'American Sniper', 'Spy Game','The Place Beyond the Pines']
+  list_movies4.each do |movie|
+    puts movie
+    url = "http://www.omdbapi.com/?t=#{movie}&#{key4}"
+    movie_serialized = open(url).read
+    movie_hash = JSON.parse(movie_serialized)
+    new_category = Category.create(name: movie_hash['Genre'])
+    new_movie = Movie.create(
+      {
+        title: movie_hash['Title'],
+        director: movie_hash['Director'],
+        release_date: movie_hash['Year'],
+        syllabus: movie_hash['Plot'],
+        duration: movie_hash['Runtime'],
+        actors: movie_hash['Actors'],
+        movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
+        rating: movie_hash['imdbRating'],
+        price: [3, 4, 5].sample,
+        trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+        number_rates: movie_hash['imdbVotes'],
+      })
+    new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
+
+puts 'Seeding a review for AStarIsBorn'
+first_review = Review.create(rate: 10, comment: "Exceptionnel ! Bradley est beaucoup trop sexy je suis allee le voir 4 fois", review_date: :datetime, movie: Movie.find_by(title: "A Star Is Born"), user: User.find_by(first_name: "Alice"))
+
+

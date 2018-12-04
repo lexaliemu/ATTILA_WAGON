@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_134646) do
+ActiveRecord::Schema.define(version: 2018_12_04_172905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2018_12_04_134646) do
     t.index ["movie_id"], name: "index_movie_categories_on_movie_id"
   end
 
+  create_table "movie_playlists", force: :cascade do |t|
+    t.bigint "movie_id"
+    t.bigint "playlist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_movie_playlists_on_movie_id"
+    t.index ["playlist_id"], name: "index_movie_playlists_on_playlist_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "director"
@@ -53,15 +62,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_134646) do
     t.integer "number_rates"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "movies_playlists", force: :cascade do |t|
-    t.bigint "movie_id"
-    t.bigint "playlist_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_movies_playlists_on_movie_id"
-    t.index ["playlist_id"], name: "index_movies_playlists_on_playlist_id"
+    t.string "cover"
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -120,8 +121,8 @@ ActiveRecord::Schema.define(version: 2018_12_04_134646) do
   add_foreign_key "followed_playlists", "users"
   add_foreign_key "movie_categories", "categories"
   add_foreign_key "movie_categories", "movies"
-  add_foreign_key "movies_playlists", "movies"
-  add_foreign_key "movies_playlists", "playlists"
+  add_foreign_key "movie_playlists", "movies"
+  add_foreign_key "movie_playlists", "playlists"
   add_foreign_key "playlists", "users"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
