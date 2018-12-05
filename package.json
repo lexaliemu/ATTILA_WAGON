@@ -3,7 +3,9 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
+    "algoliasearch": "^3.31.0",
     "bootstrap": "3",
+    "instantsearch.js": "^2.10.4",
     "jquery": "^3.3.1"
   },
   "devDependencies": {
