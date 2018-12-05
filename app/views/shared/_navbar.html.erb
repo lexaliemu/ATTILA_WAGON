@@ -4,6 +4,14 @@
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
+  <%= form_tag movies_path, class: "text-center", method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control search-layout",
+    placeholder: "Search"
+    %>
+  <% end %>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
