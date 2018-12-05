@@ -1,6 +1,3 @@
-.main-container {
-  display: flex;
-}
 .container-search {
   flex: 1;
 }
@@ -9,15 +6,6 @@
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-}
-.container-story {
-  flex: 0 0 20%;
-  height: 100vh;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
-  top: 0 !important;
-  display:flex;
-  flex-direction: column;
-  overflow: scroll;
 }
 
 .container-results {
@@ -34,11 +22,6 @@
     // height: 350px;
     margin: 20px;
   }
-}
-
-.story-box{
-  flex: 0 0 100px;
-  margin: 10px;
 }
 
 .container-results-wrapper{
@@ -62,6 +45,6 @@
 }
 }
 
-.main-container, .container-search, .container-story, .container-results, .story-box, .result {
+.container-search, .container-results, .result {
   border: 1px solid green;
 }
