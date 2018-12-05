@@ -5,17 +5,10 @@ key2 = 'apikey=83c06c69'
 key3 = 'apikey=249b1617'
 key4 = 'apikey=d8b03b0'
 
-puts 'Deleting all movies'
+puts 'Deleting all classes'
 Review.destroy_all
 Movie.destroy_all
 User.destroy_all
-Category.destroy_all
-FollowedPlaylist.destroy_all
-MovieCategory.destroy_all
-MoviePlaylist.destroy_all
-Playlist.destroy_all
-Watchlist.destroy_all
-WatchlistItem.destroy_all
 
 puts "Create User"
 alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', avatar: 'alexAvatar.jpg', first_name: "Alexandre", last_name: "Mulliez")
@@ -31,7 +24,7 @@ list_movies1.each do |movie|
   movie_serialized = open(url).read
   movie_hash = JSON.parse(movie_serialized)
   new_category = Category.create(name: movie_hash['Genre'])
-  new_movie = Movie.create(
+  new_movie = Movie.create!(
     {
       title: movie_hash['Title'],
       director: movie_hash['Director'],
@@ -44,8 +37,9 @@ list_movies1.each do |movie|
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
-      cover: movie_hash['Poster'],
     })
+  new_movie.remote_poster_url = movie_hash['Poster']
+  new_movie.save
   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
 
@@ -71,8 +65,9 @@ list_movies2.each do |movie|
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
-      cover: movie_hash['Poster'],
     })
+  new_movie.remote_poster_url = movie_hash['Poster']
+  new_movie.save
   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
 
@@ -98,9 +93,11 @@ list_movies3.each do |movie|
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
-      cover: movie_hash['Poster'],
     })
+  new_movie.remote_poster_url = movie_hash['Poster']
+  new_movie.save
   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
+end
 
   sleep(120)
 
@@ -124,8 +121,9 @@ list_movies3.each do |movie|
         price: [3, 4, 5].sample,
         trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
         number_rates: movie_hash['imdbVotes'],
-        cover: movie_hash['Poster'],
       })
+    new_movie.remote_poster_url = movie_hash['Poster']
+    new_movie.save
     new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
 
