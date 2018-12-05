@@ -1,4 +1,9 @@
 class Movie < ApplicationRecord
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :title
+  end
   has_many :movie_categories
   has_many :categories, through: :movie_categories
   has_many :movie_playlists

@@ -1,4 +1,10 @@
 class Playlist < ApplicationRecord
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :name
+  end
+
   belongs_to :user
   has_many :movie_playlists
   has_many :movies, through: :movie_playlists
