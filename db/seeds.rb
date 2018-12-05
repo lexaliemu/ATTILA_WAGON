@@ -44,6 +44,7 @@ list_movies1.each do |movie|
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
+      cover: movie_hash['Poster'],
     })
   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
@@ -70,6 +71,7 @@ list_movies2.each do |movie|
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
+      cover: movie_hash['Poster'],
     })
   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
@@ -96,6 +98,7 @@ list_movies3.each do |movie|
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
+      cover: movie_hash['Poster'],
     })
   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 
@@ -121,6 +124,7 @@ list_movies3.each do |movie|
         price: [3, 4, 5].sample,
         trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
         number_rates: movie_hash['imdbVotes'],
+        cover: movie_hash['Poster'],
       })
     new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
 end
