@@ -1,10 +1,9 @@
 class Movie < ApplicationRecord
   include AlgoliaSearch
-
   algoliasearch do
     attribute :title
   end
-  has_many :movie_categories
+  has_many :movie_categories, dependent: :destroy
   has_many :categories, through: :movie_categories
   has_many :movie_playlists
   has_many :playlists, through: :movie_playlists
@@ -15,4 +14,6 @@ class Movie < ApplicationRecord
   validates :duration, presence: true
   validates :syllabus, length: { minimum: 10 }
   validates :price, presence: true
+  mount_uploader :poster, PosterUploader
 end
+
