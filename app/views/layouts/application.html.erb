@@ -16,9 +16,11 @@
       <div class="container-generic">
         <%= yield %>
       </div>
+      <%# unless :devise_controller? %>
       <div class="container-story">
-        <%= render 'shared/story' %>
+          <%= render 'shared/story' %>
       </div>
+          <%# end %>
     </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>

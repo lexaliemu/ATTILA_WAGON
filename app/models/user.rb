@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :watchlist_items
   has_many :watchlist, through: :watchlist_items, source: :movie
   validates :email, presence: true, format: { with: /\A.*@.*\.com\z/ }
-  validates :username, presence: true, uniqueness: true
-  validates :first_name, length: { minimum: 2 }
-  validates :last_name, length: { minimum: 2 }
+  # validates :username, presence: true, uniqueness: true
+  # validates :first_name, length: { minimum: 2 }
+  # validates :last_name, length: { minimum: 2 }
 end
