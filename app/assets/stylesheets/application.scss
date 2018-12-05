@@ -8,6 +8,8 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "vendors/instantsearch";
+@import "vendors/instantsearch_theme_algolia";
 
 // Your CSS partials
 @import "layouts/index";
