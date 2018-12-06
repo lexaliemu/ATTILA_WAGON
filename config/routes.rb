@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     collection do
       get 'search_results', to: "movies#search_results"
     end
+    member do
+      get 'restaurant', to: "movies#show"
+    end
   end
 end
