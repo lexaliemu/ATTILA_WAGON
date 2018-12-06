@@ -1,7 +1,8 @@
 class Movie < ApplicationRecord
   include AlgoliaSearch
   algoliasearch do
-    attribute :title, :id
+    attribute :title, :actors, :director, :poster, :id
+    searchableAttributes ['title','actors','director']
   end
   has_many :movie_categories, dependent: :destroy
   has_many :categories, through: :movie_categories
