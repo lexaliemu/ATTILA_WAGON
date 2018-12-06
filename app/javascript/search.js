@@ -56,10 +56,10 @@ searchPlaylist.addWidget(
 // 3. Plug the search results into the product container
 search.addWidget(
   hits({
-    container: document.querySelector('#results'),
+    container: document.querySelector('#resultsMovie'),
     templates: {
     // item: '{{{_highlightResult.title.value}}}',
-    item: '{{{_highlightResult.title.value}}}',
+    item: '<a href="{{objectID}}" class="btn btn-primary">link</a>: {{{_highlightResult.title.value}}}',
     },
   })
 );
@@ -68,7 +68,7 @@ searchUser.addWidget(
   hits({
     container: document.querySelector('#resultsUser'),
     templates: {
-    item: '{{{_highlightResult.username.value}}}',
+    item: '<a href="{{objectID}}" class="btn btn-primary">link</a>: {{{_highlightResult.username.value}}}',
     },
   })
 );
@@ -77,7 +77,7 @@ searchPlaylist.addWidget(
   hits({
     container: document.querySelector('#resultsPlaylist'),
     templates: {
-    item: '{{{_highlightResult.name.value}}}',
+    item: '<a href="{{objectID}}" class="btn btn-primary">link</a>: {{{_highlightResult.name.value}}}',
     },
   })
 );
