@@ -4,7 +4,7 @@ class User < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :first_name, :last_name, :username
+    attribute :first_name, :last_name, :username, :id
   end
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

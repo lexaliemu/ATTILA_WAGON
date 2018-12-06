@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
   include AlgoliaSearch
   algoliasearch do
-    attribute :title
+    attribute :title, :id
   end
   has_many :movie_categories, dependent: :destroy
   has_many :categories, through: :movie_categories
