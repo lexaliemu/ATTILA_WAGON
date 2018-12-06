@@ -27,7 +27,7 @@ alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 
     username: Faker::Cat.name,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    avatar: ['williamAvatar.jpeg','alexAvatar.jpg','aliceAvatar.png'].sample
+    avatar: ['williamAvatar.jpg','alexAvatar.jpg','aliceAvatar.jpg'].sample
   })
   new_user.save
 end
