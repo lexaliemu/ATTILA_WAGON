@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'restaurant', to: "movies#show"
+
     end
   end
 end

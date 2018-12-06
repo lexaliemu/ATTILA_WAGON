@@ -1,7 +1,7 @@
 .poster {
   display: flex;
   align-items: flex-start;
-  padding: 100px;
+  padding: 50px;
 }
 
 .buy-space {
@@ -29,3 +29,26 @@
 .together {
   display: space-around;
 }
+
+#show-movie-image {
+  position: relative;
+}
+
+#add-to-watchlist-button {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  z-index: 1
+}
+
+.btn-outline {
+  background-color: white;
+  color: #EE5F5C;
+}
+
+.movie-details {
+  h3 {
+    margin-top: 10px;
+  }
+}
+
