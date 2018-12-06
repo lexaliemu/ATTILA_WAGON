@@ -2,7 +2,7 @@ class Playlist < ApplicationRecord
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :name
+    attribute :name, :id
   end
 
   belongs_to :user

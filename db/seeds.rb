@@ -1,5 +1,7 @@
 require 'json'
 require 'open-uri'
+require 'faker'
+require 'date'
 key1 = 'apikey=a7b874e'
 key2 = 'apikey=83c06c69'
 key3 = 'apikey=249b1617'
@@ -9,11 +11,25 @@ puts 'Deleting all classes'
 Review.destroy_all
 Movie.destroy_all
 User.destroy_all
+Playlist.destroy_all
 
 puts "Create User"
 alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', avatar: 'alexAvatar.jpg', first_name: "Alexandre", last_name: "Mulliez")
 william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', avatar: 'williamAvatar.jpeg', first_name: "William", last_name: "Segard")
 alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', avatar: 'aliceAvatar.png', first_name: "Alice", last_name: "Bouffard")
+
+puts 'Seeding playlists'
+user=[william, alexandre, alice]
+100.times do
+  new_playlist = Playlist.new(
+  {
+    name: Faker::Community.characters,
+    description:Faker::Community.quotes,
+    playlist_date: Date.today,
+    user: user.sample
+  })
+  new_playlist.save!
+end
 
 puts 'Seeding IMDB movies'
 
