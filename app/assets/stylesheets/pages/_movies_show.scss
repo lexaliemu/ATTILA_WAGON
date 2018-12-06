@@ -1,0 +1,31 @@
+.poster {
+  display: flex;
+  align-items: flex-start;
+  padding: 100px;
+}
+
+.buy-space {
+  position: relative;
+  align-items: center;
+  padding: 50px;
+}
+
+.buy-space .btn {
+  position: absolute;
+  top: 10px;
+  left: 64px;
+  width: 300px;
+}
+
+#show-movie-image {
+  width: 350;
+  height: 700;
+}
+
+.show-cta {
+  margin-top: 20px;
+}
+
+.together {
+  display: space-around;
+}

@@ -1,2 +1,57 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="row poster">
+      <div class="col-md-6 text-center">
+        <div id="show-movie-image">
+          <%= cl_image_tag @movie.poster, width: 450, height: 900, crop: :limit %>
+        </div>
+        <div class="show-cta">
+          <%# if @movie.user == @user || @movie_rented.include?(@movie) %>
+            <%#= link_to 'Watch this movie', watch_movie_path(@movie), class: "btn btn-danger btn-lg" %>
+          <%# else %>
+            <%#= link_to 'Buy this movie' , movie_rentings_path(@movie), method: "post", class: "btn btn-danger btn-lg" %>
+          <%# end %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <h2> "<%= @movie.title %>" (<%= @movie.release_date %>)</h2>
+        <hr>
+        <p>Duration: <%= @movie.duration %></p>
+        <p>Directed by: <%= @movie.director %></p>
+        <p>Categories:
+          <% @categories.each do |category| %>
+            <%= category.name %>
+          <% end %>
+        <p>Syllabus: <%= @movie.syllabus %></p>
+        <hr>
+         <% if @movie.reviews.any? %>
+          <div class="same-line together">
+            <p>Average rate: </p><span class="stars"><%= @movie.rating&.fdiv(2) %></span>
+          </div>
+          <% @movie.reviews.each do |review| %>
+            <div class="same-line">
+              <p>- "<%= review.content %>" (posted by <%= review.user.username %> on <%= review.review_date %>)</p><span class="stars"><%= review.rate&.fdiv(2) %></span>
+            </div>
+          <% end %>
+          <% else %>
+            <p>This movie does not have any review yet; rent it to be able to add a review!</p>
+        <% end %>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="buy-space col col-lg-4">
+        <#% if @movie.user == @user || @movie_rented.include?(@movie) %>
+          <#%= link_to 'Watch this movie', watch_movie_path(@movie), class: "btn btn-danger btn-lg btn-block" %>
+
+        <#% end %>
+        <hr>
+
+      </div>
+    </div> -->
+
+  </div>
+</div>
+
+
+
