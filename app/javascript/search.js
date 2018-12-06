@@ -8,18 +8,27 @@ const search = instantsearch({
   appId: searchForm.dataset.algoliaAppId,
   apiKey: searchForm.dataset.algoliaApiKey,
   indexName: 'Movie',
+  searchParameters: {
+    hitsPerPage: 5
+  }
 });
 
 const searchUser = instantsearch({
   appId: searchForm.dataset.algoliaAppId,
   apiKey: searchForm.dataset.algoliaApiKey,
   indexName: 'User',
+  searchParameters: {
+    hitsPerPage: 5
+  }
 });
 
 const searchPlaylist = instantsearch({
   appId: searchForm.dataset.algoliaAppId,
   apiKey: searchForm.dataset.algoliaApiKey,
   indexName: 'Playlist',
+  searchParameters: {
+    hitsPerPage: 5
+  }
 });
 
 // 2. Create an interactive search box
@@ -60,7 +69,6 @@ searchUser.addWidget(
     container: document.querySelector('#resultsUser'),
     templates: {
     item: '{{{_highlightResult.username.value}}}',
-    // item: '<em>Hit {{objectID}}</em>: {{{_highlightResult.name.value}}}',
     },
   })
 );
@@ -70,7 +78,6 @@ searchPlaylist.addWidget(
     container: document.querySelector('#resultsPlaylist'),
     templates: {
     item: '{{{_highlightResult.name.value}}}',
-    // item: '<em>Hit {{objectID}}</em>: {{{_highlightResult.name.value}}}',
     },
   })
 );
@@ -89,4 +96,3 @@ search.start();
 searchUser.start();
 searchPlaylist.start();
 
-console.log(search.results)
