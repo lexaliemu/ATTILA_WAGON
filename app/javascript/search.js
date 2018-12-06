@@ -107,7 +107,7 @@ searchPlaylist.addWidget(
               <img id ="img-movie" src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg">
             </div>
             <div class="title-movie">
-              <a href="/playlist/{{id}}">{{{_highlightResult.name.value}}}</a>
+              <a href="/playlists/{{id}}">{{{_highlightResult.name.value}}}</a>
             </div>
           </div>`,
     },

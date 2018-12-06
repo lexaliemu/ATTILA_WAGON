@@ -9,10 +9,5 @@ Rails.application.routes.draw do
       get 'movie', to: "movies#show"
     end
   end
-  resources :playlists do
-    member do
-      get 'playlist', to: "playlists#show"
-    end
-  end
-
+  resources :playlists
 end
