@@ -1,9 +1,21 @@
 class Movie < ApplicationRecord
   include AlgoliaSearch
   algoliasearch do
-    attribute :title, :actors, :director, :poster, :id
-    searchableAttributes ['title','actors','director']
+    attribute :title, :actors, :director, :id
+    add_attribute :poster_url
+    add_attribute :test_movie
+    searchableAttributes [:title, :actors, :director, :poster_url]
+    attributesToRetrieve [:title, :actors, :director, :poster_url, :id]
   end
+
+  def poster_url
+    poster.url
+  end
+
+  def test_movie
+    title.upcase
+  end
+
   has_many :movie_categories, dependent: :destroy
   has_many :categories, through: :movie_categories
   has_many :movie_playlists
@@ -17,4 +29,3 @@ class Movie < ApplicationRecord
   validates :price, presence: true
   mount_uploader :poster, PosterUploader
 end
-

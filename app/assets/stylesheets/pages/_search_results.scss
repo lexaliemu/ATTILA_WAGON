@@ -1,6 +1,3 @@
-.container-search {
-  flex: 1;
-}
 .container-search-wrapper{
   display: flex;
   align-items: flex-start;
@@ -49,9 +46,39 @@
   border: 1px solid green;
 }
 
+// .container-search {
+//   flex:1;
+// }
+
 .container-search {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
 }
 
+.container-movie {
+  flex: 1 0 300px;
+  margin: 10px;
+}
+.container-user {
+  flex: 0 0 300px;
+  margin: 10px;
+}
+.container-playlist {
+  flex: 0 0 300px;
+  margin: 10px;
+}
 
+.container-movie, .container-user, .container-playlist {
+  border: 1px solid green;
+}
 
+.resultMovie {
+  border: 1px solid red;
+}
+
+.resultUser {
+  border: 1px solid red;
+}

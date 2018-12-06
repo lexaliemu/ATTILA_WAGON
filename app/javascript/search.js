@@ -58,8 +58,11 @@ search.addWidget(
   hits({
     container: document.querySelector('#resultsMovie'),
     templates: {
-    // item: '{{{_highlightResult.title.value}}}',
-    item: '<a href="{{objectID}}" class="btn btn-primary">link</a>: {{{_highlightResult.title.value}}}',
+    // item: '{{{_highlightResult.poster_url.value}}}',
+    item: `<div class="resultMovie d-inline-block">
+             <img src="{{{_highlightResult.poster_url.value}}}" height="60" width="60">
+             <a href="/movies/{{id}}" class="btn btn-primary">{{{_highlightResult.title.value}}}</a>
+           </div>`,
     },
   })
 );
@@ -68,7 +71,10 @@ searchUser.addWidget(
   hits({
     container: document.querySelector('#resultsUser'),
     templates: {
-    item: '<a href="{{objectID}}" class="btn btn-primary">link</a>: {{{_highlightResult.username.value}}}',
+    item: `<div class="resultUser d-inline-block">
+            <img src="{{{_highlightResult.avatar.value}}} "height="60" width="60">
+            <a href="/movies/{{id}}" class="btn btn-primary">{{{_highlightResult.username.value}}}</a>
+           </div>`,
     },
   })
 );
@@ -77,7 +83,10 @@ searchPlaylist.addWidget(
   hits({
     container: document.querySelector('#resultsPlaylist'),
     templates: {
-    item: '<a href="{{objectID}}" class="btn btn-primary">link</a>: {{{_highlightResult.name.value}}}',
+    item: `<div class="resultUser d-inline-block">
+            <img src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg" height="60" width="60">
+            <a href="/movies/{{id}}" class="btn btn-primary">{{{_highlightResult.name.value}}}</a>
+           </div>`,
     },
   })
 );
