@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem "algoliasearch-rails"
+gem "bootstrap"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
