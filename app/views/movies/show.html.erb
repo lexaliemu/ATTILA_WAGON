@@ -7,17 +7,14 @@
           <%#= form.button :submit %>
         <%# end %>
 
-
-
-
-
-
         <div id="show-movie-image">
           <%= cl_image_tag @movie.poster, width: 450, height: 600, crop: :fill %>
         </div>
       </div>
       <div class="col-md-6 movie-details">
-       <div class="btn-group" role="group" aria-label="...">
+
+
+       <!-- <div class="btn-group" role="group" aria-label="...">
             <button type="button" class="btn btn-default btn-lg"><i class="fas fa-plus"></i></button>
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,46 +27,65 @@
                 <li><a href="#"><%= link_to '>> New Playlist', movie_path(@movie) %></a></li>
               </ul>
             </div>
+        </div> -->
+        <div class="title-header">
+          <h1><%= @movie.title %></h1>
+            <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-sm btn-outline-danger inactive btn-add-to-watchlist">
+              <input type="checkbox" checked autocomplete="off"> <b>+</b>
+            </label>
+          </div>
         </div>
-        <h1><%= @movie.title %></h1>
         <h3><%= @movie.release_date %></h3>
         <hr>
-        <p>Duration: <%= @movie.duration %></p>
-        <p>Directed by: <%= @movie.director %></p>
-        <p>Categories:
+        <p><b>Directed by:</b> <%= @movie.director %></p>
+        <p><b>Duration:</b> <%= @movie.duration %></p>
+        <p><b>Categories:</b>
           <% @categories.each do |category| %>
             <%= category.name %>
           <% end %>
-        <p>Syllabus: <%= @movie.syllabus %></p>
-        <hr>
-         <% if @movie.reviews.any? %>
+        <p><b>Syllabus:</b> <%= @movie.syllabus %></p>
+      <!--   <hr>
+         <%# if @movie.reviews.any? %>
           <div class="same-line together">
-            <p>Average rate: </p><span class="stars"><%= @movie.rating&.fdiv(2) %></span>
+            <p>Average rate: </p><span class="stars"><%#= @movie.rating&.fdiv(2) %></span>
           </div>
-          <% @movie.reviews.each do |review| %>
+          <%# @movie.reviews.each do |review| %>
             <div class="same-line">
-              <p>- "<%= review.content %>" (posted by <%= review.user.username %> on <%= review.review_date %>)</p><span class="stars"><%= review.rate&.fdiv(2) %></span>
+              <p>- "<%#= review.content %>" (posted by <%#= review.user.username %> on <%#= review.review_date %>)</p><span class="stars"><%#= review.rate&.fdiv(2) %></span>
             </div>
-          <% end %>
-          <% else %>
+          <%# end %>
+          <%# else %>
             <p>This movie does not have any review yet; rent it to be able to add a review!</p>
-        <% end %>
+        <%# end %> -->
         <div class="show-cta">
           <%# if @movie.user == @user || @movie_rented.include?(@movie) %>
             <%= link_to 'Watch this movie', movie_path(@movie), class: "btn btn-danger btn-lg" %>
-            <div class="btn-group" role="group" aria-label="...">
-              <button type="button" class="btn btn-default btn-lg"><i class="fas fa-plus"></i></button>
-              <div class="btn-group" role="group">
-                <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Add to List
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Sex Playlist</a></li>
-                  <li><a href="#">Motivation</a></li>
-                  <li><a href="#"><%= link_to '>> New Playlist', movie_path(@movie) %></a></li>
-                </ul>
+            <div class="dropdown add-to-list-button">
+              <button class="btn btn-outline-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-plus"></i> Add to List
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Sex Playlist</a>
+                <a class="dropdown-item" href="#">Motivation</a>
+                <a class="dropdown-item"
+                  <%= link_to movies_path(@movie), class: "nav-link" do%>
+                   <p><b>+ Add to list</b></p>
+                  <% end %>
+
+
+
+
+
+
+
+                  <%#= link_to '>> New Playlist', movie_path(@movie) %></a>
               </div>
+
+
+
+
+
             </div>
 
 

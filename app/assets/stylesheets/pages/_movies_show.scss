@@ -23,8 +23,12 @@
 }
 
 .show-cta {
+  display: flex;
+  justify-content: flex-start;
   margin-top: 20px;
 }
+
+
 
 .together {
   display: space-around;
@@ -50,5 +54,21 @@
   h3 {
     margin-top: 10px;
   }
+}
+
+.add-to-list-button {
+  margin-left: 5px;
+}
+
+.title-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-add-to-watchlist {
+  margin-left: 5px;
+  margin-bottom: 20px;
 }
 
