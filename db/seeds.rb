@@ -17,8 +17,20 @@ Playlist.destroy_all
 
 puts "Create User"
 alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', avatar: 'alexAvatar.jpg', first_name: "Alexandre", last_name: "Mulliez")
-william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', avatar: 'williamAvatar.jpeg', first_name: "William", last_name: "Segard")
-alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', avatar: 'aliceAvatar.png', first_name: "Alice", last_name: "Bouffard")
+william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', avatar: 'williamAvatar.jpg', first_name: "William", last_name: "Segard")
+alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', avatar: 'aliceAvatar.jpg', first_name: "Alice", last_name: "Bouffard")
+
+100.times do
+  new_user = User.new({
+    email: Faker::Internet.email,
+    password: "aaaaaa",
+    username: Faker::Cat.name,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    avatar: ['williamAvatar.jpeg','alexAvatar.jpg','aliceAvatar.png'].sample
+  })
+  new_user.save
+end
 
 puts 'Seeding playlists'
 user=[william, alexandre, alice]
