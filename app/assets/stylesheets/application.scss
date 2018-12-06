@@ -4,8 +4,7 @@
 @import "config/bootstrap_variables";
 
 // External libraries
-@import "bootstrap-sprockets";
-@import "bootstrap/scss/bootstrap";
+@import "bootstrap";
 @import "font-awesome";
 @import "vendors/instantsearch";
 @import "vendors/instantsearch_theme_algolia";
