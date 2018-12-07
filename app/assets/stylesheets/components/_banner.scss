@@ -1,0 +1,29 @@
+.banner {
+  background-image: asset-url("HP_banner.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #F7FFF7;
+  text-align: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#attila-banner {
+  margin-bottom: 20px;
+}
+
+#main_cta {
+  cursor: pointer;
+  background: #1E3888;
+  color: #F7FFF7;
+  border-radius: 50px;
+  text-decoration: none;
+  width: 170px;
+  height: 45px;
+  border: none;
+  font-family: "Raleway";
+}
+
