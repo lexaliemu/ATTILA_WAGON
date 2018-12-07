@@ -27,7 +27,7 @@
         <p><b>Syllabus:</b> <%= @movie.syllabus %></p>
         <div class="show-cta">
           <%# if @movie.user == @user || @movie_rented.include?(@movie) %>
-            <%= link_to movie_path(@movie) do %>
+            <%= link_to watch_movie_path(@movie) do %>
               <button id="main_cta">Watch this movie</button>
             <% end %>
             <div class="dropdown add-to-list-button">

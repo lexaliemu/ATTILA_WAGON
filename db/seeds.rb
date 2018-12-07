@@ -19,6 +19,8 @@ puts "Create User"
 alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', avatar: 'alexAvatar.jpg', first_name: "Alexandre", last_name: "Mulliez")
 william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', avatar: 'williamAvatar.jpg', first_name: "William", last_name: "Segard")
 alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', avatar: 'aliceAvatar.jpg', first_name: "Alice", last_name: "Bouffard")
+brad1 = User.create!(email: "brad1@attila.com" , password: "aaaaaa", username: 'Bradley Cooper', avatar: 'alexAvatar.jpg', first_name: "Bradley", last_name: "Cooper")
+brad2 = User.create!(email: "brad2@attila.com" , password: "wwwwww", username: 'Bradley Dicaprio', avatar: 'williamAvatar.jpg', first_name: "Bradley", last_name: "Dicaprio")
 
 100.times do
   new_user = User.new({
