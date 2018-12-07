@@ -58,16 +58,16 @@ search.addWidget(
   hits({
     container: document.querySelector('#resultsMovie'),
     templates: {
-    item: `<a href="/movies/{{id}}" id="resultsalgolia">
-            <div class="card-movie"
+    item: `
+            <div class="card-movie">
               <div class="poster-movie">
-                <img id ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
+                <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
               </div>
               <div class="title-movie">
                 <p>{{{_highlightResult.title.value}}}</p>
               </div>
-            </div>
-          </a>`,
+              <a href="/movies/{{id}}" class="resultsalgolia"></a>
+            </div>`,
     },
   })
 );
@@ -76,16 +76,16 @@ searchUser.addWidget(
   hits({
     container: document.querySelector('#resultsUser'),
     templates: {
-    item: `<a href="#" id="resultsalgolia">
-            <div class="card-movie"
-              <div class="poster-movie">
-                <img id ="img-avatar" src="https://res.cloudinary.com/dvtjorjay/image/upload/v1543583375/ebkcnta4laj9tp88dcvq.jpg">
+    item: `
+            <div class="card-movie">
+              <div class="poster-user">
+                <img class ="img-user" src="https://res.cloudinary.com/dvtjorjay/image/upload/v1543583375/ebkcnta4laj9tp88dcvq.jpg" height="180" width="180">
               </div>
-              <div class="title-movie">
+              <div class="user-name">
                 <p>{{{_highlightResult.username.value}}}</p>
               </div>
-            </div>
-          </a>`,
+              <a href="#" class="resultsalgolia"></a>
+            </div>`,
     },
   })
 );
@@ -94,16 +94,16 @@ searchPlaylist.addWidget(
   hits({
     container: document.querySelector('#resultsPlaylist'),
     templates: {
-    item: `<a href="/playlists/{{id}}" id="resultsalgolia">
-            <div class="card-movie"
+    item: `
+          <div class="card-movie">
               <div class="poster-movie">
-                <img id ="img-movie" src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg">
+                <img class ="img-movie" src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg">
               </div>
-              <div class="title-movie">
-                <p href="/playlists/{{id}}">{{{_highlightResult.name.value}}}</p>
+              <div class="user-name">
+                <p>{{{_highlightResult.name.value}}}</p>
               </div>
-            </div>
-          </a>`,
+              <a href="/playlists/{{id}}" class="resultsalgolia"></a>
+            </div>`,
     },
   })
 );

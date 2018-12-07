@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'search_results', to: "movies#search_results"
     end
     member do
-      get 'movie', to: "movies#show"
+      get 'watch', to: "movies#watch"
     end
   end
   resources :playlists do

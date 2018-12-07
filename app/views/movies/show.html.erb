@@ -2,32 +2,12 @@
   <div class="container">
     <div class="row poster">
       <div class="col-md-6 text-center">
-        <%#= simple_form_for @movie, remote: true) do |form| %>
-          <%#= form.input :content, as: :text %>
-          <%#= form.button :submit %>
-        <%# end %>
-
         <div id="show-movie-image">
-          <%= cl_image_tag @movie.poster, width: 450, height: 600, crop: :fill %>
+          <%= image_tag @movie.poster_url %>
+          <%#= cl_image_tag @movie.poster, width: 450, height: 600, crop: :fill %>
         </div>
       </div>
       <div class="col-md-6 movie-details">
-
-
-       <!-- <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default btn-lg"><i class="fas fa-plus"></i></button>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Add to List
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Sex Playlist</a></li>
-                <li><a href="#">Motivation</a></li>
-                <li><a href="#"><%= link_to '>> New Playlist', movie_path(@movie) %></a></li>
-              </ul>
-            </div>
-        </div> -->
         <div class="title-header">
           <h1><%= @movie.title %></h1>
             <div class="btn-group-toggle" data-toggle="buttons">
@@ -45,19 +25,6 @@
             <%= category.name %>
           <% end %>
         <p><b>Syllabus:</b> <%= @movie.syllabus %></p>
-      <!--   <hr>
-         <%# if @movie.reviews.any? %>
-          <div class="same-line together">
-            <p>Average rate: </p><span class="stars"><%#= @movie.rating&.fdiv(2) %></span>
-          </div>
-          <%# @movie.reviews.each do |review| %>
-            <div class="same-line">
-              <p>- "<%#= review.content %>" (posted by <%#= review.user.username %> on <%#= review.review_date %>)</p><span class="stars"><%#= review.rate&.fdiv(2) %></span>
-            </div>
-          <%# end %>
-          <%# else %>
-            <p>This movie does not have any review yet; rent it to be able to add a review!</p>
-        <%# end %> -->
         <div class="show-cta">
           <%# if @movie.user == @user || @movie_rented.include?(@movie) %>
             <%= link_to movie_path(@movie) do %>
@@ -74,35 +41,12 @@
                   <%= link_to movies_path(@movie), class: "nav-link" do%>
                    <p><b>+ Add to list</b></p>
                   <% end %>
-
                   <%#= link_to '>> New Playlist', movie_path(@movie) %></a>
               </div>
-
-
-
-
-
             </div>
-
-
-
-          <%# else %>
-            <%#= link_to 'Buy this movie' , movie_rentings_path(@movie), method: "post", class: "btn btn-danger btn-lg" %>
-          <%# end %>
         </div>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="buy-space col col-lg-4">
-        <#% if @movie.user == @user || @movie_rented.include?(@movie) %>
-          <#%= link_to 'Watch this movie', watch_movie_path(@movie), class: "btn btn-danger btn-lg btn-block" %>
-
-        <#% end %>
-        <hr>
-
-      </div>
-    </div> -->
-
   </div>
 </div>
 
