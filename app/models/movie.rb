@@ -1,19 +1,15 @@
 class Movie < ApplicationRecord
+  include CloudinaryHelper
   include AlgoliaSearch
   algoliasearch do
-    attribute :title, :actors, :director, :id
+    attribute :title, :actors, :director, :rating, :id
     add_attribute :poster_url
-    add_attribute :test_movie
     searchableAttributes [:title, :actors, :director, :poster_url]
-    attributesToRetrieve [:title, :actors, :director, :poster_url, :id]
+    attributesToRetrieve [:title, :actors, :director, :poster_url, :rating, :id]
   end
 
   def poster_url
-    poster.url
-  end
-
-  def test_movie
-    title.upcase
+    cloudinary_url(poster, width: 400, height: 500, crop: :fill)
   end
 
   has_many :movie_categories, dependent: :destroy
