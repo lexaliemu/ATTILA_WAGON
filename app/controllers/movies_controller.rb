@@ -14,4 +14,8 @@ class MoviesController < ApplicationController
 
   def search_results
   end
+
+  def watch
+    @movie = Movie.find(params[:id])
+  end
 end

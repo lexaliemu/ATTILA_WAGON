@@ -11,31 +11,14 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "footer-attila-item footer-attila-link" %>
-      <%= link_to "Trips", "#", class: "footer-attila-item footer-attila-link" %>
-      <%= link_to "Messages", "#", class: "footer-attila-item footer-attila-link" %>
-      <%= link_to "Host", "#", class: "footer-attila-item footer-attila-link" %>
-      <%= link_to "Trips", "#", class: "footer-attila-item footer-attila-link" %>
-      <%= link_to "Messages", "#", class: "footer-attila-item footer-attila-link" %>
+<!--       <#%= link_to "Contact", "#", class: "text-center" %> -->
 
       <!-- Avatar with dropdown menu -->
 
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "footer-attila-item footer-attila-link" %>
+<!--       <#%= link_to "Contact", "#", class: "footer-attila-item footer-attila-link" %> -->
     <% end %>
-  </div>
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="footer-attila-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right footer-attila-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
   </div>
 </div>
 
