@@ -63,7 +63,7 @@ list_movies1.each do |movie|
       duration: movie_hash['Runtime'],
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-      rating: movie_hash['imdbRating'],
+      rating: movie_hash['imdbRating'].to_i.fdiv(2),
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
@@ -91,7 +91,7 @@ list_movies2.each do |movie|
       duration: movie_hash['Runtime'],
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-      rating: movie_hash['imdbRating'],
+      rating: movie_hash['imdbRating'].to_i.fdiv(2),
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
@@ -119,7 +119,7 @@ list_movies3.each do |movie|
       duration: movie_hash['Runtime'],
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-      rating: movie_hash['imdbRating'],
+      rating: movie_hash['imdbRating'].to_i.fdiv(2),
       price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
@@ -147,7 +147,7 @@ end
         duration: movie_hash['Runtime'],
         actors: movie_hash['Actors'],
         movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-        rating: movie_hash['imdbRating'],
+        rating: movie_hash['imdbRating'].to_i.fdiv(2),
         price: [3, 4, 5].sample,
         trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
         number_rates: movie_hash['imdbVotes'],
@@ -158,7 +158,7 @@ end
 end
 
 puts 'Seeding a review for AStarIsBorn'
-first_review = Review.create(rate: 10, comment: "Exceptionnel ! Bradley est beaucoup trop sexy je suis allee le voir 4 fois", review_date: :datetime, movie: Movie.find_by(title: "A Star Is Born"), user: User.find_by(first_name: "Alice"))
+first_review = Review.create(rate: 4, comment: "Exceptionnel ! Bradley est beaucoup trop sexy je suis allee le voir 4 fois", review_date: :datetime, movie: Movie.find_by(title: "A Star Is Born"), user: User.find_by(first_name: "Alice"))
 
 
 Movie.index

@@ -21,7 +21,8 @@
 }
 
 .container-movie, .container-user, .container-playlist {
-  border: 1px solid green;
+  // border: 1px solid green;
+  // background-color
 }
 
 .ais-hits {
@@ -29,36 +30,42 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .ais-hits--item {
-  flex: 0 0 18px;
-  border: 1px solid;
+  flex: 0 0 200px;
+  // border: 1px solid;
   // min-height: 250px;
   height:90%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
 }
 
 .card-movie{
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .poster-movie {
   flex: 1;
 }
 
-#img-movie{
+.img-movie{
   width: 200px;
   height: 250px;
   background-size: cover;
 }
-#img-avatar{
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  // background-size: cover;
-}
+// .img-avatar{
+//   width: 150px;
+//   height: 150px;
+//   border-radius: 50%;
+//   // background-size: cover;
+// }
 
 
 .title-movie {
@@ -69,13 +76,57 @@
 .title-movie p {
   margin: 5px;
   color: black;
+  font-weight: 50;
 }
 
-#resultsalgolia {
-  opacity: 0.8;
-}
-#resultsalgolia:hover {
-  opacity: 1;
-  text-decoration: none;
+.resultsalgolia {
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  &:hover {
+    opacity: 0;
+    text-decoration: none;
+  }
 }
 
+.results-title {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+.results-category {
+  margin-top: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.poster-user {
+  flex: 1;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-user{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top:10px;
+}
+
+.user-name {
+  flex: 0 0 80px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-name p {
+  margin: 5px;
+  color: black;
+  font-weight: 50;
+}
