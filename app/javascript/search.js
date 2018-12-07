@@ -58,18 +58,16 @@ search.addWidget(
   hits({
     container: document.querySelector('#resultsMovie'),
     templates: {
-    // item: `<div class="resultMovie d-inline-block">
-    //          <img src="{{{_highlightResult.poster_url.value}}}" height="60" width="60">
-    //          <a href="/movies/{{id}}" class="btn btn-primary">{{{_highlightResult.title.value}}}</a>
-    //        </div>`,
-    item: `<div class="card-movie"
-            <div class="poster-movie">
-              <img id ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
+    item: `<a href="/movies/{{id}}" id="resultsalgolia">
+            <div class="card-movie"
+              <div class="poster-movie">
+                <img id ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
+              </div>
+              <div class="title-movie">
+                <p>{{{_highlightResult.title.value}}}</p>
+              </div>
             </div>
-            <div class="title-movie">
-              <a href="/movies/{{id}}">{{{_highlightResult.title.value}}}</a>
-            </div>
-          </div>`,
+          </a>`,
     },
   })
 );
@@ -78,18 +76,16 @@ searchUser.addWidget(
   hits({
     container: document.querySelector('#resultsUser'),
     templates: {
-    // item: `<div class="resultUser d-inline-block">
-    //         <img src="https://res.cloudinary.com/dvtjorjay/image/upload/v1543583375/ebkcnta4laj9tp88dcvq.jpg" height="60" width="60">
-    //         <a href="/movies/{{id}}" class="btn btn-primary">{{{_highlightResult.username.value}}}</a>
-    //        </div>`,
-    item: `<div class="card-movie"
+    item: `<a href="#" id="resultsalgolia">
+            <div class="card-movie"
               <div class="poster-movie">
                 <img id ="img-avatar" src="https://res.cloudinary.com/dvtjorjay/image/upload/v1543583375/ebkcnta4laj9tp88dcvq.jpg">
               </div>
               <div class="title-movie">
-                <a href="#">{{{_highlightResult.username.value}}}</a>
+                <p>{{{_highlightResult.username.value}}}</p>
               </div>
-          </div>`,
+            </div>
+          </a>`,
     },
   })
 );
@@ -98,18 +94,16 @@ searchPlaylist.addWidget(
   hits({
     container: document.querySelector('#resultsPlaylist'),
     templates: {
-    // item: `<div class="resultUser d-inline-block">
-    //         <img src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg" height="60" width="60">
-    //         <a href="/playlist/{{id}}" class="btn btn-primary">{{{_highlightResult.name.value}}}</a>
-    //        </div>`,
-    item: `<div class="card-movie"
-            <div class="poster-movie">
-              <img id ="img-movie" src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg">
+    item: `<a href="/playlists/{{id}}" id="resultsalgolia">
+            <div class="card-movie"
+              <div class="poster-movie">
+                <img id ="img-movie" src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg">
+              </div>
+              <div class="title-movie">
+                <p href="/playlists/{{id}}">{{{_highlightResult.name.value}}}</p>
+              </div>
             </div>
-            <div class="title-movie">
-              <a href="/playlist/{{id}}">{{{_highlightResult.name.value}}}</a>
-            </div>
-          </div>`,
+          </a>`,
     },
   })
 );

@@ -66,10 +66,16 @@
   text-align: center;
 }
 
-
-
-.resultUser {
-  border: 1px solid red;
+.title-movie p {
+  margin: 5px;
+  color: black;
 }
 
+#resultsalgolia {
+  opacity: 0.8;
+}
+#resultsalgolia:hover {
+  opacity: 1;
+  text-decoration: none;
+}
 

@@ -10,9 +10,5 @@ Rails.application.routes.draw do
     end
   end
   resources :playlists do
-    member do
-      get 'playlist', to: "playlists#show"
-    end
   end
-
 end
