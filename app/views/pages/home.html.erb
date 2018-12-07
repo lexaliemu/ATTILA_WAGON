@@ -1,74 +1,85 @@
-<div class="row-wrapper">
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
+<div class="wrapper">
+  <div class="fluid-container">
+
+    <div class="banner">
+      <div>
+        <h1 id="attila-banner">Attila</h1>
+        <h3 id="attila-banner">Awesome movies for awesome people</h3>
+        <%= link_to movies_path do %>
+          <button id="main_cta">See all movies</button>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
+
+    <div class="row-wrapper">
+      <div class="container-category">
+        <div id="category-header">
+          <h4>Thriller movies</h4>
+          <%= link_to "See all", movies_path, class: "btn blue" %>
+        </div>
+        <div class="container-square">
+          <%# @movie_pairs.each do |movie_pair| %>
+          <% @thriller_movies.each_slice(2) do |movie_pair| %>
+            <div class="container-square-wrapper">
+              <%= render "movie_square", movie: movie_pair[0] %>
+              <%= render "movie_square", movie: movie_pair[1] %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="container-category">
+        <div id="category-header">
+          <h4>Romance movies</h4>
+          <%= link_to "See all", movies_path, class: "btn blue" %>
+        </div>
+        <div class="container-square">
+          <%# @movie_pairs.each do |movie_pair| %>
+          <% @romance_movies.each_slice(2) do |movie_pair| %>
+            <div class="container-square-wrapper">
+              <%= render "movie_square", movie: movie_pair[0] %>
+              <%= render "movie_square", movie: movie_pair[1] %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="container-category">
+        <div id="category-header">
+          <h4>Drama movies</h4>
+          <%= link_to "See all", movies_path, class: "btn blue" %>
+        </div>
+        <div class="container-square">
+          <%# @movie_pairs.each do |movie_pair| %>
+          <% @drama_movies.each_slice(2) do |movie_pair| %>
+            <div class="container-square-wrapper">
+              <%= render "movie_square", movie: movie_pair[0] %>
+              <%= render "movie_square", movie: movie_pair[1] %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="container-category">
+        <div id="category-header">
+          <h4>Adventure movies</h4>
+          <%= link_to "See all", movies_path, class: "btn blue" %>
+        </div>
+        <div class="container-square">
+          <%# @movie_pairs.each do |movie_pair| %>
+          <% @adventure_movies.each_slice(2) do |movie_pair| %>
+            <div class="container-square-wrapper">
+              <%= render "movie_square", movie: movie_pair[0] %>
+              <%= render "movie_square", movie: movie_pair[1] %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+
     </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </div>
-  </div>
-  <div class="container-category">
-    <div class="container-square">
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-      <div class="square"></div>
-    </div>
+      <!-- # fin row wrapper -->
   </div>
 </div>
+
+

@@ -60,10 +60,12 @@
         <%# end %> -->
         <div class="show-cta">
           <%# if @movie.user == @user || @movie_rented.include?(@movie) %>
-            <%= link_to 'Watch this movie', movie_path(@movie), class: "btn btn-danger btn-lg" %>
+            <%= link_to movie_path(@movie) do %>
+              <button id="main_cta">Watch this movie</button>
+            <% end %>
             <div class="dropdown add-to-list-button">
               <button class="btn btn-outline-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-plus"></i> Add to List
+                <i id="main_cta"></i> Add to List
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#">Sex Playlist</a>
@@ -72,12 +74,6 @@
                   <%= link_to movies_path(@movie), class: "nav-link" do%>
                    <p><b>+ Add to list</b></p>
                   <% end %>
-
-
-
-
-
-
 
                   <%#= link_to '>> New Playlist', movie_path(@movie) %></a>
               </div>
