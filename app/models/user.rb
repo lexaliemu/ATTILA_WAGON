@@ -6,7 +6,7 @@ class User < ApplicationRecord
   algoliasearch do
     attribute :first_name, :last_name, :username, :avatar, :id
     searchableAttributes [:first_name, :last_name, :username]
-    attributesToRetrieve [:first_name, :last_name, :username]
+    attributesToRetrieve [:first_name, :last_name, :username, :id]
   end
 
   devise :database_authenticatable, :registerable,
