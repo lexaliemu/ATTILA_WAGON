@@ -17,34 +17,72 @@ User.destroy_all
 Playlist.destroy_all
 
 puts "Create User"
-alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', avatar: 'alexAvatar.jpg', first_name: "Alexandre", last_name: "Mulliez")
-william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', avatar: 'williamAvatar.jpg', first_name: "William", last_name: "Segard")
-alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', avatar: 'aliceAvatar.jpg', first_name: "Alice", last_name: "Bouffard")
-brad1 = User.create!(email: "brad1@attila.com" , password: "aaaaaa", username: 'Bradley Cooper', avatar: 'alexAvatar.jpg', first_name: "Bradley", last_name: "Cooper")
-brad2 = User.create!(email: "brad2@attila.com" , password: "wwwwww", username: 'Bradley Dicaprio', avatar: 'williamAvatar.jpg', first_name: "Bradley", last_name: "Dicaprio")
 
-100.times do
-  new_user = User.new({
-    email: Faker::Internet.email,
-    password: "aaaaaa",
-    username: Faker::Cat.name,
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    avatar: ['williamAvatar.jpg','alexAvatar.jpg','aliceAvatar.jpg'].sample
-  })
-  new_user.save
+alexandre = User.create!(email: "alex@attila.com" , password: "aaaaaa", username: 'Alex', first_name: "Alexandre", last_name: "Mulliez")
+william = User.create!(email: "will@attila.com" , password: "wwwwww", username: 'William', first_name: "William", last_name: "Segard")
+alice =  User.create!(email: "alice@attila.com" , password: "aaaaaa", username: 'Alice', first_name: "Alice", last_name: "Bouffard")
+brad = User.create!(email: "brad@attila.com" , password: "aaaaaa", username: 'Bradley Cooper', first_name: "Bradley", last_name: "Cooper")
+leo = User.create!(email: "leo@attila.com" , password: "wwwwww", username: 'Leonardo Dicaprio', first_name: "Leonardo", last_name: "Dicaprio")
+mart = User.create!(email: "mart@attila.com" , password: "wwwwww", username: 'Martin Scorsese', first_name: "Martin", last_name: "Scorsese")
+sylvester = User.create!(email: "sylvester@attila.com" , password: "wwwwww", username: 'Sylvester Stallone', first_name: "Sylvester", last_name: "Stallone")
+quentin = User.create!(email: "quentin@attila.com" , password: "wwwwww", username: 'Quentin Tarantino', first_name: "Quentin", last_name: "Tarantino")
+cameron = User.create!(email: "cameron@attila.com" , password: "wwwwww", username: 'Cameron Diaz', first_name: "Cameron", last_name: "Diaz")
+ginger = User.create!(email: "ginger@attila.com" , password: "wwwwww", username: 'Ginger Dog', first_name: "Ginger", last_name: "Dog")
+jamie = User.create!(email: "jamie@attila.com" , password: "wwwwww", username: 'Jamie Foxx', first_name: "Jamie", last_name: "Foxx")
+tom = User.create!(email: "tomc@attila.com" , password: "wwwwww", username: 'Tom Cruise', first_name: "Tom", last_name: "Cruise")
+arnold = User.create!(email: "anorld@attila.com" , password: "wwwwww", username: 'Arnold Schwarzenegger', first_name: "Arnold", last_name: "Schwarzenegger")
+donald = User.create!(email: "donald@attila.com" , password: "wwwwww", username: 'Donald Trump', first_name: "Donald", last_name: "Trump")
+new_users = [alexandre, william, alice, brad, leo, mart, sylvester, quentin, cameron, ginger, jamie, tom, arnold, donald]
+avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544285805/alexAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1543573506/williamAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544285867/aliceAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544285972/bradleyAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286075/LeonardoAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286241/MartinAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286401/sylvesterAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286639/tarantinoAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286783/cameronAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1543530833/iwopilwirvu8kft7b0ez.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544287996/jamieAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288151/tomAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288389/arnoldAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288510/donaldAvatar.jpg"
+             ]
+
+new_users.each_with_index do |x,index|
+  x.remote_avatar_url = avatar_urls[index]
+  x.save
 end
+# 20.times do
+#   new_user = User.create!(
+#     email: "@attila.com",
+#     password: "aaaaaa",
+#     username: Faker::Cat.name,
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#   })
+#   new_user.remote_avatar_url = avatar_urls.sample
+#   new_user.save
+#   puts "ok"
+# end
+
+playlist_urls =["https://res.cloudinary.com/dvtjorjay/image/upload/v1544290710/playlist1.png",
+                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544290741/playlist2.png",
+                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544290778/playlist3.png",
+                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544290830/playlist4.jpg",
+                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544290855/playlist5.png"
+]
 
 puts 'Seeding playlists'
-user=[william, alexandre, alice]
-20.times do
-  new_playlist = Playlist.new(
+40.times do
+  new_playlist = Playlist.create(
   {
     name: Faker::Community.characters,
     description:Faker::Community.quotes,
     playlist_date: Date.today,
-    user: user.sample
+    user: new_users.sample
   })
+  new_playlist.remote_picture_url = playlist_urls.sample
   new_playlist.save!
 end
 
