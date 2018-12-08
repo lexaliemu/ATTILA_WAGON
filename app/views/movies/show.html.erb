@@ -32,14 +32,15 @@
             <% end %>
             <div class="dropdown add-to-list-button">
               <button class="btn btn-outline-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i id="main_cta"></i> Add to List
+                <i id="main_cta"></i> Add to PlayList
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Sex Playlist</a>
-                <a class="dropdown-item" href="#">Motivation</a>
+                <% @playlists.each do |playlist| %>
+                  <%= link_to playlist.name, movie_movie_playlists_path(@movie, :@playlist => playlist), method: "post", class: "dropdown-item" %>
+                <% end %>
                 <a class="dropdown-item"
                   <%= link_to movies_path(@movie), class: "nav-link" do%>
-                   <p><b>+ Add to list</b></p>
+                    <p><b>+ Add to list</b></p>
                   <% end %>
                   <%#= link_to '>> New Playlist', movie_path(@movie) %></a>
               </div>

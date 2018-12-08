@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       get 'watch', to: "movies#watch"
     end
+    resources :movie_playlists, only: [ :create, :destroy]
   end
   resources :playlists do
   end

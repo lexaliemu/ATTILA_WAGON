@@ -9,6 +9,7 @@ key4 = 'apikey=d8b03b0'
 
 puts 'Deleting all classes'
 WatchlistItem.destroy_all
+MoviePlaylist.destroy_all
 Playlist.destroy_all
 Review.destroy_all
 Movie.destroy_all
@@ -36,7 +37,7 @@ end
 
 puts 'Seeding playlists'
 user=[william, alexandre, alice]
-100.times do
+20.times do
   new_playlist = Playlist.new(
   {
     name: Faker::Community.characters,

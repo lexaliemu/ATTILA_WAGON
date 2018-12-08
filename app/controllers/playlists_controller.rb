@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   def show
     @playlist = Playlist.find(params[:id])
+    @movies = @playlist.movies
   end
 
   def new
