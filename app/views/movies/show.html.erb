@@ -10,11 +10,9 @@
       <div class="col-md-6 movie-details">
         <div class="title-header">
           <h1><%= @movie.title %></h1>
-            <div class="btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-sm btn-outline-danger inactive btn-add-to-watchlist">
-              <input type="checkbox" checked autocomplete="on"> <b>+</b>
-            </label>
-          </div>
+          <%= link_to movie_watchlist_items_path(@movie), method: "post" do %>
+            <button type="button" class="btn btn-outline-secondary btn-sm inactive">+</button>
+          <% end %>
         </div>
         <h3><%= @movie.release_date %></h3>
         <hr>

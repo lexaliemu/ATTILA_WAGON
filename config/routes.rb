@@ -12,5 +12,9 @@ Rails.application.routes.draw do
     resources :watchlist_items, only: [ :create, :destroy]
   end
   resources :playlists
-  resources :users
+  resources :users do
+    collection do
+      get 'mywatchlist', to: "users#mywatchlist"
+    end
+  end
 end
