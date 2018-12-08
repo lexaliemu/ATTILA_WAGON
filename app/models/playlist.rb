@@ -5,7 +5,7 @@ class Playlist < ApplicationRecord
   algoliasearch do
     attribute :name, :id
     add_attribute :picture_url
-    searchableAttributes [:id]
+    searchableAttributes [:name]
     attributesToRetrieve [:name, :picture_url, :id]
   end
 
