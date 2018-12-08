@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container-description">
     <div class="img-playlist-des">
-      <%= cl_image_tag @playlist.picture, width: 320, height: 175, crop: :fill %>
+      <%= cl_image_tag @playlist.picture, width: 320, height: 225, crop: :fill %>
     </div>
     <div class="playlist-des">
       <h4><%= @playlist.name  %></h4>
@@ -23,6 +23,12 @@
       <div class="movie-title-director-playlist">
         <p class="text-center"><strong><%=h truncate(movie.title, :length => 40) %></strong></p>
         <p class="text-left">Director: <%= movie.director %></p>
+        <div class="form-inline flexedit">
+          <p class="fixed-bottom-left">Rating: <%= movie.rating %>/5</p>
+          <% if @playlist.user == current_user %>
+            <p class="fixed-bottom-right"><%= link_to 'DDD', movie_movie_playlist_path(movie, @playlist), method: :delete, :class => "fas fa-trash-alt"  %></p>
+          <% end %>
+        </div>
       </div>
     </div>
     <% end %>
