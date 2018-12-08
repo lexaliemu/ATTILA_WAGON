@@ -109,14 +109,6 @@ searchPlaylist.addWidget(
 );
 
 
-// 4. Make the brands refinable
-// search.addWidget(
-//   instantsearch.widgets.refinementList({
-//     container: document.querySelector('#brand'),
-//     attributeName: 'brand',
-//   })
-// );
-
 // 5. Start the search!
 search.start();
 searchUser.start();

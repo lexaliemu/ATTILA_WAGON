@@ -1,6 +1,18 @@
-<h1>Playlists#show</h1>
-<p>Find me in app/views/playlists/show.html.erb</p>
-<% @movies.each do |movie| %>
-  <div><%= link_to movie.title, movie_path(movie) %></div>
-<% end %>
+<div class="container">
+  <div class="container-description">
+    <div class="img-playlist-des">
+      <%= cl_image_tag @playlist.picture, width: 320, height: 175, crop: :fill %>
+    </div>
+    <div class="playlist-des">
+      <p><%= @playlist.name  %></p>
+      <p><%= @playlist.description  %></p>
+      <p>by <%= @playlist.user.username  %></p>
+    </div>
+  </div>
+  <div class=container-playlist>
+    <% @movies.each do |movie| %>
+      <div><%= link_to movie.title, movie_path(movie) %></div>
+    <% end %>
+  </div>
+</div>
 
