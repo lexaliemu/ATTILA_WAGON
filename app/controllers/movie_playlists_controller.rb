@@ -9,6 +9,15 @@ class MoviePlaylistsController < ApplicationController
   end
 
   def destroy
+    movie = Movie.find(params[:movie_id])
+    playlist = Playlist.find(params[:id])
+    @movie_playlist = movie.movie_playlists
+    @movie_playlist.each do |x|
+      if x.playlist == playlist
+        x.destroy
+      end
+    end
+    redirect_to playlist_path(playlist)
   end
 
   private
