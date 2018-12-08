@@ -1,13 +1,20 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  include CloudinaryHelper
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :first_name, :last_name, :username, :avatar, :id
+    attribute :first_name, :last_name, :username, :id
+    add_attribute :avatar_url
     searchableAttributes [:first_name, :last_name, :username]
-    attributesToRetrieve [:first_name, :last_name, :username, :id]
+    attributesToRetrieve [:first_name, :last_name, :username, :avatar_url, :id]
   end
+
+  def avatar_url
+    cloudinary_url(avatar, width: 250, height: 250, crop: :fill)
+  end
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
