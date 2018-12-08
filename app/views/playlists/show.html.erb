@@ -4,14 +4,27 @@
       <%= cl_image_tag @playlist.picture, width: 320, height: 175, crop: :fill %>
     </div>
     <div class="playlist-des">
-      <p><%= @playlist.name  %></p>
-      <p><%= @playlist.description  %></p>
-      <p>by <%= @playlist.user.username  %></p>
+      <h4><%= @playlist.name  %></h4>
+      <p><b>Description:</b> <%= @playlist.description  %></p>
+      <p><b>Owner:</b> <%= link_to @playlist.user.username, user_path(@playlist.user)  %></p>
+      <%= link_to "#" do %>
+          <button id="main_cta">Add to Favourites</button>
+      <% end %>
     </div>
   </div>
   <div class=container-playlist>
     <% @movies.each do |movie| %>
-      <div><%= link_to movie.title, movie_path(movie) %></div>
+    <div class=card-movie-playlist>
+      <%= link_to movie_path(movie) do  %>
+        <div class="movie-cover-playlist">
+         <%= cl_image_tag movie.poster, width: 230, height: 260, crop: :fill %>
+        </div>
+      <% end %>
+      <div class="movie-title-director-playlist">
+        <p class="text-center"><strong><%=h truncate(movie.title, :length => 40) %></strong></p>
+        <p class="text-left">Director: <%= movie.director %></p>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
