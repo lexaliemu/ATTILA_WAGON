@@ -97,7 +97,7 @@ searchPlaylist.addWidget(
     item: `
           <div class="card-movie">
               <div class="poster-movie">
-                <img class ="img-movie" src="{{picture_url}}" height="180" width="180">
+                <img class ="img-playlist" src="{{picture_url}}">
               </div>
               <div class="user-name">
                 <p>{{name}}</p>
