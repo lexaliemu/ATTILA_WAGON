@@ -84,7 +84,7 @@ searchUser.addWidget(
               <div class="user-name">
                 <p>{{{_highlightResult.username.value}}}</p>
               </div>
-              <a href="#" class="resultsalgolia"></a>
+              <a href="/users/{{id}}" class="resultsalgolia"></a>
             </div>`,
     },
   })

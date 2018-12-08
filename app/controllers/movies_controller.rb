@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :search_results
+  # skip_before_action :authenticate_user!, only: :search_results
 
   def index
     @movies = Movie.all
