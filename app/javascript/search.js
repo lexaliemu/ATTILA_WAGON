@@ -79,7 +79,7 @@ searchUser.addWidget(
     item: `
             <div class="card-movie">
               <div class="poster-user">
-                <img class ="img-user" src="https://res.cloudinary.com/dvtjorjay/image/upload/v1543583375/ebkcnta4laj9tp88dcvq.jpg" height="180" width="180">
+                <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
               </div>
               <div class="user-name">
                 <p>{{{_highlightResult.username.value}}}</p>
@@ -97,10 +97,10 @@ searchPlaylist.addWidget(
     item: `
           <div class="card-movie">
               <div class="poster-movie">
-                <img class ="img-movie" src="http://www.yvelinesradio.com/infos_all/photos/2011/Logo-2-Playlist-04-12-2011-21h52-05-La-premeire-de-Playlist.jpg">
+                <img class ="img-movie" src="{{picture_url}}" height="180" width="180">
               </div>
               <div class="user-name">
-                <p>{{{_highlightResult.name.value}}}</p>
+                <p>{{name}}</p>
               </div>
               <a href="/playlists/{{id}}" class="resultsalgolia"></a>
             </div>`,
