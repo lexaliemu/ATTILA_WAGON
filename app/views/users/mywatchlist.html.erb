@@ -11,7 +11,7 @@
           <p class="text-left">Director: <%= item.movie.director %></p>
           <div class="form-inline flexedit">
             <p class="fixed-bottom-left">Rating: <%= item.movie.rating %>/5</p>
-            <p class="fixed-bottom-right"><%= link_to 'DDD', "#", method: :delete, :class => "fas fa-trash-alt"  %></p>
+            <p class="fixed-bottom-right"><%= link_to 'DDD', movie_watchlist_item_path(item.movie, item), method: :delete, :class => "fas fa-trash-alt"  %></p>
           </div>
         </div>
       </div>
