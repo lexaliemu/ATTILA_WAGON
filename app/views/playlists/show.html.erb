@@ -7,8 +7,14 @@
       <h4><%= @playlist.name  %></h4>
       <p><b>Description:</b> <%= @playlist.description  %></p>
       <p><b>Owner:</b> <%= link_to @playlist.user.username, user_path(@playlist.user)  %></p>
-      <%= link_to "#" do %>
+      <% if current_user.followed_playlists.where(playlist: @playlist).empty? %>
+        <%= link_to user_followed_playlists_path(current_user, :@playlist => @playlist), method: :post  do %>
           <button id="main_cta">Add to Favourites</button>
+        <% end %>
+      <% else %>
+       <%= link_to user_followed_playlist_path(current_user, current_user.followed_playlists.where(playlist: @playlist)[0]), method: :delete  do %>
+          <button id="main_cta">Stop Following</button>
+        <% end %>
       <% end %>
     </div>
   </div>
