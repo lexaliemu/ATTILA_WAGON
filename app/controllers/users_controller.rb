@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @playlists = @user.created_playlists
   end
 
+  def mywatchlist
+    @watchlist = current_user.watchlist_items
+  end
+
   def edit
   end
 
