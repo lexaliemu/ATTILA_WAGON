@@ -4,10 +4,23 @@ class WatchlistItemsController < ApplicationController
     @item = WatchlistItem.new()
     @item.movie = @movie
     @item.user = current_user
-    @item.save
-    redirect_to movie_path(@movie)
+    if current_user.watchlist_items.where(movie: @movie).empty?
+      @item.save
+      redirect_to movie_path(@movie)
+    else
+      redirect_to movie_path(@movie)
+    end
   end
 
   def destroy
+    item = WatchlistItem.find(item_param)
+    item.destroy
+    redirect_to mywatchlist_users_path
+  end
+
+  private
+
+  def item_param
+    params.require("id").to_i
   end
 end
