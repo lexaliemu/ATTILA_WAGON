@@ -13,7 +13,7 @@ gem 'redis'
 gem 'faker'
 
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass', '~> 5.0.9'
+gem 'font-awesome-sass', '~> 5.5.0'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
