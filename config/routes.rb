@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     collection do
       get 'mywatchlist', to: "users#mywatchlist"
     end
+    member do
+      post :follow
+      post :unfollow
+    end
     resources :followed_playlists
   end
 end
