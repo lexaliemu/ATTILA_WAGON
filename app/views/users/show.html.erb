@@ -1,11 +1,76 @@
-<h1>Users#show</h1>
-<p> Page of <%= @user.username %> </p>
-<p>its playlists</p>
-<% @playlists.each do |playlist| %>
-  <div><%= link_to playlist.name, playlist_path(playlist) %></div>
-<% end %>
-<p>playlists followed</p>
-<% @user.followed_playlists.each do |x| %>
-  <div><%= link_to x.playlist.name, playlist_path(x.playlist) %></div>
-<% end %>
-<p>people he follows</p>
+<div class="wrapper">
+  <div class="container">
+
+    <div class="header_user_show">
+      <%= cl_image_tag @user.avatar, class: "avatar-user-show", width: 300, height: 300, crop: :fill %>
+      <div class="header_info_user_show">
+        <h2 id="username_user_show" class="header_cta_user_show"><%= @user.first_name %> <%= @user.last_name %></h2>
+        <div class="header_cta_user_show_buttons">
+          <%= link_to "Search for a user to follow", search_results_movies_path, class: "btn btn-primary", id: "shortcut_cta_user_show" %>
+          <%= link_to "Search for a user to follow", search_results_movies_path, class: "btn btn-primary", id: "shortcut_cta_user_show" %>
+          <%= link_to "Search for a user to follow", search_results_movies_path, class: "btn btn-primary", id: "shortcut_cta_user_show" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="title_user_show">
+      <h4><%= @user.first_name %> <%= @user.last_name %>'s lists of movies</h4>
+      <%= link_to "Add a new list", users_path(@user), class: "btn blue" %>
+    </div>
+
+    <!-- <div class="row">
+      <%# @playlists.each do |playlist| %>
+
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <%#= link_to playlist_path(playlist) do %>
+          <div class="card-user-show">
+            <div class="playlist_picture_user_show">
+              <%#= cl_image_tag playlist.picture, width: 100, height: 150, crop: :fill %>
+            </div>
+            <div class="playlist_info_user_show">
+              <p><%#= playlist.name %></p>
+              <p class="date">Created on <%#= playlist.playlist_date.strftime("%B %d, %Y") %></p>
+            </div>
+          </div>
+        <%# end %>
+      </div>
+
+      <%# end %>
+    </div> -->
+
+    <div class="carousel">
+      <div class="multiple-items">
+        <% @playlists.each do |playlist| %>
+          <div class="item">
+            <%= cl_image_tag playlist.picture, height: 200, crop: :fill %>
+            <div class="">test</div>
+          </div>
+        <% end %>
+        <% @playlists.each do |playlist| %>
+          <div class="item">
+            <%= cl_image_tag playlist.picture, height: 200, crop: :fill %>
+            <div class="">test</div>
+          </div>
+        <% end %>
+        <% @playlists.each do |playlist| %>
+          <div class="item">
+            <%= cl_image_tag playlist.picture, height: 200, crop: :fill %>
+            <div class="">test</div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="title_user_show">
+      <h4><%= @user.first_name %> <%= @user.last_name %>'s followed users</h4>
+      <%= link_to "Search for a user", search_results_movies_path, class: "btn blue" %>
+    </div>
+
+    <% @user.followed_playlists.each do |x| %>
+      <div><%= link_to x.playlist.name, playlist_path(x.playlist) %></div>
+    <% end %>
+
+
+  </div>
+</div>
+

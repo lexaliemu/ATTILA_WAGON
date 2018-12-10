@@ -54,63 +54,66 @@ searchPlaylist.addWidget(
 );
 
 // 3. Plug the search results into the product container
-search.addWidget(
-  hits({
-    container: document.querySelector('#resultsMovie'),
-    templates: {
-    item: `
-            <div class="card-movie">
-              <div class="poster-movie">
-                <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
-              </div>
-              <div class="title-movie">
-                <p>{{{_highlightResult.title.value}}}</p>
-              </div>
-              <a href="/movies/{{id}}" class="resultsalgolia"></a>
-            </div>`,
-    },
-  })
-);
+const results = document.querySelector('#resultsMovie');
+if (results) {
+  search.addWidget(
+    hits({
+      container: document.querySelector('#resultsMovie'),
+      templates: {
+      item: `
+              <div class="card-movie">
+                <div class="poster-movie">
+                  <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
+                </div>
+                <div class="title-movie">
+                  <p>{{{_highlightResult.title.value}}}</p>
+                </div>
+                <a href="/movies/{{id}}" class="resultsalgolia"></a>
+              </div>`,
+      },
+    })
+  );
 
-searchUser.addWidget(
-  hits({
-    container: document.querySelector('#resultsUser'),
-    templates: {
-    item: `
-            <div class="card-movie">
-              <div class="poster-user">
-                <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
-              </div>
-              <div class="user-name">
-                <p>{{{_highlightResult.username.value}}}</p>
-              </div>
-              <a href="/users/{{id}}" class="resultsalgolia"></a>
-            </div>`,
-    },
-  })
-);
+  searchUser.addWidget(
+    hits({
+      container: document.querySelector('#resultsUser'),
+      templates: {
+      item: `
+              <div class="card-movie">
+                <div class="poster-user">
+                  <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
+                </div>
+                <div class="user-name">
+                  <p>{{{_highlightResult.username.value}}}</p>
+                </div>
+                <a href="/users/{{id}}" class="resultsalgolia"></a>
+              </div>`,
+      },
+    })
+  );
 
-searchPlaylist.addWidget(
-  hits({
-    container: document.querySelector('#resultsPlaylist'),
-    templates: {
-    item: `
-          <div class="card-movie">
-              <div class="poster-movie">
-                <img class ="img-playlist" src="{{picture_url}}">
-              </div>
-              <div class="user-name">
-                <p>{{name}}</p>
-              </div>
-              <a href="/playlists/{{id}}" class="resultsalgolia"></a>
-            </div>`,
-    },
-  })
-);
+  searchPlaylist.addWidget(
+    hits({
+      container: document.querySelector('#resultsPlaylist'),
+      templates: {
+      item: `
+            <div class="card-movie">
+                <div class="poster-movie">
+                  <img class ="img-playlist" src="{{picture_url}}">
+                </div>
+                <div class="user-name">
+                  <p>{{name}}</p>
+                </div>
+                <a href="/playlists/{{id}}" class="resultsalgolia"></a>
+              </div>`,
+      },
+    })
+  );
 
 
 // 5. Start the search!
-search.start();
-searchUser.start();
-searchPlaylist.start();
+  search.start();
+  searchUser.start();
+  searchPlaylist.start();
+}
 

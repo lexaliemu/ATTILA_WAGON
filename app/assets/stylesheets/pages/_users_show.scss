@@ -1,0 +1,79 @@
+.avatar-user-show {
+  border-radius: 50%;
+}
+
+.title_user_show {
+  display: flex;
+  justify-content: space-between;
+  color: #1E3888;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.header_user_show {
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+#username_user_show {
+  padding-left: 30px;
+}
+
+#shortcut_cta_user_show {
+  margin-left: 30px;
+
+}
+
+.playlist_picture_user_show {
+  margin-right: 10px;
+}
+
+.playlist_info_user_show {
+  margin-right: 10px;
+}
+
+.header_info_user_show {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header_cta_user_show {
+  height: 165px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.header_cta_user_show_buttons {
+  height: 135px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.card-user-show {
+  display: flex;
+  border: none;
+  box-shadow: 0 6px 20px 0 rgba(0,0,0,.19);
+}
+
+.carousel {
+  background-color: black;
+  .multiple-items {
+    width: 94.5%;
+    margin: 0 auto;
+    .slick-arrow {
+      color: blue !important;
+    }
+    .item {
+      margin: 1px;
+      padding: 1px 2px;
+      display: flex !important;
+      background-color: white;
+    }
+  }
+}

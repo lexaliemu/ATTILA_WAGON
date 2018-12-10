@@ -1,76 +1,76 @@
 p {
-  color: #1E3888;
+ color: #1E3888;
 }
 
 
 
 ;.row-wrapper{
-  background-color: white;
-  display: flex;
-  // align-items: flex-start;
-  justify-content: space-around;
-  flex-wrap: wrap;
+ background-color: white;
+ display: flex;
+ // align-items: flex-start;
+ justify-content: space-around;
+ flex-wrap: wrap;
 }
 
 .blue {
-  color: #1E3888;
-  text-decoration: underline;
+ color: #1E3888;
+ text-decoration: underline;
 }
 
 .container-category {
-  background-color: orange;
-  flex: 1 1 auto;
-  // height: 350px;
-  padding: 20px 0;
-  border-radius: 5px;
+ background-color: orange;
+ flex: 1 1 auto;
+ // height: 350px;
+ padding: 20px 0;
+ border-radius: 5px;
 
 }
 
 #category-header {
-  display: flex;
-  justify-content: space-between;
-  color: #1E3888;
-  padding-right: 10px;
-  padding-left: 5px;
-  border-bottom: 1px solid black;
-  margin-bottom: 10px;
+ display: flex;
+ justify-content: space-between;
+ color: #1E3888;
+ padding-right: 10px;
+ padding-left: 5px;
+ border-bottom: 1px solid black;
+ margin-bottom: 10px;
 }
 
 @media (min-width: $screen-xs){
-  .container-category {
-    background: white;
-    flex: 0 0 49%;
-    padding: 20px;
-    margin-bottom: 10px;
-  }
+ .container-category {
+   background: white;
+   flex: 0 0 49%;
+   padding: 20px;
+   margin-bottom: 10px;
+ }
 }
 
 .container-square{
-  background: white;
-  // display: flex;
-  // justify-content: space-around;
-  // flex-wrap: wrap;
+ background: white;
+ // display: flex;
+ // justify-content: space-around;
+ // flex-wrap: wrap;
 }
 
 .container-square-wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
+ display: flex;
+ justify-content: space-between;
+ margin-bottom: 5px;
 }
 
 .square {
-  flex: 0 0 150px;
-  background: white;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 5px;
+ flex: 0 0 150px;
+ background: white;
+ display: flex;
+ justify-content: space-between;
+ border-radius: 5px;
 }
 
 @media (min-width: $screen-xs){
-  .square {
-    flex: 0 0 49%;
-    height: 150px;
-  }
+ .square {
+   flex: 0 0 49%;
+   height: 150px;
+ }
 }
 
 // .container-category, .square {
