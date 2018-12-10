@@ -16,12 +16,8 @@
 
           <div id="add-buttons">
             <div class="title-header-item">
-              <%= link_to movie_watchlist_items_path(@movie), method: "post" do %>
-                <div class="btn-group-toggle add-to-watchlist-button" data-toggle="buttons">
-                  <label class="btn btn-lg active ">
-                    <input type="checkbox" checked autocomplete="off"><i class="fas fa-plus"></i>
-                  </label>
-                </div>
+              <%= link_to movie_watchlist_items_path(@movie), class: "btn btn-lg add-to-watchlist-button", method: "post" do %>
+                    <i class="fas fa-plus"></i>
               <% end %>
             </div>
 
