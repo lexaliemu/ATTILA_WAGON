@@ -29,10 +29,10 @@
       <div class="movie-title-director-playlist">
         <p class="text-center"><strong><%=h truncate(movie.title, :length => 40) %></strong></p>
         <p class="text-left">Director: <%= movie.director %></p>
-        <div class="form-inline flexedit">
-          <p class="fixed-bottom-left">Rating: <%= movie.rating %>/5</p>
+        <div class="rating-trash">
+          <p>Rating: <%= movie.rating %>/5</p>
           <% if @playlist.user == current_user %>
-            <p class="fixed-bottom-right"><%= link_to 'DDD', movie_movie_playlist_path(movie, @playlist), method: :delete, :class => "fas fa-trash-alt"  %></p>
+            <p><%= link_to 'DDD', movie_movie_playlist_path(movie, @playlist), method: :delete, :class => "fas fa-trash-alt"  %></p>
           <% end %>
         </div>
       </div>
