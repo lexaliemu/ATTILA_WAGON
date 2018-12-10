@@ -1,8 +1,10 @@
 <h1>Users#show</h1>
 
-<ul>
-  <%= render @user %>
-</ul>
+<% if @user != current_user %>
+  <ul>
+    <%= render @user %>
+  </ul>
+<% end %>
 
 <p> Page of <%= @user.username %> </p>
 <p>its playlists</p>
