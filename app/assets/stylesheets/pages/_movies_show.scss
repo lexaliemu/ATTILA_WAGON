@@ -1,3 +1,11 @@
+.title-header-item h1 {
+  margin-bottom: 0px;
+}
+
+.release-date {
+  margin-top: 0px;
+}
+
 .poster {
   display: flex;
   align-items: flex-start;
@@ -18,8 +26,8 @@
 }
 
 #show-movie-image {
-  width: 350;
-  height: 700;
+  width: 350px;
+  height: 467px;
 }
 
 .show-cta {
@@ -27,8 +35,6 @@
   justify-content: flex-start;
   margin-top: 20px;
 }
-
-
 
 .together {
   display: space-around;
@@ -38,41 +44,54 @@
   position: relative;
 }
 
-#add-to-watchlist-button {
-  position: absolute;
-  top: 10px;
-  right: 40px;
-  z-index: 1
-}
-
 .btn-outline {
   background-color: white;
   color: #EE5F5C;
 }
 
 .movie-details {
-  h3 {
-    margin-top: 10px;
+  p {
+    margin-top: 0px;
+    font-size: 16px;
   }
 }
 
 .add-to-list-button {
-  margin-left: 5px;
+  margin-left: 1px;
 }
 
 .title-header {
   display: flex;
   justify-content: flex-start;
+  align-items: flex-start;
+  // margin-top: 20px;
+}
+
+.title-header-item {
+  margin-right: 10px;
+  border-radius: 50px;
+}
+
+.add-to-watchlist-button {
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  background: #FFFFFF;
+  color: #1E3888;
+  border-radius: 50%;
+  text-decoration: none;
+  border: 1px solid #1E3888;
+  font-family: "Raleway";
+  display: flex;
   align-items: center;
-  margin-top: 20px;
+  justify-content: center;
 }
 
-.btn-add-to-watchlist {
-  margin-left: 5px;
-  margin-bottom: 20px;
+.round-plus {
+position: absolute;
 }
 
-#main_cta {
+.main-cta {
   cursor: pointer;
   background: #1E3888;
   color: #F7FFF7;
@@ -82,5 +101,51 @@
   height: 45px;
   border: none;
   font-family: "Raleway";
+}
+
+.secondary-cta {
+  cursor: pointer;
+  background: #FFFFFF;
+  color: #1E3888;
+  border-radius: 50px;
+  text-decoration: none;
+  width: 170px;
+  height: 45px;
+  border: 1px solid #1E3888;
+  font-family: "Raleway";
+}
+
+.btn-round {
+  border-radius: 50px;
+  background-color: #1E3888;
+  color: #F7FFF7;
+}
+
+
+
+#dropdown_cta {
+  cursor: pointer;
+
+  color: #1E3888;
+  border-radius: 50px;
+  text-decoration: none;
+  width: 170px;
+  height: 45px;
+  border: 1px solid #1E3888;
+  font-family: "Raleway";
+}
+
+#add-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#watch-btn {
+  display: flex;
+  justify-content: flex-start;
+
+  .show-cta {
+    margin-right: 10px;
+  }
 }
 

@@ -66,9 +66,12 @@
   .multiple-items {
     width: 94.5%;
     margin: 0 auto;
-    .slick-arrow {
-      color: blue !important;
+    .slick-prev:before, .slick-next:before {
+      color: black;
     }
+    // .slick-arrow {
+    //   color: blue !important;
+    // }
     .item {
       margin: 1px;
       padding: 1px 2px;
@@ -77,3 +80,4 @@
     }
   }
 }
+

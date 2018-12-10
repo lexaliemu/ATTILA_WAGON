@@ -18,21 +18,35 @@
       <% end %>
     </div>
   </div>
-  <div class=container-playlist-show>
+  <div class="container-playlist-show">
     <% @movies.each do |movie| %>
-    <div class=card-movie-playlist>
+    <div class="card-movie-playlist">
       <%= link_to movie_path(movie) do  %>
         <div class="movie-cover-playlist">
-         <%= cl_image_tag movie.poster, width: 230, height: 260, crop: :fill %>
+         <%= cl_image_tag movie.poster, width: 200, height: 250, crop: :fill %>
         </div>
       <% end %>
-      <div class="movie-title-director-playlist">
-        <p class="text-center"><strong><%=h truncate(movie.title, :length => 40) %></strong></p>
-        <p class="text-left">Director: <%= movie.director %></p>
+      <div class="title-movie">
+        <div class="title-movie-value">
+          <p class="font-weight-bold "><%=h truncate(movie.title, :length => 40) %></p>
+        </div>
+        <p class="text-truncate" style="max-width: 180px;">By <%= movie.director %></p>
         <div class="rating-trash">
-          <p>Rating: <%= movie.rating %>/5</p>
+          <% if movie.rating == 0 %>
+            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          <% elsif movie.rating == 1 %>
+            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          <% elsif movie.rating == 2 %>
+            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          <% elsif movie.rating == 3 %>
+            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+          <% elsif movie.rating == 4 %>
+            <p>fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i></p>
+          <% else %>
+            <p>fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i></p>
+          <% end %>
           <% if @playlist.user == current_user %>
-            <p><%= link_to 'DDD', movie_movie_playlist_path(movie, @playlist), method: :delete, :class => "fas fa-trash-alt"  %></p>
+            <p><%= link_to '', movie_movie_playlist_path(movie, @playlist), method: :delete, :class => "fas fa-trash-alt"  %></p>
           <% end %>
         </div>
       </div>

@@ -60,16 +60,22 @@ if (results) {
     hits({
       container: document.querySelector('#resultsMovie'),
       templates: {
-      item: `
-              <div class="card-movie">
-                <div class="poster-movie">
-                  <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
-                </div>
-                <div class="title-movie">
-                  <p>{{{_highlightResult.title.value}}}</p>
-                </div>
-                <a href="/movies/{{id}}" class="resultsalgolia"></a>
-              </div>`,
+      item:
+        `
+          <div class="card-movie">
+            <div class="poster-movie">
+              <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
+            </div>
+            <div class="title-movie">
+              <div class="title-movie-value"
+                <p class="font-weight-bold">{{{_highlightResult.title.value}}}</p>
+              </div>
+              <p class="text-truncate" style="max-width: 180px;">By {{director}}</p>
+              <p class=" star-all star-{{rating}}"></p>
+            </div>
+            <a href="/movies/{{id}}" class="resultsalgolia"></a>
+          </div>
+        `,
       },
     })
   );
@@ -78,16 +84,18 @@ if (results) {
     hits({
       container: document.querySelector('#resultsUser'),
       templates: {
-      item: `
-              <div class="card-movie">
-                <div class="poster-user">
-                  <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
-                </div>
-                <div class="user-name">
-                  <p>{{{_highlightResult.username.value}}}</p>
-                </div>
-                <a href="/users/{{id}}" class="resultsalgolia"></a>
-              </div>`,
+      item:
+        `
+          <div class="card-movie">
+            <div class="poster-user">
+              <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
+            </div>
+            <div class="user-name">
+              <p class="font-weight-bold">{{{_highlightResult.username.value}}}</p>
+            </div>
+            <a href="/users/{{id}}" class="resultsalgolia"></a>
+          </div>
+        `,
       },
     })
   );
@@ -96,20 +104,44 @@ if (results) {
     hits({
       container: document.querySelector('#resultsPlaylist'),
       templates: {
-      item: `
-            <div class="card-movie">
-                <div class="poster-movie">
-                  <img class ="img-playlist" src="{{picture_url}}">
-                </div>
-                <div class="user-name">
-                  <p>{{name}}</p>
-                </div>
-                <a href="/playlists/{{id}}" class="resultsalgolia"></a>
-              </div>`,
+      item:
+        `
+          <div class="card-movie">
+            <div class="poster-movie">
+              <img class ="img-playlist" src="{{picture_url}}">
+            </div>
+            <div class="user-name">
+              <p class="font-weight-bold">{{name}}</p>
+            </div>
+            <a href="/playlists/{{id}}" class="resultsalgolia"></a>
+          </div>
+        `,
       },
     })
   );
 
+search.on('render', function(){
+  document.querySelectorAll(".star-all").forEach((star) => {
+    if(star.classList.contains('star-0')) {
+      star.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+    }
+    if(star.classList.contains('star-1')) {
+      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+    }
+    if(star.classList.contains('star-2')) {
+      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+    }
+    if(star.classList.contains('star-3')) {
+      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+    }
+    if(star.classList.contains('star-4')) {
+      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i>'
+    }
+    if(star.classList.contains('star-5')) {
+      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i>'
+    }
+  });
+});
 
 // 5. Start the search!
   search.start();

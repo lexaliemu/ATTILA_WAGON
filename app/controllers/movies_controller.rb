@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
     @categories = @movie.categories.order(:name)
     @user = current_user
     @playlists = @user.created_playlists
+    @user
   end
 
   def search_results

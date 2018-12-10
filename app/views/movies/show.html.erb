@@ -9,12 +9,41 @@
       </div>
       <div class="col-md-6 movie-details">
         <div class="title-header">
-          <h1><%= @movie.title %></h1>
-          <%= link_to movie_watchlist_items_path(@movie), method: "post" do %>
-            <button type="button" class="btn btn-outline-secondary btn-sm inactive">+</button>
-          <% end %>
+          <div class="title-header-item">
+            <h1><%= @movie.title %></h1>
+          </div>
+
+
+          <div id="add-buttons">
+            <div class="title-header-item">
+              <%= link_to movie_watchlist_items_path(@movie), class: "btn btn-lg add-to-watchlist-button", method: "post" do %>
+                    <i class="fas fa-plus"></i>
+              <% end %>
+            </div>
+
+
+
+            <div class="dropdown">
+              <button class="btn btn-lg secondary-cta" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="main-cta"></i><i class="fas fa-plus"></i> Add to List
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <% @playlists.each do |playlist| %>
+                  <%= link_to playlist.name, movie_movie_playlists_path(@movie, :@playlist => playlist), method: "post", class: "dropdown-item" %>
+                <% end %>
+                <a class="dropdown-item"
+                  <%= link_to movies_path(@movie), class: "nav-link" do%>
+                    <p><b>+ New List</b></p>
+                  <% end %>
+              </div>
+            </div>
+
+
+
+
+          </div>
         </div>
-        <h3><%= @movie.release_date %></h3>
+        <p class="release-date"><%= @movie.release_date %></p>
         <hr>
         <p><b>Directed by:</b> <%= @movie.director %></p>
         <p><b>Duration:</b> <%= @movie.duration %></p>
@@ -23,31 +52,36 @@
             <%= category.name %>
           <% end %>
         <p><b>Syllabus:</b> <%= @movie.syllabus %></p>
-        <div class="show-cta">
-          <%# if @movie.user == @user || @movie_rented.include?(@movie) %>
+
+          <div id="watch-btn">
+            <div class="show-cta">
             <%= link_to watch_movie_path(@movie) do %>
-              <button id="main_cta">Watch this movie</button>
+              <button class="main-cta"><i class="fas fa-play mr-3"></i>Movie</button>
             <% end %>
-            <div class="dropdown add-to-list-button">
-              <button class="btn btn-outline-danger btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i id="main_cta"></i> Add to PlayList
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <% @playlists.each do |playlist| %>
-                  <%= link_to playlist.name, movie_movie_playlists_path(@movie, :@playlist => playlist), method: "post", class: "dropdown-item" %>
-                <% end %>
-                <a class="dropdown-item"
-                  <%= link_to movies_path(@movie), class: "nav-link" do%>
-                    <p><b>+ Add to list</b></p>
-                  <% end %>
-                  <%#= link_to '>> New Playlist', movie_path(@movie) %></a>
-              </div>
             </div>
+            <div class="show-cta">
+              <%= link_to watch_movie_path(@movie) do %>
+                <button class="secondary-cta"><i class="fas fa-play mr-3"></i>Trailer</button>
+              <% end %>
+            </div>
+          </div>
+
+          <hr>
+          <div>
+            <% if @movie.reviews.any? %>
+            <div class="same-line together">
+              <p><b>Average rate</b>: </p><span class="stars"><%= @movie.rating %></span>
+            </div>
+            <% @movie.reviews.each do |review| %>
+              <div class="same-line">
+                <p>- "<%= review.comment %>" (posted by <%= review.user.username %> on <%= review.review_date %>)</p><span class="stars"><%= review.rate %></span>
+              </div>
+            <% end %>
+          <% else %>
+            <p>This movie does not have any review yet; rent it to be able to add a review!</p>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
