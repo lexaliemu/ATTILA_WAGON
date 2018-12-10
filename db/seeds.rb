@@ -9,6 +9,7 @@ key4 = 'apikey=d8b03b0'
 
 puts 'Deleting all classes'
 WatchlistItem.destroy_all
+FollowedPlaylist.destroy_all
 MoviePlaylist.destroy_all
 Playlist.destroy_all
 Review.destroy_all
