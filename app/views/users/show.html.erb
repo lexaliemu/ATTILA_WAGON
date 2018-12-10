@@ -1,4 +1,9 @@
 <h1>Users#show</h1>
+
+<ul>
+  <%= render @user %>
+</ul>
+
 <p> Page of <%= @user.username %> </p>
 <p>its playlists</p>
 <% @playlists.each do |playlist| %>
@@ -9,3 +14,6 @@
   <div><%= link_to x.playlist.name, playlist_path(x.playlist) %></div>
 <% end %>
 <p>people he follows</p>
+<% @user.following.each do |x| %>
+  <p> <%= link_to x.username, user_path(x) %>
+<% end %>
