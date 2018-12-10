@@ -1,3 +1,12 @@
+.yellow-star {
+  color: #FDB631;
+}
+.font12 {
+  font-size:12px;
+}
+.title-search-heigth {
+  height:40px;
+}
 
 .container-search {
   flex: 1;
@@ -49,6 +58,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  color: black;
 }
 
 .poster-movie {
@@ -71,12 +81,14 @@
 .title-movie {
   flex: 0 0 80px;
   text-align: center;
+  margin: 5px;
 }
 
 .title-movie p {
-  margin: 5px;
   color: black;
   font-weight: 50;
+  margin-bottom: 0;
+  font-size: 14px;
 }
 
 .resultsalgolia {
@@ -123,6 +135,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
 }
 
 .user-name p {
@@ -135,4 +148,11 @@
   width: 200px;
   height: 200px;
   background-size: cover;
+}
+
+.title-movie-value {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:40px;
 }
