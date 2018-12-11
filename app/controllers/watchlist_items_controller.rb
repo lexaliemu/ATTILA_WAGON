@@ -15,7 +15,7 @@ class WatchlistItemsController < ApplicationController
   def destroy
     item = WatchlistItem.find(item_param)
     item.destroy
-    redirect_to mywatchlist_users_path
+    redirect_to request.referrer
   end
 
   private

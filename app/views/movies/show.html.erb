@@ -14,8 +14,14 @@
           </div>
           <div id="add-buttons">
             <div class="title-header-item">
-              <%= link_to movie_watchlist_items_path(@movie), class: "btn btn-lg add-to-watchlist-button", method: "post" do %>
-                    <i class="fas fa-plus"></i>
+              <% if @user.inwatchlist?(@movie) %>
+                <%= link_to movie_watchlist_item_path(@movie, @watchlist_item), class: "btn btn-lg add-to-watchlist-button", method: :delete do  %>
+                  <i class="fas fa-check"></i>
+                <% end %>
+              <% else %>
+                <%= link_to movie_watchlist_items_path(@movie), class: "btn btn-lg add-to-watchlist-button", method: "post" do %>
+                  <i class="fas fa-plus"></i>
+                <% end %>
               <% end %>
             </div>
             <div class="dropdown">
