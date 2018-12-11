@@ -1,54 +1,59 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path do %>
-    <%= image_tag "logo_attila_original.png", height: 50 %>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <div class="watchlist">
-      <%= link_to "My watchlist", mywatchlist_users_path, class: "navbar-attila-item navbar-attila-link" %>
-    </div>
-  <% end %>
-
-  <!-- Searchbar -->
-  <%= link_to search_results_movies_path do %>
-    <%= form_tag search_results_movies_path, method: :get, data: { algolia_api_key: ENV['ALGOLIA_API_KEY'], algolia_app_id: ENV['ALGOLIA_APPLICATION_ID']}, id: 'search' do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control search-layout navbar-search",
-        id: 'search-input',
-        placeholder: 'Search for a movie'
-        %>
+  <div class="left-navigation">
+    <!-- Logo -->
+    <%= link_to root_path do %>
+      <%= image_tag "logo_attila_original.png", height: 50 %>
     <% end %>
-  <% end %>
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <!-- Watchlist link -->
     <% if user_signed_in? %>
-      <!-- Links when logged in -->
-
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-attila-avatar">
-        <div class="dropdown">
-          <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", crop: :fit %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="fa fa-user navbar-link"></i> <%= t(".profile", default: "Profile", class: "navbar-link") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-               <i class="fas fa-sign-out-alt navbar-link"></i>  <%= t(".sign_out", default: "Log out", class: "navbar-link") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+      <div id="watchlist">
+        <%= link_to "My watchlist", mywatchlist_users_path, class: "navbar-attila-item navbar-attila-link" %>
       </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-attila-item navbar-attila-link" %>
     <% end %>
+  </div>
+
+  <div class="right-navigation">
+    <!-- Searchbar -->
+    <%= link_to search_results_movies_path do %>
+      <%= form_tag search_results_movies_path, method: :get, data: { algolia_api_key: ENV['ALGOLIA_API_KEY'], algolia_app_id: ENV['ALGOLIA_APPLICATION_ID']}, id: 'search' do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-layout navbar-search",
+          id: 'search-input',
+          placeholder: 'Search for a movie'
+          %>
+      <% end %>
+    <% end %>
+
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <% if user_signed_in? %>
+        <!-- Links when logged in -->
+
+        <!-- Avatar with dropdown menu -->
+        <div class="navbar-attila-avatar">
+          <div class="dropdown">
+            <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", crop: :fit %>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <i class="fa fa-user navbar-link"></i> <%= t(".profile", default: "Profile", class: "navbar-link") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                 <i class="fas fa-sign-out-alt navbar-link"></i>  <%= t(".sign_out", default: "Log out", class: "navbar-link") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% else %>
+        <!-- Login link (when logged out) -->
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-attila-item navbar-attila-link" %>
+      <% end %>
+    </div>
+
   </div>
 </div>
 

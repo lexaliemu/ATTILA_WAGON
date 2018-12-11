@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+    @alice = 'home'
     # THRILLER MOVIES
     @thriller_categories = Category.where("name ILIKE ?", "%thriller%")
     @thriller_movies = Movie.joins(:movie_categories).
@@ -23,4 +24,5 @@ class PagesController < ApplicationController
       where(movie_categories: { category_id: @adventure_categories.pluck(:id) }).
       limit(4)
   end
+
 end
