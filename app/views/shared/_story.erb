@@ -1,16 +1,22 @@
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
-<div class="story-box"></div>
+<% activities.each do |activity|  %>
+    <% if activity.owner != nil && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable %>
+    <div class="story-box">
+      <div class="story-box-img">
+        <%= cl_image_tag activity.owner.avatar, class: "box-img", crop: :fill %>
+      </div>
+      <div class="story-box-des">
+        <p><%= link_to activity.owner.username, user_path(activity.owner) %></p>
+        <% if activity.key == "order.update" %>
+          <p>is watching</p>
+          <p><%= link_to activity.trackable.movie.title, movie_path(activity.trackable.movie) %></p>
+        <% elsif activity.key == "follow.create" %>
+          <p>now follows</p>
+          <p><%= link_to activity.trackable.following.username, user_path(activity.trackable.following) %></p>
+        <% else %>
+          <p> now follows</p>
+          <p><%= link_to activity.trackable.playlist.name, playlist_path(activity.trackable.playlist) %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
