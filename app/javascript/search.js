@@ -54,69 +54,71 @@ searchPlaylist.addWidget(
 );
 
 // 3. Plug the search results into the product container
-search.addWidget(
-  hits({
-    container: document.querySelector('#resultsMovie'),
-    templates: {
-    item:
-      `
-        <div class="card-movie">
-          <div class="poster-movie">
-            <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
-          </div>
-          <div class="title-movie">
-            <div class="title-movie-value"
-              <p class="font-weight-bold">{{{_highlightResult.title.value}}}</p>
+const results = document.querySelector('#resultsMovie');
+if (results) {
+  search.addWidget(
+    hits({
+      container: document.querySelector('#resultsMovie'),
+      templates: {
+      item:
+        `
+          <div class="card-movie">
+            <div class="poster-movie">
+              <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
             </div>
-            <p class="text-truncate" style="max-width: 180px;">By {{director}}</p>
-            <p class=" star-all star-{{rating}}"></p>
+            <div class="title-movie">
+              <div class="title-movie-value"
+                <p class="font-weight-bold">{{{_highlightResult.title.value}}}</p>
+              </div>
+              <p class="text-truncate" style="max-width: 180px;">By {{director}}</p>
+              <p class=" star-all star-{{rating}}"></p>
+            </div>
+            <a href="/movies/{{id}}" class="resultsalgolia"></a>
           </div>
-          <a href="/movies/{{id}}" class="resultsalgolia"></a>
-        </div>
-      `,
-    },
-  })
-);
+        `,
+      },
+    })
+  );
 
-searchUser.addWidget(
-  hits({
-    container: document.querySelector('#resultsUser'),
-    templates: {
-    item:
-      `
-        <div class="card-movie">
-          <div class="poster-user">
-            <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
+  searchUser.addWidget(
+    hits({
+      container: document.querySelector('#resultsUser'),
+      templates: {
+      item:
+        `
+          <div class="card-movie">
+            <div class="poster-user">
+              <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
+            </div>
+            <div class="user-name">
+              <p class="font-weight-bold">{{{_highlightResult.username.value}}}</p>
+            </div>
+            <a href="/users/{{id}}" class="resultsalgolia"></a>
           </div>
-          <div class="user-name">
-            <p class="font-weight-bold">{{{_highlightResult.username.value}}}</p>
-          </div>
-          <a href="/users/{{id}}" class="resultsalgolia"></a>
-        </div>
-      `,
-    },
-  })
-);
+        `,
+      },
+    })
+  );
 
-searchPlaylist.addWidget(
-  hits({
-    container: document.querySelector('#resultsPlaylist'),
-    templates: {
-    item:
-      `
-        <div class="card-movie">
-          <div class="poster-movie">
-            <img class ="img-playlist" src="{{picture_url}}">
+  searchPlaylist.addWidget(
+    hits({
+      container: document.querySelector('#resultsPlaylist'),
+      templates: {
+      item:
+        `
+          <div class="card-movie">
+            <div class="poster-movie">
+              <img class ="img-playlist" src="{{picture_url}}">
+            </div>
+            <div class="user-name">
+              <p class="font-weight-bold">{{name}}</p>
+            </div>
+            <a href="/playlists/{{id}}" class="resultsalgolia"></a>
           </div>
-          <div class="user-name">
-            <p class="font-weight-bold">{{name}}</p>
-          </div>
-          <a href="/playlists/{{id}}" class="resultsalgolia"></a>
-        </div>
-      `,
-    },
-  })
-);
+        `,
+      },
+    })
+  );
 
 search.on('render', function(){
   document.querySelectorAll(".star-all").forEach((star) => {
@@ -141,10 +143,9 @@ search.on('render', function(){
   });
 });
 
-
-
 // 5. Start the search!
-search.start();
-searchUser.start();
-searchPlaylist.start();
+  search.start();
+  searchUser.start();
+  searchPlaylist.start();
+}
 
