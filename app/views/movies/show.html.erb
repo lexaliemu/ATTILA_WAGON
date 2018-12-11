@@ -72,8 +72,6 @@
                 <% end %>
               </div>
             </div>
-
-
             <% @movie.reviews.each do |review| %>
               <div>
                 <p class="user-comment">- "<%= review.comment %>" (posted by <%= review.user.username %> on <%= review.review_date %>)</p>
