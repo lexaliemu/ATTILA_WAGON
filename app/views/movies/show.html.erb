@@ -12,17 +12,12 @@
           <div class="title-header-item">
             <h1><%= @movie.title %></h1>
           </div>
-
-
           <div id="add-buttons">
             <div class="title-header-item">
               <%= link_to movie_watchlist_items_path(@movie), class: "btn btn-lg add-to-watchlist-button", method: "post" do %>
                     <i class="fas fa-plus"></i>
               <% end %>
             </div>
-
-
-
             <div class="dropdown">
               <button class="btn btn-lg secondary-cta" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="main-cta"></i><i class="fas fa-plus"></i> Add to List
@@ -37,10 +32,6 @@
                   <% end %>
               </div>
             </div>
-
-
-
-
           </div>
         </div>
         <p class="release-date"><%= @movie.release_date %></p>
@@ -65,16 +56,35 @@
               <% end %>
             </div>
           </div>
-
           <hr>
           <div>
             <% if @movie.reviews.any? %>
-            <div class="same-line together">
-              <p><b>Average rate</b>: </p><span class="stars"><%= @movie.rating %></span>
+            <div class="same-line">
+              <div class="rating-items">
+                <p><b>Average rate</b>:</p>
+              </div>
+              <div class="rating-items">
+                <% @movie.rating.times do %>
+                  <i class="fas fa-star yellow-star"></i>
+                <% end %>
+                <% (5 - @movie.rating).times do %>
+                  <i class="fas fa-star black-star"></i>
+                <% end %>
+              </div>
             </div>
+
+
             <% @movie.reviews.each do |review| %>
-              <div class="same-line">
-                <p>- "<%= review.comment %>" (posted by <%= review.user.username %> on <%= review.review_date %>)</p><span class="stars"><%= review.rate %></span>
+              <div>
+                <p class="user-comment">- "<%= review.comment %>" (posted by <%= review.user.username %> on <%= review.review_date %>)</p>
+                <div>
+                  <% @movie.rating.times do %>
+                    <i class="fas fa-star yellow-star"></i>
+                  <% end %>
+                  <% (5 - @movie.rating).times do %>
+                    <i class="fas fa-star black-star"></i>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           <% else %>
