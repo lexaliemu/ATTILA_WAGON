@@ -30,11 +30,6 @@
   height: 467px;
 }
 
-.show-cta {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 20px;
-}
 
 .same-line {
   display: flex;
@@ -116,6 +111,11 @@ position: absolute;
   font-family: "Raleway";
 }
 
+.show-cta {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
 .secondary-cta {
   cursor: pointer;
   background: #FFFFFF;
@@ -156,9 +156,5 @@ position: absolute;
 #watch-btn {
   display: flex;
   justify-content: flex-start;
-
-  .show-cta {
-    margin-right: 10px;
-  }
 }
 
