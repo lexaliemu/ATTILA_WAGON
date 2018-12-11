@@ -115,6 +115,7 @@ position: absolute;
   display: flex;
   justify-content: flex-start;
   margin-top: 20px;
+  margin-right: 10px;
 }
 .secondary-cta {
   cursor: pointer;
@@ -158,3 +159,6 @@ position: absolute;
   justify-content: flex-start;
 }
 
+.movie-title-director-home p {
+  height: 30%;
+}

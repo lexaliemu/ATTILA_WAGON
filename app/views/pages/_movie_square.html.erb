@@ -1,12 +1,20 @@
 <div class="square">
   <%= link_to movie_path(movie) do  %>
     <div class="movie-cover">
-      <%= cl_image_tag movie.poster, width: 100, height: 150, crop: :fit %>
+      <%= cl_image_tag movie.poster, width: 120, height: 150, crop: :fit %>
     </div>
   <% end %>
-  <div class="movie-title-director">
+  <div class="movie-title-director-home">
     <p><strong><%=h truncate(movie.title, :length => 40) %></strong></p>
-    <p><%= movie.director %></p>
+    <p>By <%= movie.director %></p>
+    <div class=movie-stars-home>
+      <% movie.rating.times do %>
+        <i class="fas fa-star yellow-star"></i>
+      <% end %>
+      <% (5 - movie.rating).times do %>
+        <i class="fas fa-star black-star"></i>
+      <% end %>
+    </div>
   </div>
 </div>
 
