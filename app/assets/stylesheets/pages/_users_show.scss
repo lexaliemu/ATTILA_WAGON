@@ -5,16 +5,14 @@
 .title_user_show {
   display: flex;
   justify-content: space-between;
-  color: #1E3888;
   border-bottom: 1px solid black;
   margin-bottom: 10px;
 }
 
 .header_user_show {
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-bottom: 30px;
   display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
   align-items: center;
   justify-content: start;
 }
@@ -34,15 +32,12 @@
   // margin-right: 10px;
 }
 
-.playlist_info_user_show {
-  // margin-right: 10px;
-}
-
 .header_info_user_show {
   height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 0px;
 }
 
 .header_cta_user_show {
@@ -51,11 +46,15 @@
   align-items: flex-end;
 }
 
-.header_cta_user_show_buttons {
-  height: 135px;
-  display: flex;
-  align-items: flex-end;
-}
+// .header_search_button_user {
+//   height: 135px;
+//   display: flex;
+//   align-items: flex-start;
+//   .spaces-arround {
+//   justify-content: spaces-arround;
+//   }
+// }
+
 
 .card-user-show {
   display: flex;
@@ -89,7 +88,7 @@
   border: none;
 }
 
-.main-cta-user-show {
+.main-cta {
   cursor: pointer;
   background: #1E3888;
   color: #F7FFF7;
@@ -98,10 +97,8 @@
   width: 170px;
   height: 45px;
   border: none;
-
-  display: inline-block;
   text-align: center !important;
   font-family: "Raleway";
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  outline: none;
 }
-
