@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
     @categories = @movie.categories.order(:name)
     @user = current_user
     @playlists = @user.created_playlists
-    @user
+    @watchlist_item = @user.watchlist_items.find { |wi| wi.movie == @movie }
   end
 
   def search_results

@@ -47,4 +47,10 @@ class User < ApplicationRecord
     relationship = Follow.find_by(follower_id: id, following_id: user_id)
     return true if relationship
   end
+
+  def inwatchlist?(movie)
+    watchlist = self.watchlist_items
+    movies = watchlist.map { |x| x.movie }
+    movies.include?(movie)
+  end
 end
