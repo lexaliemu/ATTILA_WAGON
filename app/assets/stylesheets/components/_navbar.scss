@@ -1,5 +1,6 @@
 /* Main navbar */
 $navbar-height: 70px;
+
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
@@ -21,8 +22,8 @@ $navbar-height: 70px;
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -33,19 +34,34 @@ $navbar-height: 70px;
   justify-content: space-between;
 }
 
-/* Basic navbar item */
-.navbar-wagon-item {
+.navbar-attila-item {
   cursor: pointer;
-  padding: 0 20px;
+  min-width: 125px;
+}
+
+.navbar-attila-avatar {
+  cursor: pointer;
+}
+
+.watchlist {
+  display: flex;
 }
 
 /* Navbar link */
-.navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+.navbar-attila-link {
+  color: #1E3888 !important;
+  font-size: 18px !important;
+  justify-content: start !important;
 }
-.navbar-wagon-link:hover {
-  color: #da552f;
+.navbar-attila-link:hover {
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+.navbar-link {
+  color: #1E3888;
+  font-size: 18px;
+  padding-right: 10px;
   text-decoration: none;
 }
 
@@ -57,15 +73,13 @@ $navbar-height: 70px;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
+
   line-height: 22px !important;
   padding: 10px 20px;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
@@ -78,4 +92,24 @@ $navbar-height: 70px;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+#search {
+  width: 100%;
+  text-align: right;
+  .navbar-search {
+    // background-color: #FFFFFF;
+    // width: 100%;
+    // color: #1E3888 !important;
+    border-radius: 50px !important;
+    // text-decoration: none;
+    // border: 1px solid #1E3888;
+    // border-radius: 0.25rem;
+    // display: block;
+    // font-family: "Raleway";
+    // height: calc(2.25rem + 2px);
+    // padding: 0.375rem 0.75rem;
+    // font-size: 1rem;
+    // line-height: 1.5;
+  }
 }
