@@ -22,4 +22,7 @@ Rails.application.routes.draw do
     end
     resources :followed_playlists
   end
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 end
