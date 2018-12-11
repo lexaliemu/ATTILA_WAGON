@@ -54,11 +54,17 @@
         <p><b>Syllabus:</b> <%= @movie.syllabus %></p>
 
           <div id="watch-btn">
-            <div class="show-cta">
-            <%= link_to watch_movie_path(@movie) do %>
-              <button class="main-cta"><i class="fas fa-play mr-3"></i>Movie</button>
+            <% if current_user.orders.where(movie: @movie).empty? %>
+              <div class="show-cta">
+                <button class="main-cta"><i class="fas fa-play mr-3"></i>Buy</button>
+              </div>
+            <% else %>
+              <div class="show-cta">
+              <%= link_to watch_movie_path(@movie) do %>
+                <button class="main-cta"><i class="fas fa-play mr-3"></i>Movie</button>
+              <% end %>
+              </div>
             <% end %>
-            </div>
             <div class="show-cta">
               <%= link_to watch_movie_path(@movie) do %>
                 <button class="secondary-cta"><i class="fas fa-play mr-3"></i>Trailer</button>
@@ -84,4 +90,8 @@
       </div>
     </div>
   </div>
+  <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'movie_id', @movie.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
 </div>

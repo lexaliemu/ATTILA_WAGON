@@ -8,6 +8,7 @@ key3 = 'apikey=249b1617'
 key4 = 'apikey=d8b03b0'
 
 puts 'Deleting all classes'
+Order.destroy_all
 WatchlistItem.destroy_all
 FollowedPlaylist.destroy_all
 MoviePlaylist.destroy_all
@@ -106,7 +107,7 @@ list_movies1.each do |movie|
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-      price: [3, 4, 5].sample,
+      price: [300, 400, 500].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
     })
@@ -134,7 +135,7 @@ list_movies2.each do |movie|
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-      price: [3, 4, 5].sample,
+      price: [300, 400, 500].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
     })
@@ -162,7 +163,7 @@ list_movies3.each do |movie|
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-      price: [3, 4, 5].sample,
+      price: [300, 400, 500].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
     })
@@ -190,7 +191,7 @@ end
         actors: movie_hash['Actors'],
         movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
         rating: movie_hash['imdbRating'].to_i.fdiv(2),
-        price: [3, 4, 5].sample,
+        price: [300, 400, 500].sample,
         trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
         number_rates: movie_hash['imdbVotes'],
       })

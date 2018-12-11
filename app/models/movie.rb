@@ -23,5 +23,6 @@ class Movie < ApplicationRecord
   validates :duration, presence: true
   validates :syllabus, length: { minimum: 10 }
   validates :price, presence: true
+  monetize :price_cents
   mount_uploader :poster, PosterUploader
 end
