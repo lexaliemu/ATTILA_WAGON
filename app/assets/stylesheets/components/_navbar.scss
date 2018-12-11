@@ -15,6 +15,11 @@ $navbar-height: 70px;
   z-index: 1;
 }
 
+.right-navigation, .left-navigation {
+  display: flex;
+  align-items: center;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -22,6 +27,7 @@ $navbar-height: 70px;
 
 /* User Avatar */
 .navbar-wagon .avatar {
+  margin-left: 20px;
   height: 45px;
   width: 45px;
   border-radius: 50%;
@@ -43,9 +49,11 @@ $navbar-height: 70px;
   cursor: pointer;
 }
 
-.watchlist {
-  display: flex;
+#watchlist {
+  margin-left: 20px;
 }
+
+
 
 /* Navbar link */
 .navbar-attila-link {

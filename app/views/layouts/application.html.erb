@@ -37,10 +37,12 @@
         <%= yield %>
       </div>
       <%# unless :devise_controller? %>
-      <div class="container-story">
-          <%= render 'shared/story' %>
-      </div>
-          <%# end %>
+      <% if @alice != 'home' %>
+
+        <div class="container-story">
+            <%= render 'shared/story' %>
+        </div>
+      <% end %>
     </div>
     <%= render 'shared/footer' %>
     <div id="resultsMovie" style="display: none"></div>
