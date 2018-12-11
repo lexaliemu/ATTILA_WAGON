@@ -1,0 +1,12 @@
+<h1>Activities#index</h1>
+<% @activities.each do |activity| %>
+  <p><%= activity.inspect %></p>
+  <%= link_to activity.owner.username, activity.owner if activity.owner %>
+<% end %>
+<p>xxxxxxxxxxxxxxxxxxxxxx</p>
+<% activities.each do |activity| %>
+  <% if current_user.is_following?(activity.owner) %>
+    <p><%= activity.trackable%></p>
+    <%= link_to activity.owner.username, activity.owner if activity.owner %>
+  <% end %>
+<% end %>
