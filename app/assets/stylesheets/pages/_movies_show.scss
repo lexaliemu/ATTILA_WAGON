@@ -36,8 +36,21 @@
   margin-top: 20px;
 }
 
-.together {
-  display: space-around;
+.same-line {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rating-items {
+  margin-right: 10px;
+}
+
+.column-direction {
+  flex-direction: column;
+}
+
+.user-comment {
+  margin-bottom: 0px;
 }
 
 #show-movie-image {
