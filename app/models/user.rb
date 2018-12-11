@@ -35,6 +35,8 @@ class User < ApplicationRecord
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
   has_many :following, through: :following_relationships, source: :following
 
+  has_many :orders
+
   def follow(user_id)
     following_relationships.create(following_id: user_id)
   end
@@ -46,5 +48,11 @@ class User < ApplicationRecord
   def is_following?(user_id)
     relationship = Follow.find_by(follower_id: id, following_id: user_id)
     return true if relationship
+  end
+
+  def inwatchlist?(movie)
+    watchlist = self.watchlist_items
+    movies = watchlist.map { |x| x.movie }
+    movies.include?(movie)
   end
 end
