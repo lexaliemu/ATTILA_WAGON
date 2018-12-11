@@ -1,67 +1,509 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+    <style>
+     * {
+         -moz-box-sizing:border-box;
+         -webkit-box-sizing:border-box;
+         box-sizing:border-box;
+     }
+
+     html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+     abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+     small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+     fieldset, form, label, legend, caption, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup,
+     menu, nav, section, summary, time, mark, audio, video {
+         margin:0;
+         padding:0;
+         border:0;
+         outline:0;
+         vertical-align:baseline;
+         background:transparent;
+     }
+
+     article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+         display: block;
+     }
+
+     html {
+         font-size: 16px;
+         line-height: 24px;
+         width:100%;
+         height:100%;
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         overflow-y:scroll;
+         overflow-x:hidden;
+     }
+
+     img {
+         vertical-align:middle;
+         max-width: 100%;
+         height: auto;
+         border: 0;
+         -ms-interpolation-mode: bicubic;
+     }
+
+     body {
+         min-height:100%;
+         -webkit-font-smoothing: subpixel-antialiased;
+     }
+
+     .clearfix {
+         clear:both;
+         zoom: 1;
+     }
+     .clearfix:before, .clearfix:after {
+         content: "\0020";
+         display: block;
+         height: 0;
+         visibility: hidden;
+     }
+     .clearfix:after {
+         clear: both;
+     }
+    </style>
+    <style>
+  body.background.error-page-wrapper, .background.error-page-wrapper.preview {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    position:relative;
+  }
+
+  .background.error-page-wrapper .content-container {
+    border-radius: 6px;
     text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    padding:50px;
+    background-color: #fff;
+    width:100%;
+    max-width:525px;
+    position:absolute;
+    left:50%;
+    margin-left:-643px;
   }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .background.error-page-wrapper .content-container.in {
+    left:0px;
+    opacity:1;
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .background.error-page-wrapper .head-line {
+    transition:color .2s linear;
+    font-size:48px;
+    line-height:60px;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+    color:#ccc;
+  }
+  .background.error-page-wrapper .subheader {
+    transition:color .2s linear;
+    font-size:36px;
+    line-height:46px;
+    color:#333;
+  }
+  .background.error-page-wrapper .hr {
+    height:1px;
+    background-color: #ddd;
+    width:60%;
+    max-width:250px;
+    margin:35px auto;
+  }
+  .background.error-page-wrapper .context {
+    transition:color .2s linear;
+    font-size:18px;
+    line-height:27px;
+    color:#bbb;
+  }
+  .background.error-page-wrapper .context p {
+    margin:0;
+  }
+  .background.error-page-wrapper .context p:nth-child(n+2) {
+    margin-top:16px;
+  }
+  .background.error-page-wrapper .buttons-container {
+    margin-top: 35px;
+    overflow: hidden;
+  }
+  .background.error-page-wrapper .buttons-container a {
+    transition:text-indent .2s ease-out, color .2s linear, background-color .2s linear;
+    text-indent: 0px;
+    font-size:14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:#fff;
+    background-color:#2ecc71;
+    border-radius: 99px;
+    padding:12px 0 13px;
+    text-align: center;
+    display:inline-block;
+    overflow: hidden;
+    position: relative;
+    width:45%;
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  .background.error-page-wrapper .buttons-container .fa {
+    transition:left .2s ease-out;
+    position: absolute;
+    left:-50px;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
+  .background.error-page-wrapper .buttons-container a:hover {
+    text-indent: 15px;
+  }
+
+  .background.error-page-wrapper .buttons-container a:nth-child(2) {
+    float:right;
+  }
+
+  .background.error-page-wrapper .buttons-container .fa-home {
+    font-size:18px;
+    top:15px;
+  }
+
+  .background.error-page-wrapper .buttons-container a:hover .fa-home {
+    left:10px;
+  }
+
+  .background.error-page-wrapper .buttons-container .fa-warning {
+    font-size:16px;
+    top:17px;
+  }
+
+  .background.error-page-wrapper .buttons-container a:hover .fa-warning {
+    left:5px;
+  }
+
+  .background.error-page-wrapper .buttons-container .fa-power-off {
+    font-size:16px;
+    top:17px;
+  }
+
+  .background.error-page-wrapper .buttons-container a:hover .fa-power-off {
+    left:9px;
+  }
+
+
+  .background.error-page-wrapper .buttons-container.single-button {
+    text-align: center;
+  }
+
+  .background.error-page-wrapper .buttons-container.single-button a  {
+    float:none !important;
+  }
+
+  @media screen and (max-width: 555px) {
+    .background.error-page-wrapper {
+      padding:30px 5%;
+    }
+    .background.error-page-wrapper .content-container {
+      padding:37px;
+      position: static;
+      left: 0;
+      margin-left:0;
+    }
+    .background.error-page-wrapper .head-line {
+      font-size:36px;
+    }
+    .background.error-page-wrapper .subheader {
+      font-size:27px;
+      line-height: 37px;
+    }
+    .background.error-page-wrapper .hr {
+      margin:30px auto;
+      width:215px;
+    }
+    .background.error-page-wrapper .buttons-container .fa {
+      display:none;
+    }
+    .background.error-page-wrapper .buttons-container a:hover {
+      text-indent: 0px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .background.error-page-wrapper {
+      padding:30px;
+    }
+    .background.error-page-wrapper .head-line {
+      font-size:32px;
+    }
+    .background.error-page-wrapper .hr {
+      margin:25px auto;
+      width:180px;
+    }
+    .background.error-page-wrapper .context {
+      font-size:15px;
+      line-height:22px;
+    }
+
+    .background.error-page-wrapper .context p:nth-child(n+2) {
+      margin-top:10px;
+    }
+    .background.error-page-wrapper .buttons-container {
+      margin-top:29px;
+    }
+    .background.error-page-wrapper .buttons-container a {
+      float:none !important;
+      width:65%;
+      margin:0 auto;
+      font-size:13px;
+      padding:9px 0;
+    }
+
+    .background.error-page-wrapper .buttons-container a:nth-child(2) {
+      margin-top:12px;
+    }
+  }
+</style>
+
+    <style>
+
+
+    .background-image {
+      background-color: #FFFFFF;
+      background-image: url(https://images.unsplash.com/photo-1521175776577-f8e0c1e5ecb7?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1136&amp;q=80) !important;
+    }
+
+    .primary-text-color {
+      color: rgba(30, 56, 136, 1) !important;
+    }
+
+    .secondary-text-color {
+      color: rgba(30, 56, 136, 1) !important;
+    }
+
+
+
+
+    .border-button {
+      color: rgba(247, 255, 247, 1) !important;
+      border-color: rgba(247, 255, 247, 1) !important;
+    }
+    .button {
+      background-color: rgba(247, 255, 247, 1) !important;
+      color: rgba(30, 56, 136, 1) !important;
+    }
+
+    .shadow {
+      box-shadow: 0 0 71px rgba(81, 90, 219, 1);
+    }
+
+</style>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><link type="text/css" href="https://cdn.cookielaw.org/skins/3.6.24/default_flat_bottom_two_button_black/v2/css/optanon.css" rel="stylesheet"><style>#optanon ul#optanon-menu li { background-color:  !important }#optanon ul#optanon-menu li.menu-item-selected { background-color:  !important }#optanon #optanon-popup-wrapper .optanon-white-button-middle { background-color: #FFAB00 !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle { background-color: #FFAB00 !important; border-color: #FFAB00 !important; }#optanon #optanon-popup-wrapper .optanon-white-button-middle a { color: #ffffff !important }.optanon-alert-box-wrapper .optanon-alert-box-button-middle a { color: #ffffff !important }#optanon #optanon-popup-bottom { background-color: #1855C5 !important }#optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading { background-color: #1855C5 !important }.optanon-alert-box-wrapper { background-color:#172B4D !important }.optanon-alert-box-wrapper .optanon-alert-box-bg p { color:#FFFFFF !important }#optanon, #optanon *, #optanon div, #optanon span, #optanon ul, #optanon li, #optanon a, #optanon p, .optanon-alert-box-wrapper * {
+font-family: LLCircularWeb,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+#optanon #optanon-popup-body h2 {
+    position: absolute;
+    top: -55px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin: 5px 0px 0px 5px;
+}
+#optanon #optanon-popup-wrapper .optanon-white-button-middle a {
+    color: #000000 !important;
+}
+.optanon-alert-box-wrapper .optanon-alert-box-button-middle a {
+    color: #000000 !important;
+}
+.optanon-alert-box-wrapper a {
+    color: #ffffff !important;
+    text-indent: 1;
+   font-weight: bold;
+
+}
+
+.optanon-alert-box-button-middle, #optanon #optanon-popup-wrapper .optanon-white-button-middle {
+   border-radius: 4px;
+}
+.optanon-alert-box-wrapper {
+    margin: 4px;
+    border-radius: 4px;
+    width: 99.5%;
+}
+
+#optanon.modern #optanon-popup-top, #optanon.modern #optanon-popup-body-left-shading
+{
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+#optanon #optanon-popup-bottom {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
+}
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+.optanon-alert-box-wrapper .optanon-button-more .optanon-alert-box-button-middle a:before {
+    content: '';
+}
+.optanon-alert-box-wrapper .optanon-button-allow .optanon-alert-box-button-middle a:before {
+    content: '';
+}
+
+.optanon-alert-box-wrapper .optanon-alert-box-body {
+    margin-right: 390px;
+}
+
+#optanon #optanon-popup-top .optanon-close, .optanon-alert-box-wrapper .optanon-alert-box-corner-close a {
+    right: 10px;
+}</style></head>
+
+<body class="background error-page-wrapper background-color background-image">
+    <center>
+  <div class="content-container shadow" style="top: 117px;">
+    <!-- <div class="head-line secondary-text-color">
+      404
+    </div> -->
+    <div class="subheader primary-text-color">
+      I'm afraid the page you're looking for does not exist...
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="hr"></div>
+    <div class="context secondary-text-color">
+      <p><strong>BUT</strong> you should be nice with the coders as they had only <strong>8 days</strong> to build this website!</p><p>
+        Please head back to the homepage to restart browsing
+      </p>
+    </div>
+    <div class="buttons-container">
+      <a class="button" href="http://www.myattila.com" target="_blank"><span class="fa fa-home"></span> Go To Homepage</a>
+    </div>
   </div>
-</body>
+</center>
+
+
+    <script>
+     function ErrorPage(container, pageType, templateName) {
+       this.$container = $(container);
+       this.$contentContainer = this.$container.find(templateName == 'sign' ? '.sign-container' : '.content-container');
+       this.pageType = pageType;
+       this.templateName = templateName;
+     }
+
+     ErrorPage.prototype.centerContent = function () {
+       var containerHeight = this.$container.outerHeight()
+         , contentContainerHeight = this.$contentContainer.outerHeight()
+         , top = (containerHeight - contentContainerHeight) / 2
+         , offset = this.templateName == 'sign' ? -100 : 0;
+
+       this.$contentContainer.css('top', top + offset);
+     };
+
+     ErrorPage.prototype.initialize = function () {
+       var self = this;
+
+       this.centerContent();
+       this.$container.on('resize', function (e) {
+         e.preventDefault();
+         e.stopPropagation();
+         self.centerContent();
+       });
+
+       // fades in content on the plain template
+       if (this.templateName == 'plain') {
+         window.setTimeout(function () {
+           self.$contentContainer.addClass('in');
+         }, 500);
+       }
+
+       // swings sign in on the sign template
+       if (this.templateName == 'sign') {
+         $('.sign-container').animate({textIndent : 0}, {
+           step : function (now) {
+             $(this).css({
+               transform : 'rotate(' + now + 'deg)',
+               'transform-origin' : 'top center'
+             });
+           },
+           duration : 1000,
+           easing : 'easeOutBounce'
+         });
+       }
+     };
+
+
+     ErrorPage.prototype.createTimeRangeTag = function(start, end) {
+       return (
+         '<time utime=' + start + ' simple_format="MMM DD, YYYY HH:mm">' + start + '</time> - <time utime=' + end + ' simple_format="MMM DD, YYYY HH:mm">' + end + '</time>.'
+       )
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
+       if (pageType == '503') {
+         $('#replace-with-fetched-data').html(data.status.description);
+       } else {
+         if (!!data.scheduled_maintenances.length) {
+           var maint = data.scheduled_maintenances[0];
+           $('#replace-with-fetched-data').html(this.createTimeRangeTag(maint.scheduled_for, maint.scheduled_until));
+           $.fn.localizeTime();
+         }
+         else {
+           $('#replace-with-fetched-data').html('<em>(there are no active scheduled maintenances)</em>');
+         }
+       }
+     };
+
+
+     ErrorPage.prototype.handleStatusFetchFail = function (pageType) {
+       $('#replace-with-fetched-data').html('<em>(enter a valid Statuspage url)</em>');
+     };
+
+
+     ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
+       //console.log('in app.js fetch');
+       if (!pageUrl || !pageType || pageType == '404') return;
+
+       var url = ''
+         , self = this;
+
+       if (pageType == '503') {
+         url = pageUrl + '/api/v2/status.json';
+       }
+       else {
+         url = pageUrl + '/api/v2/scheduled-maintenances/active.json';
+       }
+
+       $.ajax({
+         type : "GET",
+         url : url,
+       }).success(function (data, status) {
+         //console.log('success');
+         self.handleStatusFetchSuccess(pageType, data);
+       }).fail(function (xhr, msg) {
+         //console.log('fail');
+         self.handleStatusFetchFail(pageType);
+       });
+
+     };
+     var ep = new ErrorPage('body', "404", "background");
+     ep.initialize();
+
+     // hack to make sure content stays centered >_<
+     $(window).on('resize', function() {
+       $('body').trigger('resize')
+     });
+
+    </script>
+
+
+      <!-- OneTrust Cookies Consent Notice (statuspage.io, en-GB) start -->
+  <script src="https://cdn.cookielaw.org/consent/0800f092-2124-46ec-b11d-b4f48b677302.js" type="text/javascript" charset="UTF-8"></script>
+  <script type="text/javascript">
+    function OptanonWrapper() { }
+  </script>
+  <!-- OneTrust Cookies Consent Notice (statuspage.io, en-GB) end -->
+
+
+
+<div id="optanon" class="modern"><div id="optanon-popup-bg" style="display: none;"></div><div id="optanon-popup-wrapper" role="dialog" aria-modal="true" tabindex="-1" lang="en-GB"><div id="optanon-popup-top"><a href="javascript:void(0);" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Close Button');" aria-label="Close" class="optanon-close-link optanon-close optanon-close-ui" title="Close Preference Centre"><div id="optanon-close" style="background: url(https://cdn.cookielaw.org/skins/3.6.24/default_flat_bottom_two_button_black/v2/images/optanon-pop-up-close.png);width:34px;height:34px;"></div></a></div><div id="optanon-popup-body"><div id="optanon-popup-body-left"><div id="optanon-popup-body-left-shading"></div><div id="optanon-branding-top-logo" style="background-image: url(https://cdn.cookielaw.org/logos/5878/5878:statuspage.io/Atlassian%20white%20logo.png) !important;"></div><ul id="optanon-menu" aria-label="Navigation Menu"><li class="menu-item-on menu-item-about" title="Cookies at Atlassian"><p><a href="javascript:void(0);">Cookies at Atlassian</a></p></li><li class="menu-item-necessary menu-item-on" title="Strictly Necessary Cookies"><p><a href="javascript:void(0);">Strictly Necessary Cookies</a></p></li><li class="menu-item-on menu-item-performance" title="Performance Cookies"><p><a href="javascript:void(0);">Performance Cookies</a></p></li><li class="menu-item-on menu-item-functional" title="Functional Cookies"><p><a href="javascript:void(0);">Functional Cookies</a></p></li><li class="menu-item-on menu-item-advertising" title="Targeting Cookies"><p><a href="javascript:void(0);">Targeting Cookies</a></p></li><li class="menu-item-moreinfo menu-item-on" title="Cookie Policy"><p><a target="_blank" href="https://www.atlassian.com/legal/cookies" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Cookie Policy');">Cookie Policy</a></p></li></ul></div><div id="optanon-popup-body-right"><h2 aria-label="true">Cookie Preference Centre</h2><div class="vendor-header-container"><h3></h3><div id="optanon-popup-more-info-bar"><div class="optanon-status"><div class="optanon-status-editable"><form><fieldset><p><input type="checkbox" aria-checked="false" value="check" id="chkMain" checked="" class="legacy-group-status optanon-status-checkbox"><label for="chkMain">Active</label></p></fieldset></form></div><div class="optanon-status-always-active optanon-status-on"><p>Always Active</p></div></div></div></div><div id="optanon-main-info-text"></div></div><div class="optanon-bottom-spacer"></div></div><div id="optanon-popup-bottom"> <a href="https://onetrust.com/poweredbyonetrust" target="_blank"><div id="optanon-popup-bottom-logo" style="background: url(https://cdn.cookielaw.org/skins/3.6.24/default_flat_bottom_two_button_black/v2/images/cookie-collective-top-bottom.png);width:155px;height:35px;" title="powered by OneTrust"></div></a><div class="optanon-button-wrapper optanon-save-settings-button optanon-close optanon-close-consent"><div class="optanon-white-button-left"></div><div class="optanon-white-button-middle"><a href="javascript:void(0);" aria-label="Save Settings" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Save Settings');">Save Settings</a></div><div class="optanon-white-button-right"></div></div><div class="optanon-button-wrapper optanon-allow-all-button optanon-allow-all" style="display: none;"><div class="optanon-white-button-left"></div><div class="optanon-white-button-middle"><a href="javascript:void(0);" aria-label="Allow All" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Preferences Allow All');">Allow All</a></div><div class="optanon-white-button-right"></div></div></div></div></div><div class="optanon-alert-box-wrapper  hide-cookie-setting-button" style="bottom: 0px; display: none;"><div class="optanon-alert-box-bottom-top"><div class="optanon-alert-box-corner-close"><a class="optanon-alert-box-close" aria-label="Close" tabindex="4" href="javascript:void(0);" title="Close Banner" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Close Button');"></a></div></div><div class="optanon-alert-box-bg"><div class="optanon-alert-box-logo"> </div><div class="optanon-alert-box-body"><p class="legacy-banner-content">This site uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. To change your preferences, see our Cookies &amp; Tracking Notice. Otherwise, closing the banner or clicking Accept all Cookies indicates you agree to the use of cookies on your device.<a href="https://www.atlassian.com/legal/cookies#how-can-you-opt-out" class="banner-policy-link" tabindex="1" title="Policy Link">&nbsp; Cookies &amp; Tracking Notice</a></p></div><div class="optanon-clearfix"></div><div class="optanon-alert-box-button-container"><div class="optanon-alert-box-button optanon-button-close"><div class="optanon-alert-box-button-middle"><a class="optanon-alert-box-close" aria-label="Close" href="javascript:void(0);">Close</a></div></div><div class="optanon-alert-box-button optanon-button-allow"><div class="optanon-alert-box-button-middle"><a class="optanon-allow-all" tabindex="3" title="Accept Cookies" aria-label="Accept all Cookies" href="javascript:void(0);" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Accept Cookies');">Accept all Cookies</a></div></div><div class="optanon-alert-box-button optanon-button-more"><div class="optanon-alert-box-button-middle"><a class="optanon-toggle-display" tabindex="2" title="Cookie Settings" aria-label="Cookie Settings" href="javascript:void(0);" onclick="Optanon.TriggerGoogleAnalyticsEvent('OneTrust Cookie Consent', 'Banner Open Preferences');">Cookie Settings</a></div></div></div><div class="optanon-clearfix optanon-alert-box-bottom-padding"></div></div></div></body>
 </html>
