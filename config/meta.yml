@@ -1,0 +1,5 @@
+meta_product_name: "Attila"
+meta_title: "Attila - Awesome movies from awesome people"
+meta_description: "Unlike Netflix, Attila platform will enable you to easily access qualitative movies, and search by friends' recommendations! "
+meta_image: "logo_attila.png"                       # should exist in `app/assets/images/`
+twitter_account: "@Lewagonparis"
