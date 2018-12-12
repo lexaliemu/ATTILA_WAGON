@@ -15,7 +15,8 @@
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 70px !important;
   overflow: scroll;
-  border-left: 1px solid lightgrey;
+  background-color: #F9F9F9;
+  // border-left: 1px solid lightgrey;
 }
 
 .story-box {
