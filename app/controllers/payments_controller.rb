@@ -15,6 +15,19 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
+
+    activity = @order.activities.last
+
+    current_user.followers.each do |follower|
+      ActionCable.server.broadcast("stories_#{follower.id}", {
+        message_partial: ApplicationController.renderer.render(
+          partial: "shared/story",
+          locals: { activity: activity }
+        )
+      })
+    end
+
+
     redirect_to movie_path(@order.movie)
 
   rescue Stripe::CardError => e

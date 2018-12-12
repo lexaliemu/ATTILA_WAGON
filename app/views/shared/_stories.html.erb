@@ -1,7 +1,8 @@
 <% activities.each do |activity|  %>
     <% if activity.owner != nil && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable %>
-    <%= render 'shared/story', activity: activity %>
-  <% end %>
+<!--     <#% if activity.owner != nil && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable && current_user.following.include?(activity.owner) %> -->
+      <%= render 'shared/story', activity: activity %>
+    <% end %>
 <% end %>
 
 <% if user_signed_in? %>
