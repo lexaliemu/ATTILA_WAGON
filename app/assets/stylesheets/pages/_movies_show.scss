@@ -163,6 +163,7 @@ position: absolute;
   height: 30%;
 }
 
+
 .payment-button {
   position: relative;
 }
@@ -172,4 +173,7 @@ position: absolute;
   z-index: -5;
   right: 11px;
   top: 1px;
+
+#myModalTrailer .modal-content {
+  background-color:black;
 }

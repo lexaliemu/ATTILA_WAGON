@@ -65,7 +65,6 @@
                     data-currency="<%= @order.amount.currency %>"></script>
                   <% end %>
                 </div>
-
               </div>
             <% else %>
               <div class="show-cta">
@@ -75,9 +74,7 @@
               </div>
             <% end %>
             <div class="show-cta">
-              <%= link_to watch_movie_path(@movie) do %>
-                <button class="secondary-cta"><i class="fas fa-play mr-3"></i>Trailer</button>
-              <% end %>
+              <button class="secondary-cta" data-toggle="modal" data-target="#myModalTrailer"><i class="fas fa-play mr-3"></i>Trailer</button>
             </div>
             <!-- <div class="show-cta">
               <%# if current_user.orders.where(movie: @movie).all?{|x| x.payment == nil} %>
@@ -120,4 +117,19 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModalTrailer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="container-movie-watch">
+          <div class="js-video [vimeo, widescreen] flex justify-content-center">
+            <iframe class="movie-watch" src="https://www.youtube.com/embed/9Y7X6le5qmE?showinfo=0" frameborder="0" allowfullscreen></iframe>
+        <!--     <iframe class="movie-watch" src="<%= @movie.trailer_url  %>" frameborder="0" allowfullscreen></iframe> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
