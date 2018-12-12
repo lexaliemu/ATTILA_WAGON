@@ -7,7 +7,7 @@
   <div class="movie-title-director-home">
     <p><strong><%=h truncate(movie.title, :length => 40) %></strong></p>
     <p>By <%= movie.director %></p>
-    <div class=movie-stars-home>
+    <div class="movie-stars-home">
       <% movie.rating.times do %>
         <i class="fas fa-star yellow-star"></i>
       <% end %>
