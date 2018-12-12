@@ -68,7 +68,7 @@ if (results) {
             </div>
             <div class="title-movie">
               <div class="title-movie-value"
-                <p class="font-weight-bold">{{{_highlightResult.title.value}}}</p>
+                <p class="font-weight-bold">{{title}}</p>
               </div>
               <p class="text-truncate" style="max-width: 180px;">By {{director}}</p>
               <p class=" star-all star-{{rating}}"></p>
@@ -91,7 +91,7 @@ if (results) {
               <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
             </div>
             <div class="user-name">
-              <p class="font-weight-bold">{{{_highlightResult.username.value}}}</p>
+              <p class="font-weight-bold">{{username}}</p>
             </div>
             <a href="/users/{{id}}" class="resultsalgolia"></a>
           </div>
