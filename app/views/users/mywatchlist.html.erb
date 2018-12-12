@@ -17,37 +17,12 @@
     </div>
   <#% end %>
 </div> -->
-
-<div class=container-watchlist>
-  <% @watchlist.each do |item| %>
-    <div class="card-movie-playlist">
-      <%= link_to movie_path(item.movie) do  %>
-        <div class="movie-cover-playlist">
-         <%= cl_image_tag item.movie.poster, width: 200, height: 250, crop: :fill %>
-        </div>
-      <% end %>
-      <div class="title-movie">
-        <div class="title-movie-value">
-          <p class="font-weight-bold "><%=h truncate(item.movie.title, :length => 40) %></p>
-        </div>
-        <p class="text-truncate" style="max-width: 180px;">By <%= item.movie.director %></p>
-        <div class="rating-trash">
-          <% if item.movie.rating == 0 %>
-            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          <% elsif item.movie.rating == 1 %>
-            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          <% elsif item.movie.rating == 2 %>
-            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          <% elsif item.movie.rating == 3 %>
-            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          <% elsif item.movie.rating == 4 %>
-            <p><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i></p>
-          <% else %>
-            <p>fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i></p>
-          <% end %>
-          <p><%= link_to '', movie_watchlist_item_path(item.movie, item), method: :delete, :class => "fas fa-trash-alt"  %></p>
-        </div>
+<div class="container-watchlist">
+  <div class="row">
+    <% @watchlist.each do |item| %>
+      <div class="col-lg-2">
+          <%= render "pages/movie_square", movie: item.movie %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

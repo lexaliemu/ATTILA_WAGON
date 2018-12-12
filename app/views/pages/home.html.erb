@@ -7,16 +7,42 @@
   <div class="container-center">
 
     <div class="row-wrapper">
+
+
+      <!--  <div class="card-movie">
+        <div class="poster-movie">
+          <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
+        </div>
+        <div class="title-movie">
+          <div class="title-movie-value"
+            <p class="font-weight-bold">{{title}}</p>
+          </div>
+          <p class="text-truncate" style="max-width: 180px;">By {{director}}</p>
+          <p class=" star-all star-{{rating}}"></p>
+        </div>
+        <a href="/movies/{{id}}" class="resultsalgolia"></a>
+      </div> -->
+
+
+
+
+
       <div class="container-category">
         <div id="category-header">
           <h4>Thriller movies</h4>
           <%= link_to "See all", movies_path, class: "btn blue" %>
         </div>
-        <div class="container-square">
-          <% @thriller_movies.each_slice(2) do |movie_pair| %>
+        <div>
+          <% @thriller_movies.each_slice(8) do |movie_pair| %>
             <div class="container-square-wrapper">
-              <%= render "movie_square", movie: movie_pair[0] %>
-              <%= render "movie_square", movie: movie_pair[1] %>
+              <%= render "movie_square", movie: movie_pair[0] unless movie_pair[0].nil? %>
+              <%= render "movie_square", movie: movie_pair[1] unless movie_pair[1].nil? %>
+              <%= render "movie_square", movie: movie_pair[2] unless movie_pair[2].nil? %>
+              <%= render "movie_square", movie: movie_pair[3] unless movie_pair[3].nil? %>
+              <%= render "movie_square", movie: movie_pair[4] unless movie_pair[4].nil? %>
+              <%= render "movie_square", movie: movie_pair[5] unless movie_pair[5].nil? %>
+              <%= render "movie_square", movie: movie_pair[6] unless movie_pair[6].nil? %>
+              <%= render "movie_square", movie: movie_pair[7] unless movie_pair[7].nil? %>
             </div>
           <% end %>
         </div>
@@ -28,10 +54,16 @@
           <%= link_to "See all", movies_path, class: "btn blue" %>
         </div>
         <div class="container-square">
-          <% @romance_movies.each_slice(2) do |movie_pair| %>
+          <% @romance_movies.each_slice(8) do |movie_pair| %>
             <div class="container-square-wrapper">
-              <%= render "movie_square", movie: movie_pair[0] %>
-              <%= render "movie_square", movie: movie_pair[1] %>
+              <%= render "movie_square", movie: movie_pair[0] unless movie_pair[0].nil? %>
+              <%= render "movie_square", movie: movie_pair[1] unless movie_pair[1].nil? %>
+              <%= render "movie_square", movie: movie_pair[2] unless movie_pair[2].nil? %>
+              <%= render "movie_square", movie: movie_pair[3] unless movie_pair[3].nil? %>
+              <%= render "movie_square", movie: movie_pair[4] unless movie_pair[4].nil? %>
+              <%= render "movie_square", movie: movie_pair[5] unless movie_pair[5].nil? %>
+              <%= render "movie_square", movie: movie_pair[6] unless movie_pair[6].nil? %>
+              <%= render "movie_square", movie: movie_pair[7] unless movie_pair[7].nil? %>
             </div>
           <% end %>
         </div>
@@ -43,10 +75,16 @@
           <%= link_to "See all", movies_path, class: "btn blue" %>
         </div>
         <div class="container-square">
-          <% @drama_movies.each_slice(2) do |movie_pair| %>
+          <% @drama_movies.each_slice(8) do |movie_pair| %>
             <div class="container-square-wrapper">
-              <%= render "movie_square", movie: movie_pair[0] %>
-              <%= render "movie_square", movie: movie_pair[1] %>
+              <%= render "movie_square", movie: movie_pair[0] unless movie_pair[0].nil? %>
+              <%= render "movie_square", movie: movie_pair[1] unless movie_pair[1].nil? %>
+              <%= render "movie_square", movie: movie_pair[2] unless movie_pair[2].nil? %>
+              <%= render "movie_square", movie: movie_pair[3] unless movie_pair[3].nil? %>
+              <%= render "movie_square", movie: movie_pair[4] unless movie_pair[4].nil? %>
+              <%= render "movie_square", movie: movie_pair[5] unless movie_pair[5].nil? %>
+              <%= render "movie_square", movie: movie_pair[6] unless movie_pair[6].nil? %>
+              <%= render "movie_square", movie: movie_pair[7] unless movie_pair[7].nil? %>
             </div>
           <% end %>
         </div>
@@ -58,10 +96,16 @@
           <%= link_to "See all", movies_path, class: "btn blue" %>
         </div>
         <div class="container-square">
-          <% @adventure_movies.each_slice(2) do |movie_pair| %>
+          <% @adventure_movies.each_slice(8) do |movie_pair| %>
             <div class="container-square-wrapper">
-              <%= render "movie_square", movie: movie_pair[0] %>
-              <%= render "movie_square", movie: movie_pair[1] %>
+              <%= render "movie_square", movie: movie_pair[0] unless movie_pair[0].nil? %>
+              <%= render "movie_square", movie: movie_pair[1] unless movie_pair[1].nil? %>
+              <%= render "movie_square", movie: movie_pair[2] unless movie_pair[2].nil? %>
+              <%= render "movie_square", movie: movie_pair[3] unless movie_pair[3].nil? %>
+              <%= render "movie_square", movie: movie_pair[4] unless movie_pair[4].nil? %>
+              <%= render "movie_square", movie: movie_pair[5] unless movie_pair[5].nil? %>
+              <%= render "movie_square", movie: movie_pair[6] unless movie_pair[6].nil? %>
+              <%= render "movie_square", movie: movie_pair[7] unless movie_pair[7].nil? %>
             </div>
 
           <% end %>
