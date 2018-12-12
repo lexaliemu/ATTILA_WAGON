@@ -38,7 +38,17 @@ class User < ApplicationRecord
   has_many :orders
 
   def follow(user_id)
-    following_relationships.create(following_id: user_id)
+    follow   = following_relationships.create(following_id: user_id)
+    activity = follow.activities.last
+
+    followers.each do |follower|
+      ActionCable.server.broadcast("stories_#{follower.id}", {
+        message_partial: ApplicationController.renderer.render(
+          partial: "shared/story",
+          locals: { activity: activity }
+        )
+      })
+    end
   end
 
   def unfollow(user_id)

@@ -1,0 +1,25 @@
+<% activities.each do |activity|  %>
+    <% if activity.owner != nil && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable %>
+    <%= render 'shared/story', activity: activity %>
+  <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <% content_for :after_js do %>
+    <script>
+      console.log("test");
+
+      App['stories_<%= current_user.id %>'] = App.cable.subscriptions.create(
+       { channel: 'StoriesChannel', user_id: <%= current_user.id %> },
+       {
+         received: (data) => {
+           console.log("data received yo");
+           console.log(data);
+           const containerStories = document.querySelector('.container-story');
+           containerStories.insertAdjacentHTML('afterbegin', data.message_partial);
+         }
+       }
+    );
+    </script>
+  <% end %>
+<% end %>
