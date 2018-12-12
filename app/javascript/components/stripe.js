@@ -6,8 +6,10 @@ const paymentButton = document.querySelector(".stripe-button-el");
 console.log(paymentButton)
 const rentButton = document.querySelector("#rent-button");
 console.log(rentButton)
-rentButton.addEventListener("click", function(event) {
-  event.preventDefault();
-  paymentButton.click();
-  console.log("je suis dans addEventListener");
-});
+if (rentButton) {
+  rentButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    paymentButton.click();
+    console.log("je suis dans addEventListener");
+  });
+}
