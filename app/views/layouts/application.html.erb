@@ -40,7 +40,7 @@
           <%= yield %>
         </div>
         <div class="container-story">
-          <%= render 'shared/story' %>
+          <%= render 'shared/stories' %>
         </div>
       </div>
     <% end %>
@@ -51,5 +51,6 @@
     <div id="resultsPlaylist" style="display: none"></div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= yield(:after_js) %>
   </body>
 </html>
