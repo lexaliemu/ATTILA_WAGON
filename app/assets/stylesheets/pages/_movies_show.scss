@@ -162,3 +162,14 @@ position: absolute;
 .movie-title-director-home p {
   height: 30%;
 }
+
+.payment-button {
+  position: relative;
+}
+
+.stripe-payment-button {
+  position: absolute;
+  z-index: -5;
+  right: 11px;
+  top: 1px;
+}

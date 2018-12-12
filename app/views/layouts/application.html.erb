@@ -32,18 +32,19 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="main-container">
-      <div class="container-generic">
-        <%= yield %>
-      </div>
-      <%# unless :devise_controller? %>
-      <% if @alice != 'home' %>
-
-        <div class="container-story">
-            <%= render 'shared/story' %>
+    <% if @alice == 'home' %>
+      <%= yield %>
+    <% else %>
+      <div class="main-container">
+        <div class="container-generic">
+          <%= yield %>
         </div>
-      <% end %>
-    </div>
+        <div class="container-story">
+          <%= render 'shared/story' %>
+        </div>
+      </div>
+    <% end %>
+      <%# unless :devise_controller? %>
     <%= render 'shared/footer' %>
     <div id="resultsMovie" style="display: none"></div>
     <div id="resultsUser" style="display: none"></div>
