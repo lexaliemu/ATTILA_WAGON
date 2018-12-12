@@ -20,8 +20,9 @@
 <div class="container-watchlist">
   <div class="row">
     <% @watchlist.each do |item| %>
-      <div class="col-lg-2">
+      <div class="col-lg-3 col-md-6 col-sm-12">
           <%= render "pages/movie_square", movie: item.movie %>
+          <p class="fixed-bottom-right"><%= link_to '', movie_watchlist_item_path(item.movie, item), method: :delete, :class => "fas fa-trash-alt"  %></p>
       </div>
     <% end %>
   </div>
