@@ -18,11 +18,11 @@
   <#% end %>
 </div> -->
 <div class="container-watchlist">
-<div class="row">
-  <% @watchlist.each do |item| %>
-<div class="col-lg-2">
-    <%= render "pages/movie_square", movie: item.movie %>
-</div>
-  <% end %>
-</div>
+  <div class="row">
+    <% @watchlist.each do |item| %>
+      <div class="col-lg-2">
+          <%= render "pages/movie_square", movie: item.movie %>
+      </div>
+    <% end %>
+  </div>
 </div>
