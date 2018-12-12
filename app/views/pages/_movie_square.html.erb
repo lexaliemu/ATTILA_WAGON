@@ -1,21 +1,20 @@
-<div class="square">
-  <%= link_to movie_path(movie) do  %>
-    <div class="movie-cover">
-      <%= cl_image_tag movie.poster, width: 120, height: 150, crop: :fit %>
+<div class="card-movie">
+  <div class="poster-movie">
+    <%= cl_image_tag movie.poster, class: "img-movie" %>
+  </div>
+  <div class="title-movie">
+    <div>
+      <p class="font-weight-bold font-size-title"> <%=h truncate(movie.title, :length => 40) %></p>
     </div>
-  <% end %>
-  <div class="movie-title-director-home">
-    <p><strong><%=h truncate(movie.title, :length => 40) %></strong></p>
-    <p>By <%= movie.director %></p>
-    <div class="movie-stars-home">
+    <p class="text-truncate" style="max-width: 180px;">By <%= movie.director %></p>
+    <p class=" star-all star-<%= movie.rating %>">
       <% movie.rating.times do %>
-        <i class="fas fa-star yellow-star"></i>
+        <i class="fas fa-star blue-star"></i>
       <% end %>
       <% (5 - movie.rating).times do %>
-        <i class="fas fa-star black-star"></i>
+        <i class="fas fa-star light-blue-star"></i>
       <% end %>
-    </div>
+    </p>
   </div>
+<%= link_to "", movie_path(movie), class: "resultsalgolia" %>
 </div>
-
-
