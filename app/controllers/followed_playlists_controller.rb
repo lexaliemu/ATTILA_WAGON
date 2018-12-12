@@ -5,6 +5,18 @@ class FollowedPlaylistsController < ApplicationController
     @playlist = Playlist.find(playlist_param)
     @followed_playlist.playlist = @playlist
     @followed_playlist.save
+
+    activity = @followed_playlist.activities.last
+
+    current_user.followers.each do |follower|
+      ActionCable.server.broadcast("stories_#{follower.id}", {
+        message_partial: ApplicationController.renderer.render(
+          partial: "shared/story",
+          locals: { activity: activity }
+        )
+      })
+    end
+
     redirect_to playlist_path(@playlist)
   end
 
