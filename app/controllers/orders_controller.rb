@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
     order = Order.create!(movie: movie, amount: movie.price, state: 'pending', user: current_user)
 
     redirect_to new_order_payment_path(order)
+
+    # redirect_to order_payments_path(order)
   end
 
   def show

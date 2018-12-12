@@ -4,7 +4,8 @@
   background-position: center;
   color: #F7FFF7;
   text-align: center;
-  height: 400px;
+  height: 480px;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,14 +17,18 @@
 }
 
 #main_cta {
+  margin-top: 20px;
   cursor: pointer;
   background: #1E3888;
   color: #F7FFF7;
   border-radius: 50px;
   text-decoration: none;
-  width: 170px;
-  height: 45px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 17px;
+  padding-left: 17px;
   border: none;
   font-family: "Raleway";
+  font-size: 18px;
 }
 

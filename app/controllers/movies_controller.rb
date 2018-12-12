@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
     @user = current_user
     @playlists = @user.created_playlists
     @watchlist_item = @user.watchlist_items.find { |wi| wi.movie == @movie }
+    @order = Order.create!(movie: @movie, amount: @movie.price, state: 'pending', user: current_user)
+
   end
 
   def search_results

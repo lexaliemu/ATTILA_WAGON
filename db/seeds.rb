@@ -107,7 +107,7 @@ list_movies1.each do |movie|
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-      price: [300, 400, 500].sample,
+      price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
     })
@@ -135,7 +135,7 @@ list_movies2.each do |movie|
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-      price: [300, 400, 500].sample,
+      price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
     })
@@ -163,7 +163,7 @@ list_movies3.each do |movie|
       actors: movie_hash['Actors'],
       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-      price: [300, 400, 500].sample,
+      price: [3, 4, 5].sample,
       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
       number_rates: movie_hash['imdbVotes'],
     })
@@ -191,7 +191,7 @@ end
         actors: movie_hash['Actors'],
         movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
         rating: movie_hash['imdbRating'].to_i.fdiv(2),
-        price: [300, 400, 500].sample,
+        price: [3, 4, 5].sample,
         trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
         number_rates: movie_hash['imdbVotes'],
       })
