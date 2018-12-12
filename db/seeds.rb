@@ -34,7 +34,9 @@ jamie = User.create!(email: "jamie@attila.com" , password: "wwwwww", username: '
 tom = User.create!(email: "tomc@attila.com" , password: "wwwwww", username: 'Tom Cruise', first_name: "Tom", last_name: "Cruise")
 arnold = User.create!(email: "anorld@attila.com" , password: "wwwwww", username: 'Arnold Schwarzenegger', first_name: "Arnold", last_name: "Schwarzenegger")
 donald = User.create!(email: "donald@attila.com" , password: "wwwwww", username: 'Donald Trump', first_name: "Donald", last_name: "Trump")
-new_users = [alexandre, william, alice, brad, leo, mart, sylvester, quentin, cameron, ginger, jamie, tom, arnold, donald]
+guigui = User.create!(email: "guillaume@attila.com" , password: "wwwwww", username: 'Guillaume Canet', first_name: "Guillaume", last_name: "Canet")
+marion = User.create!(email: "marion@attila.com" , password: "wwwwww", username: 'Marion Cotillard', first_name: "Marion", last_name: "Cotillard")
+new_users = [alexandre, william, alice, brad, leo, mart, sylvester, quentin, cameron, ginger, jamie, tom, arnold, donald, guigui, marion]
 avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544285805/alexAvatar.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1543573506/williamAvatar.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544285867/aliceAvatar.jpg",
@@ -48,7 +50,9 @@ avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544285805/al
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544287996/jamieAvatar.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288151/tomAvatar.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288389/arnoldAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288510/donaldAvatar.jpg"
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288510/donaldAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544625065/guillaumeAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544625181/marionAvatar.jpg"
              ]
 
 new_users.each_with_index do |x,index|
