@@ -3,7 +3,6 @@
 // console.log("Je suis dans Stripe");
 
 const paymentButton = document.querySelector(".stripe-button-el");
-
 if (paymentButton) {
   console.log(paymentButton)
   const rentButton = document.querySelector("#rent-button");

@@ -123,22 +123,22 @@ if (results) {
 search.on('render', function(){
   document.querySelectorAll(".star-all").forEach((star) => {
     if(star.classList.contains('star-0')) {
-      star.innerHTML = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+      star.innerHTML = '<i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
     }
     if(star.classList.contains('star-1')) {
-      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+      star.innerHTML = '<i class="fas fa-star blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i>'
     }
     if(star.classList.contains('star-2')) {
-      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+      star.innerHTML = '<i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i>'
     }
     if(star.classList.contains('star-3')) {
-      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
+      star.innerHTML = '<i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star light-blue-star"></i><i class="fas fa-star light-blue-star"></i>'
     }
     if(star.classList.contains('star-4')) {
-      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star"></i>'
+      star.innerHTML = '<i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star light-blue-star"></i>'
     }
     if(star.classList.contains('star-5')) {
-      star.innerHTML = '<i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i><i class="fas fa-star yellow-star"></i>'
+      star.innerHTML = '<i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i><i class="fas fa-star blue-star"></i>'
     }
   });
 });

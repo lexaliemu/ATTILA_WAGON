@@ -90,10 +90,10 @@
               </div>
               <div class="rating-items">
                 <% @movie.rating.times do %>
-                  <i class="fas fa-star yellow-star"></i>
+                  <i class="fas fa-star blue-star"></i>
                 <% end %>
                 <% (5 - @movie.rating).times do %>
-                  <i class="fas fa-star black-star"></i>
+                  <i class="fas fa-star light-blue-star"></i>
                 <% end %>
               </div>
             </div>
@@ -102,10 +102,10 @@
                 <p class="user-comment">- "<%= review.comment %>" (posted by <%= review.user.username %> on <%= review.review_date %>)</p>
                 <div>
                   <% @movie.rating.times do %>
-                    <i class="fas fa-star yellow-star"></i>
+                    <i class="fas fa-star blue-star"></i>
                   <% end %>
                   <% (5 - @movie.rating).times do %>
-                    <i class="fas fa-star black-star"></i>
+                    <i class="fas fa-star light-blue-star"></i>
                   <% end %>
                 </div>
               </div>
