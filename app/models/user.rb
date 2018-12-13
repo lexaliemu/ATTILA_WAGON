@@ -7,12 +7,22 @@ class User < ApplicationRecord
   algoliasearch do
     attribute :first_name, :last_name, :username, :id
     add_attribute :avatar_url
+    add_attribute :member_date
+    add_attribute :nb_followers
     searchableAttributes [:first_name, :last_name, :username]
-    attributesToRetrieve [:first_name, :last_name, :username, :avatar_url, :id]
+    attributesToRetrieve [:first_name, :last_name, :username, :avatar_url, :nb_followers, :member_date, :id]
   end
 
   def avatar_url
     cloudinary_url(avatar, width: 250, height: 250, crop: :fill)
+  end
+
+  def member_date
+    "#{created_at.strftime('%B')} #{created_at.strftime('%Y')}"
+  end
+
+  def nb_followers
+    followers.count
   end
 
   devise :database_authenticatable, :registerable,
@@ -49,10 +59,12 @@ class User < ApplicationRecord
         )
       })
     end
+    User.reindex
   end
 
   def unfollow(user_id)
     following_relationships.find_by(following_id: user_id).destroy
+    User.reindex
   end
 
   def is_following?(user_id)

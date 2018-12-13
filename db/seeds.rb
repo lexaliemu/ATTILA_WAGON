@@ -37,20 +37,20 @@ donald = User.create!(email: "donald@attila.com" , password: "wwwwww", username:
 guigui = User.create!(email: "guillaume@attila.com" , password: "wwwwww", username: 'Guillaume Canet', first_name: "Guillaume", last_name: "Canet")
 marion = User.create!(email: "marion@attila.com" , password: "wwwwww", username: 'Marion Cotillard', first_name: "Marion", last_name: "Cotillard")
 new_users = [alexandre, william, alice, brad, leo, mart, sylvester, quentin, cameron, ginger, jamie, tom, arnold, donald, guigui, marion]
-avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544285805/alexAvatar.jpg",
+avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544615227/kypntrfj5xt7jz9kh8gq.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1543573506/williamAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544285867/aliceAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544285972/bradleyAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286075/LeonardoAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286241/MartinAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286401/sylvesterAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286639/tarantinoAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544286783/cameronAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615228/olgtidoer0uk8rjchrx4.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615228/epuwdtrcjayrtkyravn7.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615229/yog7bp6eiprepcioiuft.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615230/dh7qhwzwzxbjqvzi6cdy.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615231/qkuuqf8kqpf5il3oscbm.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615231/nvuqyfl6jpna2amyafhq.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615232/weptnq3v4sljc0psbb8i.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1543530833/iwopilwirvu8kft7b0ez.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544287996/jamieAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288151/tomAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288389/arnoldAvatar.jpg",
-               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544288510/donaldAvatar.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615233/tvfztlmdvjnojsoexhiq.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615234/l5zrdtdd5zuwzhle3wr8.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615234/nvd6zodgdscvtqm2he19.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544615235/o2w2pjz0fvoz1vb6epil.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544625065/guillaumeAvatar.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544625181/marionAvatar.jpg"
              ]
