@@ -14,6 +14,7 @@ gem 'faker'
 gem 'public_activity'
 gem 'money-rails'
 gem 'stripe'
+gem 'appsignal'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.5.0'
