@@ -92,6 +92,16 @@ puts 'Seeding playlists'
   new_playlist.save!
 end
 
+new_playlist = Playlist.create(
+  {
+    name: 'Feel Good Movies',
+    description: 'To make you feel better',
+    playlist_date: Date.today,
+    user: guigui
+  })
+  new_playlist.remote_picture_url = "https://res.cloudinary.com/dvtjorjay/image/upload/v1544715314/feel_good_movies.jpg"
+  new_playlist.save!
+
 puts 'Seeding IMDB movies'
 
 list_movies1 = ['Die Hard','Harry Potter', 'Bohemian Rhapsody', 'Halloween', 'William & Kate','Rambo', 'Dikkenek','King Kong', 'Aladin', 'Bambi']
