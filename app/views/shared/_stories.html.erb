@@ -1,13 +1,13 @@
 <% if user_signed_in? %>
-
   <% activities.each do |activity|  %>
-      <% if activity.owner != nil && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable && activity.owner != current_user && current_user.following.include?(activity.owner)  %>
-  <!--     <#% if activity.owner != nil && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable && current_user.following.include?(activity.owner) %> -->
-        <%= render 'shared/story', activity: activity %>
-      <% end %>
+    <% if activity.owner && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable && activity.owner.id != current_user.id && current_user.following.map{|x| x.id}.include?(activity.owner.id)  %>
+    <!--     <#% if activity.owner != nil && ["followed_playlist.create","follow.create","order.update"].include?(activity.key) && activity.trackable && current_user.following.include?(activity.owner) %> -->
+      <%= render 'shared/story', activity: activity %>
+    <% end %>
   <% end %>
+<% end %>
 
-  <% end %>
+
 
 <% if user_signed_in? %>
   <% content_for :after_js do %>
@@ -28,3 +28,4 @@
     </script>
   <% end %>
 <% end %>
+
