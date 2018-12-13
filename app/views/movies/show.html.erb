@@ -1,6 +1,10 @@
 <div class="wrapper">
   <div class="container">
     <div class="row poster">
+
+
+
+
       <div class="col-md-6 text-center">
         <div id="show-movie-image">
           <%= image_tag @movie.poster_url %>
@@ -18,38 +22,29 @@
           </div>
         </div>
       </div>
+
+
       <div class="col-md-6 movie-details">
-
-
-
-
-
         <div class="title-header">
           <div class="title-header-item">
             <h1><%= @movie.title %></h1>
-          </div>
-          <div id="add-buttons">
+            <p class="release-date"><%= @movie.release_date %></p>
             <div class="dropdown">
-              <button class="btn btn-lg secondary-cta" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="main-cta"></i><i class="fas fa-plus"></i> Add to List
+              <button class="secondary-cta-list" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-plus"></i> Add to List
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <% @playlists.each do |playlist| %>
                   <%= link_to playlist.name, movie_movie_playlists_path(@movie, :@playlist => playlist), method: "post", class: "dropdown-item" %>
                 <% end %>
-                <a class="dropdown-item"
+                <a class="dropdown-item">
                   <%= link_to movies_path(@movie), class: "nav-link" do%>
                     <p><b>+ New List</b></p>
                   <% end %>
               </div>
             </div>
           </div>
-        </div
-
-
-
-
-                <p class="release-date"><%= @movie.release_date %></p>
+        </div>
         <hr>
         <p><b>Directed by:</b> <%= @movie.director %></p>
         <p><b>Duration:</b> <%= @movie.duration %></p>
@@ -83,7 +78,7 @@
               </div>
             <% end %>
             <div class="show-cta">
-              <button class="secondary-cta" data-toggle="modal" data-target="#myModalTrailer"><i class="fas fa-play mr-3"></i>Trailer</button>
+              <button class="secondary-cta-trailer" data-toggle="modal" data-target="#myModalTrailer"><i class="fas fa-play mr-3"></i>Trailer</button>
             </div>
             <!-- <div class="show-cta">
               <%# if current_user.orders.where(movie: @movie).all?{|x| x.payment == nil} %>

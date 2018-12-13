@@ -67,9 +67,7 @@ if (results) {
               <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
             </div>
             <div class="title-movie">
-              <div class="title-movie-value"
-                <p class="font-weight-bold">{{title}}</p>
-              </div>
+              <p class="font-weight-bold">{{title}}</p>
               <p class="text-truncate" style="max-width: 180px;">By {{director}}</p>
               <p class=" star-all star-{{rating}}"></p>
             </div>
