@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def member_date
-    "#{created_at.strftime('%B')} #{created_at.strftime('%Y')}"
+    "#{created_at.strftime('%Y')}"
   end
 
   def nb_followers

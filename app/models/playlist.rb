@@ -16,7 +16,7 @@ class Playlist < ApplicationRecord
   end
 
   def creation_date
-    "#{created_at.strftime('%d')} #{created_at.strftime('%B')} #{created_at.strftime('%Y')}"
+    "#{created_at.strftime('%b')} #{created_at.strftime('%Y')}"
   end
 
   def nb_followers

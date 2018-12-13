@@ -84,14 +84,12 @@ if (results) {
       templates: {
       item:
         `
-          <div class="card-movie">
+          <div class="card-user">
             <div class="poster-user">
               <img class ="img-user" src="{{avatar_url}}" height="180" width="180">
             </div>
-            <div class="user-name">
+            <div class="title-movie">
               <p class="font-weight-bold">{{username}}</p>
-            </div>
-            <div>
               <p>Member since {{member_date}}</p>
               <p>Followers: {{nb_followers}}</p>
             </div>
@@ -108,14 +106,12 @@ if (results) {
       templates: {
       item:
         `
-          <div class="card-movie">
+          <div class="card-playlist">
             <div class="poster-movie">
               <img class ="img-playlist" src="{{picture_url}}">
             </div>
-            <div class="user-name">
+            <div class="title-movie">
               <p class="font-weight-bold">{{name}}</p>
-            </div>
-            <div>
               <p> Created on {{creation_date}}</p>
               <p>Followers: {{nb_followers}}</p>
             </div>
