@@ -42,9 +42,10 @@
 .ais-hits {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
   margin: 0 10px;
+  flex-wrap: wrap;
 }
 
 .ais-hits--item {
@@ -67,6 +68,7 @@
   color: black;
   height: 392px;
   width: 200px;
+  margin-right: 10px;
 }
 
 .poster-movie {

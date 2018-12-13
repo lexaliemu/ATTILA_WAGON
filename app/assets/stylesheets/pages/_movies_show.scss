@@ -40,6 +40,11 @@
   padding: 50px;
 }
 
+.title-header-item {
+  margin-right: 10px;
+  border-radius: 50px;
+}
+
 .buy-space {
   position: relative;
   align-items: center;
@@ -52,8 +57,6 @@
   left: 64px;
   width: 300px;
 }
-
-
 
 .same-line {
   display: flex;
@@ -99,10 +102,6 @@
   // margin-top: 20px;
 }
 
-.title-header-item {
-  margin-right: 10px;
-  border-radius: 50px;
-}
 
 
 .round-plus {
@@ -127,7 +126,23 @@ position: absolute;
   margin-top: 20px;
   margin-right: 10px;
 }
-.secondary-cta {
+
+.secondary-cta-list {
+  cursor: pointer;
+  background: #FFFFFF;
+  color: #1E3888;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 1px solid #1E3888;
+  font-family: "Raleway";
+  padding: 4px 10px;
+  display: inline-block;
+  &:focus {
+    outline: none;
+  }
+}
+
+.secondary-cta-trailer {
   cursor: pointer;
   background: #FFFFFF;
   color: #1E3888;
@@ -159,10 +174,6 @@ position: absolute;
   font-family: "Raleway";
 }
 
-#add-buttons {
-  display: flex;
-  justify-content: flex-end;
-}
 
 #watch-btn {
   display: flex;

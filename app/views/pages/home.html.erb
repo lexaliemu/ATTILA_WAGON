@@ -5,32 +5,10 @@
       </div>
     </div>
   <div class="container-center">
-
     <div class="row-wrapper">
-
-
-      <!--  <div class="card-movie">
-        <div class="poster-movie">
-          <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
-        </div>
-        <div class="title-movie">
-          <div class="title-movie-value"
-            <p class="font-weight-bold">{{title}}</p>
-          </div>
-          <p class="text-truncate" style="max-width: 180px;">By {{director}}</p>
-          <p class=" star-all star-{{rating}}"></p>
-        </div>
-        <a href="/movies/{{id}}" class="resultsalgolia"></a>
-      </div> -->
-
-
-
-
-
       <div class="container-category">
         <div id="category-header">
           <h4>Thriller movies</h4>
-          <%#= link_to "See all", movies_path, class: "btn blue" %>
         </div>
         <div>
           <% @thriller_movies.each_slice(8) do |movie_pair| %>
