@@ -1,6 +1,6 @@
 <div class="story-box">
   <div class="story-box-img">
-    <%= cl_image_tag activity.owner.avatar, class: "box-img", crop: :fill %>
+    <%= cl_image_tag activity.owner.avatar, class: "box-img", width: 150, height: 150, crop: :thumb, gravity: :face %>
   </div>
   <div class="story-box-des">
     <p class="username">

@@ -9,7 +9,7 @@ const search = instantsearch({
   apiKey: searchForm.dataset.algoliaApiKey,
   indexName: 'Movie',
   searchParameters: {
-    hitsPerPage: 5
+    hitsPerPage: 4
   }
 });
 
@@ -18,7 +18,7 @@ const searchUser = instantsearch({
   apiKey: searchForm.dataset.algoliaApiKey,
   indexName: 'User',
   searchParameters: {
-    hitsPerPage: 5
+    hitsPerPage: 4
   }
 });
 
@@ -27,7 +27,7 @@ const searchPlaylist = instantsearch({
   apiKey: searchForm.dataset.algoliaApiKey,
   indexName: 'Playlist',
   searchParameters: {
-    hitsPerPage: 5
+    hitsPerPage: 4
   }
 });
 

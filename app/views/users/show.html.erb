@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
     <div class="header_user_show">
-      <%= cl_image_tag @user.avatar, class: "avatar-user-show", width: 300, height: 300, crop: :fill %>
+      <%= cl_image_tag @user.avatar, class: "avatar-user-show", width: 200, height: 200, crop: :fill %>
       <div id="username_user_show", class="header_info_user_show">
         <h2 class="header_cta_user_show"><%= @user.first_name %> <%= @user.last_name %></h2>
         <%= render "users/user" %>
@@ -17,12 +17,12 @@
             <div class="card item">
               <%= link_to playlist_path(playlist) do %>
                 <div class="playlist_picture_user_show">
-                  <%= cl_image_tag playlist.picture, height: 200, width: 331, crop: :fill %>
+                  <%= cl_image_tag playlist.picture, height: 200, width: 200, crop: :fill %>
                 </div>
               <% end %>
               <div "playlist_info_user_show">
                 <p><strong><%= playlist.name %></strong></p>
-                <p class="date">Created on <%= playlist.playlist_date.strftime("%B %d, %Y") %></p>
+                <p class="date">Created on<br><%= playlist.playlist_date.strftime("%B %d, %Y") %></p>
               </div>
             </div>
         <% end %>
@@ -30,12 +30,12 @@
             <div class="card item">
               <%= link_to playlist_path(playlist) do %>
                 <div class="playlist_picture_user_show">
-                  <%= cl_image_tag playlist.picture, height: 200, width: 331, crop: :fill %>
+                  <%= cl_image_tag playlist.picture, height: 200, width: 200, crop: :fill %>
                 </div>
               <% end %>
               <div "playlist_info_user_show">
                 <p><strong><%= playlist.name %></strong></p>
-                <p class="date">Created on <%= playlist.playlist_date.strftime("%B %d, %Y") %></p>
+                <p class="date">Created on<br><%= playlist.playlist_date.strftime("%B %d, %Y") %></p>
               </div>
             </div>
         <% end %>
@@ -53,12 +53,12 @@
             <div class="card item">
               <%= link_to user_path(user) do %>
                 <div class="playlist_picture_user_show">
-                  <%= cl_image_tag user.avatar, class: "avatar-user-show", height: 200, width: 200, crop: :fill %>
+                  <%= cl_image_tag user.avatar, class: "avatar-user-show", width: 150, height: 150, crop: :thumb, gravity: :face %>
                 </div>
               <% end %>
               <div>
                 <p><strong><%= user.username %></strong></p>
-                <p class="date">Member since <%= user.created_at.strftime("%B %d, %Y") %></p>
+                <p class="date">Member since<br><%= user.created_at.strftime("%B %d, %Y") %></p>
               </div>
             </div>
         <% end %>
@@ -66,12 +66,12 @@
             <div class="card item">
               <%= link_to user_path(user) do %>
                 <div class="playlist_picture_user_show">
-                  <%= cl_image_tag user.avatar, class: "avatar-user-show", height: 200, width: 200, crop: :fill %>
+                  <%= cl_image_tag user.avatar, class: "avatar-user-show", height: 150, width: 150, crop: :fill %>
                 </div>
               <% end %>
               <div>
                 <p><strong><%= user.username %></strong></p>
-                <p class="date">Member since <%= user.created_at.strftime("%B %d, %Y") %></p>
+                <p class="date">Member since<br><%= user.created_at.strftime("%B %d, %Y") %></p>
               </div>
             </div>
         <% end %>

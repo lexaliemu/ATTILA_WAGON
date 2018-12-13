@@ -4,7 +4,7 @@
   </div>
   <div class="title-movie">
     <div>
-      <p class="font-weight-bold font-size-title"> <%=h truncate(movie.title, :length => 40) %></p>
+      <p class="font-weight-bold font-size-title"> <%=h truncate(movie.title, :length => 21) %></p>
     </div>
     <p class="text-truncate" style="max-width: 180px;">By <%= movie.director %></p>
     <p class=" star-all star-<%= movie.rating %>">
