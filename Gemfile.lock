@@ -48,8 +48,6 @@ GEM
     algoliasearch-rails (1.20.4)
       algoliasearch (>= 1.17.0, < 2.0.0)
       json (>= 1.5.1)
-    appsignal (2.7.2)
-      rack
     arel (9.0.0)
     autoprefixer-rails (9.4.2)
       execjs
@@ -262,7 +260,6 @@ PLATFORMS
 
 DEPENDENCIES
   algoliasearch-rails
-  appsignal
   autoprefixer-rails
   bootsnap
   bootstrap
