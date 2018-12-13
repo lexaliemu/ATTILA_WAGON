@@ -64,7 +64,7 @@ if (results) {
         `
           <div class="card-movie">
             <div class="poster-movie">
-              <img class ="img-movie" src="{{{_highlightResult.poster_url.value}}}">
+              <img class ="img-movie" src="{{poster_url}}">
             </div>
             <div class="title-movie">
               <p class="font-weight-bold">{{title}}</p>
