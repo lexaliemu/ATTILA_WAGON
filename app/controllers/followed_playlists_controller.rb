@@ -17,6 +17,8 @@ class FollowedPlaylistsController < ApplicationController
       })
     end
 
+    Playlist.reindex
+
     redirect_to playlist_path(@playlist)
   end
 
@@ -24,6 +26,9 @@ class FollowedPlaylistsController < ApplicationController
     @followed_playlist = FollowedPlaylist.find(params[:id])
     @playlist = @followed_playlist.playlist
     @followed_playlist.destroy
+
+    Playlist.reindex
+
     redirect_to playlist_path(@playlist)
   end
 

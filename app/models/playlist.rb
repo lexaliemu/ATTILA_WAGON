@@ -5,12 +5,22 @@ class Playlist < ApplicationRecord
   algoliasearch do
     attribute :name, :id
     add_attribute :picture_url
+    add_attribute :creation_date
+    add_attribute :nb_followers
     searchableAttributes [:name]
-    attributesToRetrieve [:name, :picture_url, :id]
+    attributesToRetrieve [:name, :picture_url, :creation_date, :nb_followers, :id]
   end
 
   def picture_url
-    cloudinary_url(picture, width: 280, height: 280, crop: :fill)
+    cloudinary_url(picture, width: 200, height: 300, crop: :fill)
+  end
+
+  def creation_date
+    "#{created_at.strftime('%d')} #{created_at.strftime('%B')} #{created_at.strftime('%Y')}"
+  end
+
+  def nb_followers
+    followed_playlists.count
   end
 
   belongs_to :user

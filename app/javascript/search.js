@@ -93,6 +93,10 @@ if (results) {
             <div class="user-name">
               <p class="font-weight-bold">{{username}}</p>
             </div>
+            <div>
+              <p>Member since {{member_date}}</p>
+              <p>Followers: {{nb_followers}}</p>
+            </div>
             <a href="/users/{{id}}" class="resultsalgolia"></a>
           </div>
         `,
@@ -112,6 +116,10 @@ if (results) {
             </div>
             <div class="user-name">
               <p class="font-weight-bold">{{name}}</p>
+            </div>
+            <div>
+              <p> Created on {{creation_date}}</p>
+              <p>Followers: {{nb_followers}}</p>
             </div>
             <a href="/playlists/{{id}}" class="resultsalgolia"></a>
           </div>
