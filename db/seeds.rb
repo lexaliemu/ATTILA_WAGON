@@ -14,7 +14,7 @@ FollowedPlaylist.destroy_all
 MoviePlaylist.destroy_all
 Playlist.destroy_all
 Review.destroy_all
-# Movie.destroy_all
+Movie.destroy_all
 User.destroy_all
 Playlist.destroy_all
 
@@ -103,7 +103,7 @@ puts 'Seeding playlists'
 40.times do
   new_playlist = Playlist.create(
   {
-    name: Faker::StrangerThings.quote,
+    name: Faker::Pokemon.name,
     description:Faker::FamilyGuy.quote,
     playlist_date: Date.today,
     user: playlist_users.sample
@@ -282,121 +282,161 @@ new_playlist = Playlist.create(
   new_playlist.save!
 
 
-# puts 'Seeding IMDB movies'
+puts 'Seeding IMDB movies'
 
-# list_movies1 = ['Die Hard','Harry Potter', 'Bohemian Rhapsody', 'Halloween', 'William & Kate','Rambo', 'Dikkenek','King Kong', 'Aladin', 'Bambi']
-# list_movies1.each do |movie|
-#   puts movie
-#   url = "http://www.omdbapi.com/?t=#{movie}&#{key1}"
-#   movie_serialized = open(url).read
-#   movie_hash = JSON.parse(movie_serialized)
-#   new_category = Category.create(name: movie_hash['Genre'])
-#   new_movie = Movie.create!(
-#     {
-#       title: movie_hash['Title'],
-#       director: movie_hash['Director'],
-#       release_date: movie_hash['Year'],
-#       syllabus: movie_hash['Plot'],
-#       duration: movie_hash['Runtime'],
-#       actors: movie_hash['Actors'],
-#       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-#       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-#       price: 2.99,
-#       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
-#       number_rates: movie_hash['imdbVotes'],
-#     })
-#   new_movie.remote_poster_url = movie_hash['Poster']
-#   new_movie.save
-#   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
-# end
+list_movies1 = ['Die Hard','Harry Potter', 'Bohemian Rhapsody', 'Halloween', 'William & Kate','Rambo', 'Dikkenek','King Kong', 'Aladin', 'Bambi']
+list_movies1.each do |movie|
+  puts movie
+  url = "http://www.omdbapi.com/?t=#{movie}&#{key1}"
+  movie_serialized = open(url).read
+  movie_hash = JSON.parse(movie_serialized)
+  new_category = Category.create(name: movie_hash['Genre'])
+  new_movie = Movie.create!(
+    {
+      title: movie_hash['Title'],
+      director: movie_hash['Director'],
+      release_date: movie_hash['Year'],
+      syllabus: movie_hash['Plot'],
+      duration: movie_hash['Runtime'],
+      actors: movie_hash['Actors'],
+      movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
+      rating: movie_hash['imdbRating'].to_i.fdiv(2),
+      price: 2.99,
+      trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+      number_rates: movie_hash['imdbVotes'],
+    })
+  new_movie.remote_poster_url = movie_hash['Poster']
+  new_movie.save
+  new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
+end
 
-# sleep(120)
+sleep(120)
 
-# list_movies2 = ['Toy Story','La verite si je mens', 'The Fall','Dumbo','Creed', 'Love Actually', 'Black Panther','Jumanji', 'The Dark knight', 'Pulp Fiction']
-# list_movies2.each do |movie|
-#   puts movie
-#   url = "http://www.omdbapi.com/?t=#{movie}&#{key2}"
-#   movie_serialized = open(url).read
-#   movie_hash = JSON.parse(movie_serialized)
-#   new_category = Category.create(name: movie_hash['Genre'])
-#   new_movie = Movie.create(
-#     {
-#       title: movie_hash['Title'],
-#       director: movie_hash['Director'],
-#       release_date: movie_hash['Year'],
-#       syllabus: movie_hash['Plot'],
-#       duration: movie_hash['Runtime'],
-#       actors: movie_hash['Actors'],
-#       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-#       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-#       price: 2.99,
-#       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
-#       number_rates: movie_hash['imdbVotes'],
-#     })
-#   new_movie.remote_poster_url = movie_hash['Poster']
-#   new_movie.save
-#   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
-# end
+list_movies2 = ['Toy Story', 'The Fall','Dumbo','Creed', 'Love Actually', 'Black Panther','Jumanji', 'The Dark knight', 'Pulp Fiction']
+list_movies2.each do |movie|
+  puts movie
+  url = "http://www.omdbapi.com/?t=#{movie}&#{key2}"
+  movie_serialized = open(url).read
+  movie_hash = JSON.parse(movie_serialized)
+  new_category = Category.create(name: movie_hash['Genre'])
+  new_movie = Movie.create(
+    {
+      title: movie_hash['Title'],
+      director: movie_hash['Director'],
+      release_date: movie_hash['Year'],
+      syllabus: movie_hash['Plot'],
+      duration: movie_hash['Runtime'],
+      actors: movie_hash['Actors'],
+      movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
+      rating: movie_hash['imdbRating'].to_i.fdiv(2),
+      price: 2.99,
+      trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+      number_rates: movie_hash['imdbVotes'],
+    })
+  new_movie.remote_poster_url = movie_hash['Poster']
+  new_movie.save
+  new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
+end
 
-# sleep(120)
+sleep(120)
 
-# list_movies3 = ['Inception', 'GoodFellas', 'The pianist', 'The departed', 'Whiplash', 'Gladiator', 'Alien', 'Django Unchained','Coco', 'Roma']
-# list_movies3.each do |movie|
-#   puts movie
-#   url = "http://www.omdbapi.com/?t=#{movie}&#{key3}"
-#   movie_serialized = open(url).read
-#   movie_hash = JSON.parse(movie_serialized)
-#   new_category = Category.create(name: movie_hash['Genre'])
-#   new_movie = Movie.create(
-#     {
-#       title: movie_hash['Title'],
-#       director: movie_hash['Director'],
-#       release_date: movie_hash['Year'],
-#       syllabus: movie_hash['Plot'],
-#       duration: movie_hash['Runtime'],
-#       actors: movie_hash['Actors'],
-#       movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-#       rating: movie_hash['imdbRating'].to_i.fdiv(2),
-#       price: 2.99,
-#       trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
-#       number_rates: movie_hash['imdbVotes'],
-#     })
-#   new_movie.remote_poster_url = movie_hash['Poster']
-#   new_movie.save
-#   new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
-# end
+list_movies3 = ['Inception', 'GoodFellas', 'The pianist', 'The departed', 'Whiplash', 'Gladiator', 'Alien', 'Django Unchained','Coco', 'Roma']
+list_movies3.each do |movie|
+  puts movie
+  url = "http://www.omdbapi.com/?t=#{movie}&#{key3}"
+  movie_serialized = open(url).read
+  movie_hash = JSON.parse(movie_serialized)
+  new_category = Category.create(name: movie_hash['Genre'])
+  new_movie = Movie.create(
+    {
+      title: movie_hash['Title'],
+      director: movie_hash['Director'],
+      release_date: movie_hash['Year'],
+      syllabus: movie_hash['Plot'],
+      duration: movie_hash['Runtime'],
+      actors: movie_hash['Actors'],
+      movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
+      rating: movie_hash['imdbRating'].to_i.fdiv(2),
+      price: 2.99,
+      trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+      number_rates: movie_hash['imdbVotes'],
+    })
+  new_movie.remote_poster_url = movie_hash['Poster']
+  new_movie.save
+  new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
+end
 
-#   sleep(120)
+  sleep(120)
 
-#   list_movies4 = ['The Notebook', 'A Star Is Born', 'Valentine s Day', 'In Her Shoes', 'Charlies Angels', 'Vanilla Sky ', 'American Sniper', 'Spy Game','The Place Beyond the Pines']
-#   list_movies4.each do |movie|
-#     puts movie
-#     url = "http://www.omdbapi.com/?t=#{movie}&#{key4}"
-#     movie_serialized = open(url).read
-#     movie_hash = JSON.parse(movie_serialized)
-#     new_category = Category.create(name: movie_hash['Genre'])
-#     new_movie = Movie.create(
-#       {
-#         title: movie_hash['Title'],
-#         director: movie_hash['Director'],
-#         release_date: movie_hash['Year'],
-#         syllabus: movie_hash['Plot'],
-#         duration: movie_hash['Runtime'],
-#         actors: movie_hash['Actors'],
-#         movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
-#         rating: movie_hash['imdbRating'].to_i.fdiv(2),
-#         price: 2.99,
-#         trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
-#         number_rates: movie_hash['imdbVotes'],
-#       })
-#     new_movie.remote_poster_url = movie_hash['Poster']
-#     new_movie.save
-#     new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
-# end
+  list_movies4 = ['The Notebook', 'A Star Is Born', 'Valentine s Day', 'In Her Shoes', 'Charlies Angels', 'Vanilla Sky ', 'American Sniper', 'Spy Game','The Place Beyond the Pines']
+  list_movies4.each do |movie|
+    puts movie
+    url = "http://www.omdbapi.com/?t=#{movie}&#{key4}"
+    movie_serialized = open(url).read
+    movie_hash = JSON.parse(movie_serialized)
+    new_category = Category.create(name: movie_hash['Genre'])
+    new_movie = Movie.create(
+      {
+        title: movie_hash['Title'],
+        director: movie_hash['Director'],
+        release_date: movie_hash['Year'],
+        syllabus: movie_hash['Plot'],
+        duration: movie_hash['Runtime'],
+        actors: movie_hash['Actors'],
+        movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
+        rating: movie_hash['imdbRating'].to_i.fdiv(2),
+        price: 2.99,
+        trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+        number_rates: movie_hash['imdbVotes'],
+      })
+    new_movie.remote_poster_url = movie_hash['Poster']
+    new_movie.save
+    new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
+end
 
-# puts 'Seeding a review for AStarIsBorn'
-# first_review = Review.create(rate: 4, comment: "Exceptionnel ! Bradley est beaucoup trop sexy je suis allee le voir 4 fois", review_date: :datetime, movie: Movie.find_by(title: "A Star Is Born"), user: User.find_by(first_name: "Alice"))
+sleep(120)
+
+  list_movies5 = ['The Usual Suspects', 'Forrest Gump', 'The Best of Youth', 'Captain Fantastic']
+  list_movies5.each do |movie|
+    puts movie
+    url = "http://www.omdbapi.com/?t=#{movie}&#{key4}"
+    movie_serialized = open(url).read
+    movie_hash = JSON.parse(movie_serialized)
+    new_category = Category.create(name: movie_hash['Genre'])
+    new_movie = Movie.create(
+      {
+        title: movie_hash['Title'],
+        director: movie_hash['Director'],
+        release_date: movie_hash['Year'],
+        syllabus: movie_hash['Plot'],
+        duration: movie_hash['Runtime'],
+        actors: movie_hash['Actors'],
+        movie_url: "https://www.imdb.com/title/#{movie_hash['imdbID']}/",
+        rating: movie_hash['imdbRating'].to_i.fdiv(2),
+        price: 2.99,
+        trailer_url: "http://m.imdb.com/title/#{movie_hash['imdbID']}/videogallery",
+        number_rates: movie_hash['imdbVotes'],
+      })
+    new_movie.remote_poster_url = movie_hash['Poster']
+    new_movie.save
+    new_movie_category = MovieCategory.create(category: new_category, movie: new_movie)
+end
+
+puts 'Seeding a review for AStarIsBorn'
+first_review = Review.create(rate: 4, comment: "Exceptionnel ! Bradley est beaucoup trop sexy je suis allee le voir 4 fois", review_date: :datetime, movie: Movie.find_by(title: "A Star Is Born"), user: User.find_by(first_name: "Alice"))
+
+puts 'Seeding a review for The Usual Suspects'
+first_review = Review.create(rate: 5, comment: "This is Kaiser Sauze", review_date: :datetime, movie: Movie.find_by(title: "The Usual Suspects"), user: User.find_by(first_name: "Alex"))
+
+puts 'Seeding a review for Forrest Gump'
+first_review = Review.create(rate: 5, comment: "Such an emotionnal movie !", review_date: :datetime, movie: Movie.find_by(title: "Forrest Gump"), user: User.find_by(first_name: "Alexis Wattinne"))
+
+puts 'Seeding a review for Nos Meilleures Années'
+first_review = Review.create(rate: 4, comment: "Now I want to get back to my younger years and do some crazy shit", review_date: :datetime, movie: Movie.find_by(title: "The Best of Youth"), user: User.find_by(first_name: "Hugo Mulliez"))
+
+puts 'Seeding a review for Captain Fabntastic'
+first_review = Review.create(rate: 4, comment: "Now I know how to raise my kids", review_date: :datetime, movie: Movie.find_by(title: "Captain Fantastic"), user: User.find_by(first_name: "Guillaume Canet"))
 
 
-# Movie.index
+Movie.index
 
