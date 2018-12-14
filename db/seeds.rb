@@ -14,6 +14,7 @@ FollowedPlaylist.destroy_all
 MoviePlaylist.destroy_all
 Playlist.destroy_all
 Review.destroy_all
+# Movie.destroy_all
 User.destroy_all
 Playlist.destroy_all
 
