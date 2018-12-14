@@ -183,7 +183,7 @@ new_playlist = Playlist.create(
     playlist_date: Date.today.prev_day,
     user: eric
   })
-  new_playlist.remote_picture_url = "https://res.cloudhttps://res.cloudinary.com/dvtjorjay/image/upload/v1544779765/List-winter.jpg"
+  new_playlist.remote_picture_url = "https://res.cloudinary.com/dvtjorjay/image/upload/v1544779765/List-winter.jpg"
   new_playlist.save!
 
 new_playlist = Playlist.create(
