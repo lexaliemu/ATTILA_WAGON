@@ -423,19 +423,19 @@ sleep(120)
 end
 
 puts 'Seeding a review for AStarIsBorn'
-first_review = Review.create(rate: 4, comment: "Exceptionnel ! Bradley est beaucoup trop sexy je suis allee le voir 4 fois", review_date: :datetime, movie: Movie.find_by(title: "A Star Is Born"), user: alice))
+first_review = Review.create(rate: 4, comment: "Exceptionnel ! Bradley est beaucoup trop sexy je suis allee le voir 4 fois", review_date: :datetime, movie: Movie.find_by(title: "A Star Is Born"), user: alice)
 
 puts 'Seeding a review for TheUsualSuspects'
 first_review = Review.create(rate: 5, comment: "This is Kaiser Sauze", review_date: :datetime, movie: Movie.find_by(title: "The Usual Suspects"), user: brad)
 
 puts 'Seeding a review for ForrestGump'
-first_review = Review.create(rate: 5, comment: "Such an emotionnal movie !", review_date: :datetime, movie: Movie.find_by(title: "Forrest Gump"), user: jamie))
+first_review = Review.create(rate: 5, comment: "Such an emotionnal movie !", review_date: :datetime, movie: Movie.find_by(title: "Forrest Gump"), user: jamie)
 
 puts 'Seeding a review for TheBestYouth'
-first_review = Review.create(rate: 4, comment: "Now I want to get back to my younger years and do some crazy shit", review_date: :datetime, movie: Movie.find_by(title: "The Best of Youth"), user: gilles))
+first_review = Review.create(rate: 4, comment: "Now I want to get back to my younger years and do some crazy shit", review_date: :datetime, movie: Movie.find_by(title: "The Best of Youth"), user: gilles)
 
 puts 'Seeding a review for CaptainFantastic'
-first_review = Review.create(rate: 4, comment: "Now I know how to raise my kids", review_date: :datetime, movie: Movie.find_by(title: "Captain Fantastic"), user: jean))
+first_review = Review.create(rate: 4, comment: "Now I know how to raise my kids", review_date: :datetime, movie: Movie.find_by(title: "Captain Fantastic"), user: jean)
 
 
 Movie.index
