@@ -230,6 +230,53 @@ new_playlist = Playlist.create(
   new_playlist.save!
 
 
+  puts 'Seeding playlists Victoria'
+
+
+new_playlist = Playlist.create(
+  {
+    name: 'Feel Good Movies',
+    description: 'To make you feel better',
+    playlist_date: Date.yesterday,
+    user: victoria
+  })
+  new_playlist.remote_picture_url = "https://res.cloudinary.com/dvtjorjay/image/upload/v1544715314/feel_good_movies.jpg"
+  new_playlist.save!
+
+
+new_playlist = Playlist.create(
+{
+  name: 'Directed by Canet',
+  description: 'Not already proud of ;)',
+  playlist_date: Date.today,
+  user: victoria
+})
+new_playlist.remote_picture_url = "https://res.cloudinary.com/dvtjorjay/image/upload/v1544779761/List-directed_by.jpg"
+new_playlist.save!
+
+
+new_playlist = Playlist.create(
+{
+  name: 'Incontournables',
+  description: "I'll kill you if you tell me you didn't watch these !!",
+  playlist_date: Date.today.prev_day,
+  user: victoria
+})
+new_playlist.remote_picture_url = "https://res.cloudinary.com/dvtjorjay/image/upload/v1544779761/List-incontournable.jpg"
+new_playlist.save!
+
+
+new_playlist = Playlist.create(
+  {
+    name: 'Inspiring Movies',
+    description: "If your actions inspire others to dream more, learn more, do more and become more, you are a leader",
+    playlist_date: Date.today.prev_day,
+    user: victoria
+  })
+  new_playlist.remote_picture_url = "https://res.cloudinary.com/dvtjorjay/image/upload/v1544779764/List-inspiring.jpg"
+  new_playlist.save!
+
+
 # puts 'Seeding IMDB movies'
 
 # list_movies1 = ['Die Hard','Harry Potter', 'Bohemian Rhapsody', 'Halloween', 'William & Kate','Rambo', 'Dikkenek','King Kong', 'Aladin', 'Bambi']
