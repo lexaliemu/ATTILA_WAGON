@@ -118,6 +118,9 @@ position: absolute;
   height: 45px;
   border: none;
   font-family: "Raleway";
+  &:focus {
+    outline: none;
+  }
 }
 
 .show-cta {
@@ -125,6 +128,9 @@ position: absolute;
   justify-content: flex-start;
   margin-top: 20px;
   margin-right: 10px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .secondary-cta-list {
@@ -152,6 +158,9 @@ position: absolute;
   height: 45px;
   border: 1px solid #1E3888;
   font-family: "Raleway";
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn-round {
