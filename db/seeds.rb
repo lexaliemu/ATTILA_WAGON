@@ -41,7 +41,7 @@ donald = User.create!(email: "donald@attila.com" , password: "dddddd", username:
 guigui = User.create!(email: "guillaume@attila.com" , password: "gggggg", username: 'Guillaume Canet', first_name: "Guillaume", last_name: "Canet")
 marion = User.create!(email: "marion@attila.com" , password: "mmmmmm", username: 'Marion Cotillard', first_name: "Marion", last_name: "Cotillard")
 simon = User.create!(email: "simon@attila.com" , password: "ssssss", username: 'Simon Istolainen', first_name: "Simon", last_name: "Istolainen")
-new_users = [alexandre, william, gilles, jean, leila, brad, leo, mart, sylvester, quentin, cameron, jamie, tom, arnold, donald, marion, simon]
+new_users = [alexandre, william, eric, gilles, jean, leila, alice, victoria, brad, leo, mart, sylvester, quentin, cameron, jamie, tom, arnold, donald, guigui, marion, simon]
 avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544774260/rogoyan5x4bheiho9y1f.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544774261/yjqtycqaev9xltyq3ajj.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544781312/eric.jpg",
@@ -65,6 +65,8 @@ avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544774260/ro
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544780987/simon.jpg"
              ]
 
+
+
 new_users.each_with_index do |x,index|
   x.remote_avatar_url = avatar_urls[index]
   x.save
@@ -81,6 +83,8 @@ end
 #   new_user.save
 #   puts "ok"
 # end
+
+playlist_users = [alexandre, william, gilles, jean, leila, brad, leo, mart, sylvester, quentin, cameron, jamie, tom, arnold, donald, marion, simon]
 
 playlist_urls =["https://res.cloudinary.com/dvtjorjay/image/upload/v1544779627/georgia-vagim-381292-unsplash.jpg",
                 "https://res.cloudinary.com/dvtjorjay/image/upload/v1544779627/georgia-vagim-381292-unsplash.jpg",
@@ -102,7 +106,7 @@ puts 'Seeding playlists'
     name: Faker::StrangerThings.quote,
     description:Faker::FamilyGuy.quote,
     playlist_date: Date.today,
-    user: new_users.sample
+    user: playlist_users.sample
   })
   new_playlist.remote_picture_url = playlist_urls.sample
   new_playlist.save!
