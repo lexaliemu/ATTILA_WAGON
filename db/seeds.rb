@@ -41,7 +41,7 @@ donald = User.create!(email: "donald@attila.com" , password: "dddddd", username:
 guigui = User.create!(email: "guillaume@attila.com" , password: "gggggg", username: 'Guillaume Canet', first_name: "Guillaume", last_name: "Canet")
 marion = User.create!(email: "marion@attila.com" , password: "mmmmmm", username: 'Marion Cotillard', first_name: "Marion", last_name: "Cotillard")
 simon = User.create!(email: "simon@attila.com" , password: "ssssss", username: 'Simon Istolainen', first_name: "Simon", last_name: "Istolainen")
-new_users = [alexandre, william, eric, gilles, jean, leila, alice, victoria, brad, leo, mart, sylvester, quentin, cameron, jamie, tom, arnold, donald, guigui, marion, simon]
+new_users = [alexandre, william, gilles, jean, leila, brad, leo, mart, sylvester, quentin, cameron, jamie, tom, arnold, donald, marion, simon]
 avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544774260/rogoyan5x4bheiho9y1f.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544774261/yjqtycqaev9xltyq3ajj.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544781312/eric.jpg",
@@ -49,6 +49,7 @@ avatar_urls = ["https://res.cloudinary.com/dvtjorjay/image/upload/v1544774260/ro
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544781313/jean.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544781312/leila.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544774261/fjleo1xghildf1jijvng.jpg",
+               "https://res.cloudinary.com/dvtjorjay/image/upload/v1544779763/victoria_bouffard.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544774262/lb3rgvz7ikpjiythxe81.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544774262/dikii7twbo97yjko9lim.jpg",
                "https://res.cloudinary.com/dvtjorjay/image/upload/v1544774263/oylp2mr7zi2jjjquapjj.jpg",
