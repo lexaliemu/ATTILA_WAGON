@@ -12,7 +12,7 @@ $footer-height: 140px;
   top: 0;
   position: sticky;
   z-index: 1;
-  border-top: 1px solid lightgrey;
+  // border-top: 1px solid lightgrey;
 }
 
 /* Logo */
@@ -37,12 +37,14 @@ $footer-height: 140px;
 /* Basic footer item */
 .footer-attila-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 5px;
+  color: #1E3888;
+  font-size:16px;
 }
 
 /* footer link */
 .footer-attila-link {
-  color: #616668;
+  color: #1E3888;
   font-size: 14px;
 }
 .footer-attila-link:hover {
@@ -79,4 +81,9 @@ $footer-height: 140px;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.member-footer-copyright-instance {
+  font-size: 11px;
+  color: #1E3888  ;
 }

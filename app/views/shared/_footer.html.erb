@@ -1,24 +1,18 @@
 <div class="footer-attila">
-  <!-- Logo -->
-
-
   <%= form_tag movies_path, class: "text-center", method: :get do %>
+    <ul class="list-inline">
+      <li class="list-inline-item footer-attila-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+      <li class="list-inline-item footer-attila-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+      <li class="list-inline-item footer-attila-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+      <li class="list-inline-item footer-attila-item"><a href="#"><i class="fab fa-github"></i></a></li>
+    </ul>
   <% end %>
-
-  <!-- Right Navigation -->
   <div class="footer-attila-right hidden-xs hidden-sm">
-
     <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-<!--       <#%= link_to "Contact", "#", class: "text-center" %> -->
-
-      <!-- Avatar with dropdown menu -->
-
+      <%= link_to "Contact", "#", class: "footer-attila-link text-center" %>
     <% else %>
-      <!-- Login link (when logged out) -->
-<!--       <#%= link_to "Contact", "#", class: "footer-attila-item footer-attila-link" %> -->
+      <%= link_to "Contact", "#", class: "footer-attila-link" %>
     <% end %>
   </div>
+  <span class="member-footer-copyright-instance">© 2018 Attila, Inc.‎</span>
 </div>
-
