@@ -14,16 +14,16 @@
 
   <div class="right-navigation">
     <!-- Searchbar -->
-    <%= link_to search_results_movies_path do %>
-      <%= form_tag search_results_movies_path, method: :get, data: { algolia_api_key: ENV['ALGOLIA_API_KEY'], algolia_app_id: ENV['ALGOLIA_APPLICATION_ID']}, id: 'search' do %>
-        <%= text_field_tag :query,
+    <%#= link_to search_results_movies_path do %>
+      <%#= form_tag search_results_movies_path, method: :get, data: { algolia_api_key: ENV['ALGOLIA_API_KEY'], algolia_app_id: ENV['ALGOLIA_APPLICATION_ID']}, id: 'search' do %>
+        <%#= text_field_tag :query,
           params[:query],
           class: "form-control search-layout navbar-search",
           id: 'search-input',
           placeholder: 'Search for a movie'
           %>
-      <% end %>
-    <% end %>
+      <%# end %>
+    <%# end %>
 
     <!-- Right Navigation -->
     <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -50,7 +50,7 @@
         </div>
       <% else %>
         <!-- Login link (when logged out) -->
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-attila-item navbar-attila-link" %>
+        <%= link_to t(".sign_in", default: "LOG IN"), new_user_session_path, class: "navbar-attila-item navbar-attila-link" %>
       <% end %>
     </div>
 
